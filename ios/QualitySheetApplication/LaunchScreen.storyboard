@@ -23,11 +23,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2kN-6u-BQj">
-                                <rect key="frame" x="101" y="289" width="172" height="128"/>
+                                <rect key="frame" x="107" y="289" width="172" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashIcon2" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-EG-Rxp">
-                                <rect key="frame" x="83" y="425" width="221" height="65"/>
+                                <rect key="frame" x="88" y="425" width="221" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
