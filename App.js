@@ -25,6 +25,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import SplashScreen from 'react-native-splash-screen'
+import MainStackNavigator from './navigation/MainStackNavigator'
+
 
 export default class App extends Component {
 
@@ -46,11 +48,7 @@ export default class App extends Component {
     return (
 
 
-    <View>
-
-      <Text style={styles.instructions}>WELCOME TO REACT NATIVE</Text>
-
-    </View>
+      <MainStackNavigator />
 
 
     );
