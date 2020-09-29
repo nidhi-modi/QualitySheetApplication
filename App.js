@@ -48,7 +48,7 @@ export default class App extends Component {
 
     <View>
 
-      <Text style={styles.welcome}>WELCOME TO REACT NATIVE</Text>
+      <Text style={styles.instructions}>WELCOME TO REACT NATIVE</Text>
 
     </View>
 
