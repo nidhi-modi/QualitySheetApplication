@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Realm from 'realm';
 import NetInfo from "@react-native-community/netinfo";
 import Toast from 'react-native-simple-toast';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 let realm;
 var currentWeekNumber = require('current-week-number');
