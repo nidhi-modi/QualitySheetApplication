@@ -1598,8 +1598,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}?action=doGetHar
-                                                    callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.clippingOption1}&data2=${that.state.clippingOption2}&data3=${that.state.clippingOption3}&data4=${that.state.clippingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.clippingOption1}&data2=${that.state.clippingOption2}&data3=${that.state.clippingOption3}&data4=${that.state.clippingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -1782,8 +1782,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}?action=doGetHar
-                                                callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.pruningOption1}&data2=${that.state.pruningOption2}&data3=${that.state.pruningOption3}&data4=${that.state.pruningOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.pruningOption1}&data2=${that.state.pruningOption2}&data3=${that.state.pruningOption3}&data4=${that.state.pruningOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -1966,8 +1966,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}?action=doGetHar
-                                                callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.twistingOption1}&data2=${that.state.twistingOption2}&data3=${that.state.twistingOption3}&data4=${that.state.twistingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.twistingOption1}&data2=${that.state.twistingOption2}&data3=${that.state.twistingOption3}&data4=${that.state.twistingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -2152,8 +2152,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}?action=doGetHar
-                                                callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.pickingOption1}&data2=${that.state.pickingOption2}&data3=${that.state.pickingOption3}&data4=${that.state.pickingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.pickingOption1}&data2=${that.state.pickingOption2}&data3=${that.state.pickingOption3}&data4=${that.state.pickingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -2336,8 +2336,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}?action=doGetHar
-                                                callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.deleafingOption1}&data2=${that.state.deleafingOption2}&data3=${that.state.deleafingOption3}&data4=${that.state.deleafingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.deleafingOption1}&data2=${that.state.deleafingOption2}&data3=${that.state.deleafingOption3}&data4=${that.state.deleafingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -2522,8 +2522,8 @@ export default class HarQualityActivity extends React.Component {
                                                 console.log("Connected to internet");
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-                                                const url = `${scriptUrl}??action=doGetHar
-                                                callback=ctrlq&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.droppingOption1}&data2=${that.state.droppingOption2}&data3=${that.state.droppingOption3}&data4=${that.state.droppingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.droppingOption1}&data2=${that.state.droppingOption2}&data3=${that.state.droppingOption3}&data4=${that.state.droppingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -2844,7 +2844,6 @@ export default class HarQualityActivity extends React.Component {
                             underlineColorAndroid="transparent"
                             autoCapitalize="none"
                             multiline={false}
-                            maxLength={5}
                             autoCorrect={false}
                             enablesReturnKeyAutomatically={true}
                             onChangeText={this.navigateToScreen}
