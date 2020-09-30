@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, StatusBar, ImageBackground, useEffect } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage';
+import { ScrollView } from 'react-native-gesture-handler';
+import NetInfo from "@react-native-community/netinfo";
+import Toast from 'react-native-simple-toast';
 
 
-var houseSelected;
+var nameSelected;
 
-export default class ScreenNavigator extends React.Component {
+export default class NameJobSelector extends React.Component {
 
     constructor(props) {
         super(props)
@@ -19,36 +21,9 @@ export default class ScreenNavigator extends React.Component {
 
     componentDidMount() {
 
-        houseSelected = this.props.route.params.site1;
-
-        AsyncStorage.setItem('house', JSON.stringify(houseSelected));
-
-        console.log("Data Saved successfully : " + JSON.stringify(houseSelected));
-
-        if (houseSelected === 'HAR') {
-
-            this.props.navigation.navigate('HarQualityActivity');
-
-        } else if (houseSelected === 'GER') {
-
-            this.props.navigation.navigate('GerQualityActivity');
-
-        } else if (houseSelected === 'FAV') {
-
-            this.props.navigation.navigate('FavQualityActivity');
-
-
-        } else if (houseSelected === 'OHA') {
-
-            this.props.navigation.navigate('OhaQualityActivity');
-
-
-
-        } else {
-
-        }
-
-
+        nameSelected = this.props.route.params.name;
+        this.setState({selected : nameSelected})
+        console.log("AUDITOR'S NAME : "+nameSelected);
 
     }
 

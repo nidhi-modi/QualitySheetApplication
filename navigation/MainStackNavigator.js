@@ -7,7 +7,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import SiteSelection from '../screens/SiteSelection'
 import ScreenNavigator from '../screens/ScreenNavigator'
-import QualityActivity from '../screens/QualityActivity'
+import GerQualityActivity from '../screens/GerQualityActivity'
+import HarQualityActivity from '../screens/HarQualityActivity'
+import FavQualityActivity from '../screens/FavQualityActivity'
+import OhaQualityActivity from '../screens/OhaQualityActivity'
+import NameJobSelector from '../screens/NameJobSelector'
 
 
 
@@ -49,7 +53,15 @@ function MainStackNavigator() {
 
                 <Stack.Screen name='ScreenNavigator' component={ScreenNavigator} options={{ headerLeft: () => null, title: 'T&G Global' }} />
 
-                <Stack.Screen name='QualityActivity' component={QualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+                <Stack.Screen name='GerQualityActivity' component={GerQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+
+                <Stack.Screen name='HarQualityActivity' component={HarQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+
+                <Stack.Screen name='FavQualityActivity' component={FavQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+                
+                <Stack.Screen name='OhaQualityActivity' component={OhaQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+
+                <Stack.Screen name='NameJobSelector' component={NameJobSelector} options={{ title: 'T&G Global' }} />
 
 
             </Stack.Navigator>
