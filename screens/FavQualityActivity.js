@@ -1194,7 +1194,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.clippingOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1205,7 +1205,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.clippingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1216,7 +1216,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.clippingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1227,7 +1227,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.clippingOption4 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1256,7 +1256,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pruningOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1267,7 +1267,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pruningOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1278,7 +1278,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pruningOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1289,7 +1289,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pruningOption4 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1318,7 +1318,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.twistingOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1329,7 +1329,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.twistingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1340,7 +1340,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.twistingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1351,7 +1351,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.twistingOption4 === 'Pass') {
 
-                count = count + 5;
+                ccount = count + 25;
 
             } else {
 
@@ -1380,7 +1380,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pickingOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1391,7 +1391,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pickingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1402,7 +1402,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pickingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1413,7 +1413,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.pickingOption4 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1442,7 +1442,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.deleafingOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1453,7 +1453,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.deleafingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1464,7 +1464,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.deleafingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1475,7 +1475,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.deleafingOption4 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1504,7 +1504,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.droppingOption1 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1515,7 +1515,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.droppingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1526,7 +1526,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.droppingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1537,7 +1537,7 @@ export default class FavQualityActivity extends React.Component {
 
             if (this.state.droppingOption4 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
