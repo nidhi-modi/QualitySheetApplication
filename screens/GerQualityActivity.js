@@ -1205,7 +1205,7 @@ export default class QualityActivity extends React.Component {
 
             if (this.state.clippingOption2 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
@@ -1216,7 +1216,7 @@ export default class QualityActivity extends React.Component {
 
             if (this.state.clippingOption3 === 'Pass') {
 
-                count = count + 5;
+                count = count + 25;
 
             } else {
 
