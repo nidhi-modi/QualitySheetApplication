@@ -41,37 +41,42 @@ export default class App extends Component {
     realm = new Realm({
       path: 'QualitySheetDB.realm',
       schema: [
-          {
-              name: 'qualitySheet',
-              properties: {
-                  entry_id: { type: 'int', default: 0 },
-                  auditor_name: 'string',
-                  house_number: 'string',
-                  job_name: 'string',
-                  worker_name: 'string',
-                  row_number: 'string',
-                  week_number: 'int',
-                  adi_code: 'string',
-                  comments: 'string',
-                  quality_percent: 'string',
-                  data1: 'string',
-                  data2: 'string',
-                  data3: 'string',
-                  data4: 'string',
-                  data5: 'string',
-                  data6: 'string',
-                  data7: 'string',
-                  data8: 'string',
-                  data_send: 'string',
+        {
+          name: 'qualitySheet',
+          properties: {
+            entry_id: { type: 'int', default: 0 },
+            auditor_name: 'string',
+            house_number: 'string',
+            job_name: 'string',
+            worker_name: 'string',
+            row_number: 'string',
+            week_number: 'int',
+            adi_code: 'string',
+            comments: 'string',
+            quality_percent: 'string',
+            data1: 'string',
+            data2: 'string',
+            data3: 'string',
+            data4: 'string',
+            data5: 'string',
+            data6: 'string',
+            data7: 'string',
+            data8: 'string',
+            data_send: 'string',
 
-              },
           },
+        },
       ],
-  });
+    });
 
-  //ENDS
+    //ENDS
 
-    
+    this.state = {
+      signed
+
+    }
+
+
   }
 
 

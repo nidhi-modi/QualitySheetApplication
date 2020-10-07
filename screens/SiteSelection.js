@@ -21,39 +21,42 @@ export default class SiteSelection extends React.Component {
 
   componentDidMount() {
 
-    try {
-      AsyncStorage.getItem('house').then((text1Value) => {
-        houseSelected = JSON.parse(text1Value);
-        this.setState({ selected: text1Value });
+  
+      try {
+        AsyncStorage.getItem('house').then((text1Value) => {
+          houseSelected = JSON.parse(text1Value);
+          this.setState({ selected: text1Value });
 
-        if (houseSelected === 'HAR') {
+          if (houseSelected === 'HAR') {
 
-          this.props.navigation.navigate('HarQualityActivity');
-    
-        } else if (houseSelected === 'GER') {
-    
-          this.props.navigation.navigate('GerQualityActivity');
-    
-    
-        } else if (houseSelected === 'OHA') {
-    
-          this.props.navigation.navigate('OhaQualityActivity');
-    
-    
-        } else if (houseSelected === 'FAV') {
-    
-          this.props.navigation.navigate('FavQualityActivity');
-    
-        }else {
+            this.props.navigation.navigate('HarQualityActivity');
 
-        }
+          } else if (houseSelected === 'GER') {
 
-      }).done();
-    } catch (error) {
+            this.props.navigation.navigate('GerQualityActivity');
 
 
-    }
+          } else if (houseSelected === 'OHA') {
+
+            this.props.navigation.navigate('OhaQualityActivity');
+
+
+          } else if (houseSelected === 'FAV') {
+
+            this.props.navigation.navigate('FavQualityActivity');
+
+          } else {
+
+          }
+
+        }).done();
+      } catch (error) {
+
+
+      }
+
     
+
 
   }
 
@@ -70,7 +73,7 @@ export default class SiteSelection extends React.Component {
       }
     );
 
-    
+
   }
 
   gerAlertButton = () => {

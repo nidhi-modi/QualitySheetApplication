@@ -2861,6 +2861,11 @@ export default class QualityActivity extends React.Component {
 
     }
 
+    blurTextInput = () =>{
+
+        this.refs.input.blur()
+    }
+
 
 
 
@@ -2983,6 +2988,8 @@ export default class QualityActivity extends React.Component {
                                 keyboardType={'numeric'}
                                 value={this.state.workersName}
                                 editable={true}
+                                ref="input"
+                                onBlur={this.blurTextInput()}
                                 selectTextOnFocus={true}
 
                             />) :
