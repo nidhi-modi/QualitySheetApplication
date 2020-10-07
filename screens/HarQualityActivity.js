@@ -605,12 +605,61 @@ export default class HarQualityActivity extends React.Component {
         try {
             AsyncStorage.getItem('auditorsName').then((name) => {
                 this.setState({ auditorsName: JSON.parse(name) });
-                console.log(this.state.auditorsName)
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('houseNumber').then((house) => {
+                this.setState({ houseNumber: JSON.parse(house) });
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('rowNumber').then((row) => {
+                this.setState({ rowNumber: JSON.parse(row) });
 
             }).done();
         } catch (error) {
         }
         //END
+
+        this.focusListener = this.props.navigation.addListener('focus', () => {
+
+            try {
+                AsyncStorage.getItem('ADI').then((adi) => {
+                    const adi1 = (JSON.parse(adi))
+                    if (adi1 !== null) {
+                        this.setState({ adiCode: adi1.toString() })
+
+                    }
+
+                }).done();
+            } catch (error) {
+            }
+
+            try {
+                AsyncStorage.getItem('NAME').then((name) => {
+                    const name1 = (JSON.parse(name))
+                    this.setState({ workersName: name1 })
+
+                }).done();
+            } catch (error) {
+            }
+
+            try {
+                AsyncStorage.getItem('JOB').then((job) => {
+                    const job1 = (JSON.parse(job))
+                    this.setState({ jobSelected: job1 })
+
+                }).done();
+            } catch (error) {
+            }
+
+        });
     }
 
     async setItem(myKey, value) {
@@ -1635,8 +1684,18 @@ export default class HarQualityActivity extends React.Component {
 
 
 
-                                                    this.resetClippingRadioButtons();
+                                                    this.resetClippingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -1677,8 +1736,18 @@ export default class HarQualityActivity extends React.Component {
                                                         data_send: 'N',
                                                     });
 
-                                                    this.resetClippingRadioButtons();
+                                                    this.resetClippingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -1821,6 +1890,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetPruningRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -1863,6 +1942,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetPruningRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2005,6 +2094,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetTwistingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2047,6 +2146,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetTwistingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2191,6 +2300,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetPickingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2233,6 +2352,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetPickingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2375,6 +2504,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetDeleafingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2419,6 +2558,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetDeleafingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2561,6 +2710,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetDroppingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2605,6 +2764,16 @@ export default class HarQualityActivity extends React.Component {
 
                                                     this.resetDroppingRadioButton();
                                                     AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
                                                     this.props.navigation.navigate('HarQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2674,6 +2843,9 @@ export default class HarQualityActivity extends React.Component {
 
 
     componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
     }
 
@@ -2773,20 +2945,40 @@ export default class HarQualityActivity extends React.Component {
 
 
                     <View style={styles.borderEdit}>
-                        <TextInput style={styles.textInputStyle}
-                            autoCapitalize="none"
-                            multiline={false}
-                            maxLength={5}
-                            autoCorrect={false}
-                            enablesReturnKeyAutomatically={true}
-                            onChangeText={this.navigateToScreen}
-                            returnKeyType={"done"}
-                            onFocus={this.navigateToScreen}
-                            keyboardType={'numeric'}
-                            value={this.state.workersName}
+
+                        {this.state.auditorsName !== null ?
+                            (<TextInput style={styles.textInputStyle}
+                                autoCapitalize="none"
+                                multiline={false}
+                                autoCorrect={false}
+                                enablesReturnKeyAutomatically={true}
+                                onChangeText={this.navigateToScreen}
+                                showSoftInputOnFocus={false}
+                                returnKeyType={"done"}
+                                onFocus={this.navigateToScreen}
+                                keyboardType={'numeric'}
+                                value={this.state.workersName}
+                                editable={true}
+                                selectTextOnFocus={true}
+
+                            />) :
+                            (<TextInput style={styles.textInputStyle}
+                                autoCapitalize="none"
+                                multiline={false}
+                                autoCorrect={false}
+                                enablesReturnKeyAutomatically={true}
+                                onChangeText={this.navigateToScreen}
+                                showSoftInputOnFocus={false}
+                                returnKeyType={"done"}
+                                onFocus={this.navigateToScreen}
+                                keyboardType={'numeric'}
+                                value={this.state.workersName}
+                                editable={false}
+                                selectTextOnFocus={false}
 
 
-                        />
+                            />)}
+
 
                     </View>
 
@@ -2833,6 +3025,8 @@ export default class HarQualityActivity extends React.Component {
                             }}
                             dropDownStyle={{ backgroundColor: '#fafafa' }}
                             onChangeItem={(item) => this.updateTextInput(item.value, 'houseNumber')}
+                            value={this.state.houseNumber}
+
                         />
                     </View>
                     <View style={styles.inBtnmarginDimension}></View>
@@ -2873,6 +3067,7 @@ export default class HarQualityActivity extends React.Component {
                             onChangeText={(text) => this.updateTextInput(text, 'rowNumber')}
                             returnKeyType={"done"}
                             keyboardType={'numeric'}
+                            value={this.state.rowNumber}
 
                         />
 
