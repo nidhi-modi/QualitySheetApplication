@@ -2944,44 +2944,79 @@ export default class FavQualityActivity extends React.Component {
                     <Text style={styles.titleHeadingText}>Select Name</Text>
 
 
-                    <View style={styles.borderEdit}>
+                    {Platform.OS === 'ios' ?
+                        (<View style={styles.borderEdit}>
 
-                        {this.state.auditorsName !== null ?
-                            (<TextInput style={styles.textInputStyle}
-                                autoCapitalize="none"
-                                multiline={false}
-                                autoCorrect={false}
-                                enablesReturnKeyAutomatically={true}
-                                onChangeText={this.navigateToScreen}
-                                showSoftInputOnFocus={false}
-                                returnKeyType={"done"}
-                                onFocus={this.navigateToScreen}
-                                keyboardType={'numeric'}
-                                value={this.state.workersName}
-                                editable={true}
-                                selectTextOnFocus={true}
+                            {this.state.auditorsName !== null ?
+                                (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                                    <TextInput style={styles.textInputStyle}
+                                        autoCapitalize="none"
+                                        multiline={false}
+                                        autoCorrect={false}
+                                        enablesReturnKeyAutomatically={true}
+                                        onChangeText={this.navigateToScreen}
+                                        showSoftInputOnFocus={false}
+                                        keyboardType={'numeric'}
+                                        value={this.state.workersName}
+                                        editable={true}
+                                        pointerEvents='none'
+                                        selectTextOnFocus={true}
 
-                            />) :
-                            (<TextInput style={styles.textInputStyle}
-                                autoCapitalize="none"
-                                multiline={false}
-                                autoCorrect={false}
-                                enablesReturnKeyAutomatically={true}
-                                onChangeText={this.navigateToScreen}
-                                showSoftInputOnFocus={false}
-                                returnKeyType={"done"}
-                                onFocus={this.navigateToScreen}
-                                keyboardType={'numeric'}
-                                value={this.state.workersName}
-                                editable={false}
-                                selectTextOnFocus={false}
-
-
-                            />)}
+                                    /></TouchableOpacity>) :
+                                (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                                    <TextInput style={styles.textInputStyle}
+                                        autoCapitalize="none"
+                                        multiline={false}
+                                        autoCorrect={false}
+                                        enablesReturnKeyAutomatically={true}
+                                        onChangeText={this.navigateToScreen}
+                                        showSoftInputOnFocus={false}
+                                        keyboardType={'numeric'}
+                                        value={this.state.workersName}
+                                        editable={false}
+                                        pointerEvents='none'
+                                        selectTextOnFocus={false}
 
 
-                    </View>
+                                    /></TouchableOpacity>)}
 
+
+                        </View>) :
+                        (<View style={styles.borderEdit}>
+
+                            {this.state.auditorsName !== null ?
+                                (<TextInput style={styles.textInputStyle}
+                                    autoCapitalize="none"
+                                    multiline={false}
+                                    autoCorrect={false}
+                                    enablesReturnKeyAutomatically={true}
+                                    showSoftInputOnFocus={false}
+                                    keyboardType={'numeric'}
+                                    onFocus={this.navigateToScreen}
+                                    value={this.state.workersName}
+                                    editable={true}
+                                    pointerEvents='none'
+                                    selectTextOnFocus={true}
+
+                                />) :
+                                (<TextInput style={styles.textInputStyle}
+                                    autoCapitalize="none"
+                                    multiline={false}
+                                    autoCorrect={false}
+                                    enablesReturnKeyAutomatically={true}
+                                    showSoftInputOnFocus={false}
+                                    keyboardType={'numeric'}
+                                    onFocus={this.navigateToScreen}
+                                    value={this.state.workersName}
+                                    editable={false}
+                                    pointerEvents='none'
+                                    selectTextOnFocus={false}
+
+
+                                />)}
+
+
+                        </View>)}
 
                     <View style={styles.inBtnmarginDimension}></View>
 
@@ -4044,6 +4079,15 @@ const styles = StyleSheet.create({
         height: 55,
         justifyContent: 'center',
         alignItems: 'center'
+
+    },
+
+    buttonContainerTextInput: {
+        borderRadius: 5,
+        fontSize: 15,
+        color: 'black',
+        height: 50,
+        backgroundColor: '#ffffff',
 
     },
 

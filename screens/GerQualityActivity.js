@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button, Keyboard } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button, Keyboard, Platform } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Realm from 'realm';
@@ -2967,45 +2967,81 @@ export default class QualityActivity extends React.Component {
                     <Text style={styles.titleHeadingText}>Select Name</Text>
 
 
+                    {Platform.OS === 'ios' ?
+                        (<View style={styles.borderEdit}>
 
-                    <View style={styles.borderEdit}>
+                            {this.state.auditorsName !== null ?
+                                (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                                    <TextInput style={styles.textInputStyle}
+                                        autoCapitalize="none"
+                                        multiline={false}
+                                        autoCorrect={false}
+                                        enablesReturnKeyAutomatically={true}
+                                        onChangeText={this.navigateToScreen}
+                                        showSoftInputOnFocus={false}
+                                        keyboardType={'numeric'}
+                                        value={this.state.workersName}
+                                        editable={true}
+                                        pointerEvents='none'
+                                        selectTextOnFocus={true}
 
-                        {this.state.auditorsName !== null ?
-                        (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
-                            <TextInput style={styles.textInputStyle}
-                                autoCapitalize="none"
-                                multiline={false}
-                                autoCorrect={false}
-                                enablesReturnKeyAutomatically={true}
-                                onChangeText={this.navigateToScreen}
-                                showSoftInputOnFocus={false}
-                                returnKeyType={"done"}
-                                keyboardType={'numeric'}
-                                value={this.state.workersName}
-                                editable={true}
-                                pointerEvents='none'
-                                selectTextOnFocus={true}
-
-                            /></TouchableOpacity>) :
-                            (<TextInput style={styles.textInputStyle}
-                                autoCapitalize="none"
-                                multiline={false}
-                                autoCorrect={false}
-                                enablesReturnKeyAutomatically={true}
-                                onChangeText={this.navigateToScreen}
-                                showSoftInputOnFocus={false}
-                                returnKeyType={"done"}
-                                onFocus={this.navigateToScreen}
-                                keyboardType={'numeric'}
-                                value={this.state.workersName}
-                                editable={false}
-                                selectTextOnFocus={false}
-
-
-                            />)}
+                                    /></TouchableOpacity>) :
+                                (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                                    <TextInput style={styles.textInputStyle}
+                                        autoCapitalize="none"
+                                        multiline={false}
+                                        autoCorrect={false}
+                                        enablesReturnKeyAutomatically={true}
+                                        onChangeText={this.navigateToScreen}
+                                        showSoftInputOnFocus={false}
+                                        keyboardType={'numeric'}
+                                        value={this.state.workersName}
+                                        editable={false}
+                                        pointerEvents='none'
+                                        selectTextOnFocus={false}
 
 
-                    </View>
+                                    /></TouchableOpacity>)}
+
+
+                        </View>) :
+                        (<View style={styles.borderEdit}>
+
+                            {this.state.auditorsName !== null ?
+                                (<TextInput style={styles.textInputStyle}
+                                    autoCapitalize="none"
+                                    multiline={false}
+                                    autoCorrect={false}
+                                    enablesReturnKeyAutomatically={true}
+                                    showSoftInputOnFocus={false}
+                                    keyboardType={'numeric'}
+                                    onFocus={this.navigateToScreen}
+                                    value={this.state.workersName}
+                                    editable={true}
+                                    pointerEvents='none'
+                                    selectTextOnFocus={true}
+
+                                />) :
+                                (<TextInput style={styles.textInputStyle}
+                                    autoCapitalize="none"
+                                    multiline={false}
+                                    autoCorrect={false}
+                                    enablesReturnKeyAutomatically={true}
+                                    showSoftInputOnFocus={false}
+                                    keyboardType={'numeric'}
+                                    onFocus={this.navigateToScreen}
+                                    value={this.state.workersName}
+                                    editable={false}
+                                    pointerEvents='none'
+                                    selectTextOnFocus={false}
+
+
+                                />)}
+
+
+                        </View>)}
+
+
 
 
                     <View style={styles.inBtnmarginDimension}></View>
