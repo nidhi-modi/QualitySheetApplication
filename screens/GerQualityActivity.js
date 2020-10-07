@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ImageBackground, TouchableHighlight, BackHandler, Alert, TextInput, Button, Keyboard } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Realm from 'realm';
@@ -2861,11 +2861,6 @@ export default class QualityActivity extends React.Component {
 
     }
 
-    blurTextInput = () =>{
-
-        this.refs.input.blur()
-    }
-
 
 
 
@@ -2976,7 +2971,8 @@ export default class QualityActivity extends React.Component {
                     <View style={styles.borderEdit}>
 
                         {this.state.auditorsName !== null ?
-                            (<TextInput style={styles.textInputStyle}
+                        (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                            <TextInput style={styles.textInputStyle}
                                 autoCapitalize="none"
                                 multiline={false}
                                 autoCorrect={false}
@@ -2984,15 +2980,13 @@ export default class QualityActivity extends React.Component {
                                 onChangeText={this.navigateToScreen}
                                 showSoftInputOnFocus={false}
                                 returnKeyType={"done"}
-                                onFocus={this.navigateToScreen}
                                 keyboardType={'numeric'}
                                 value={this.state.workersName}
                                 editable={true}
-                                ref="input"
-                                onBlur={this.blurTextInput()}
+                                pointerEvents='none'
                                 selectTextOnFocus={true}
 
-                            />) :
+                            /></TouchableOpacity>) :
                             (<TextInput style={styles.textInputStyle}
                                 autoCapitalize="none"
                                 multiline={false}
@@ -4078,6 +4072,15 @@ const styles = StyleSheet.create({
         height: 55,
         justifyContent: 'center',
         alignItems: 'center'
+
+    },
+
+    buttonContainerTextInput: {
+        borderRadius: 5,
+        fontSize: 15,
+        color: 'black',
+        height: 50,
+        backgroundColor: '#ffffff',
 
     },
 

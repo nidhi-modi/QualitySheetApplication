@@ -72,7 +72,6 @@ export default class App extends Component {
     //ENDS
 
     this.state = {
-      signed
 
     }
 
