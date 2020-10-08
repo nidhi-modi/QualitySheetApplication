@@ -262,7 +262,7 @@ export default class NameJobSelector extends React.Component {
                             autoplay={false}
                             pageInfo={true}
                             arrow={true}
-                            onAnimateNextPage={(p) => console.log(p)}>
+                            >
 
                             <View style={[this.state.size]}>
 
