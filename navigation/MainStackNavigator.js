@@ -15,6 +15,8 @@ import NameJobSelector from '../screens/NameJobSelector'
 
 
 
+
+
 const Stack = createStackNavigator();
 
 function MainStackNavigator() {
@@ -31,7 +33,7 @@ function MainStackNavigator() {
                 initialRouteName='SiteSelection'
 
                 screenOptions={{
-                    gestureEnabled: true,
+                    //gestureEnabled: true,
                     headerStyle: {
                         backgroundColor: '#2C903D'
                     },

@@ -514,11 +514,13 @@ export default class FavQualityActivity extends React.Component {
             houseNumber: '',
             rowNumber: '',
             weekNumber: '',
-            jobSelected: 'Dropping',
-            workersName: 'ABC',
+            jobSelected: '',
+            workersName: '',
             adiCode: '',
             comments: '',
+            isScoreSet: false,
 
+            avgScore: '',
             isItConnected: '',
             isDataSend: false,
             qualityPercentage: 0,
@@ -628,42 +630,85 @@ export default class FavQualityActivity extends React.Component {
         }
         //END
 
+        this.getAsyncData();
+
+        
         //DATA PARSING FROM NAMEJOBSELECTOR SCREEN
 
         this.focusListener = this.props.navigation.addListener('focus', () => {
 
+           this.getAsyncData();
+
+
+        });
+
+    }
+
+        getAsyncData = () => {
+
+
             try {
                 AsyncStorage.getItem('ADI').then((adi) => {
                     const adi1 = (JSON.parse(adi))
+                    console.log(adi1);
                     if (adi1 !== null) {
                         this.setState({ adiCode: adi1.toString() })
-
+    
                     }
-
+    
                 }).done();
             } catch (error) {
             }
-
+    
             try {
                 AsyncStorage.getItem('NAME').then((name) => {
                     const name1 = (JSON.parse(name))
                     this.setState({ workersName: name1 })
-
+    
                 }).done();
             } catch (error) {
             }
-
+    
             try {
                 AsyncStorage.getItem('JOB').then((job) => {
                     const job1 = (JSON.parse(job))
                     this.setState({ jobSelected: job1 })
-
+    
+                }).done();
+            } catch (error) {
+            }
+    
+            try {
+                AsyncStorage.getItem('SCORE').then((score) => {
+                    const score1 = (JSON.parse(score))
+                    this.setState({ avgScore: score1 })
+    
+                    if (score1 !== '') {
+    
+                        if (score1 !== null) {
+    
+                            this.setState({ isScoreSet: true })
+    
+                        } else {
+                            this.setState({ isScoreSet: false })
+    
+    
+                        }
+    
+                    } else {
+                        this.setState({ isScoreSet: false })
+    
+    
+                    }
+    
+    
+                    console.log("SCORE : ", this.state.avgScore);
+                    console.log("CONDITION : ", this.state.isScoreSet);
                 }).done();
             } catch (error) {
             }
 
-        });
-    }
+        }
 
     async setItem(myKey, value) {
         try {
@@ -3105,6 +3150,13 @@ export default class FavQualityActivity extends React.Component {
 
                     </View>
 
+                    <View style={styles.inBtnmarginDimension}></View>
+
+
+                    {this.state.isScoreSet ?
+                        (<Text style={styles.scoreText}>Average 4 weeks score :  <Text style={styles.redTextColor}>{this.state.avgScore}%</Text></Text>) :
+                        null}
+
                     <View style={styles.btnmarginDimension}></View>
 
                     {this.state.jobSelected === 'Clipping' ?
@@ -3946,6 +3998,24 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+
+    scoreText: {
+        color: '#000000',
+        fontSize: 18,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    redTextColor: {
+
+        color: '#ff0000',
+        fontSize: 18,
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     activity: {

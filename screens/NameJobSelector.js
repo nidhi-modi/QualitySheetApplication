@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, StatusBar, ImageBackground, useEffect, Alert, Dimensions, Image, FlatList, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, StatusBar, ImageBackground, useEffect, Alert, Dimensions, Image, FlatList, ActivityIndicator, YellowBox } from 'react-native'
 import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
 import NetInfo from "@react-native-community/netinfo";
 import Toast from 'react-native-simple-toast';
 import AsyncStorage from '@react-native-community/async-storage';
+import Carousel from 'react-native-looped-carousel';
+import _ from 'lodash';
 
+const { width, height } = Dimensions.get('window');
 
 
 var nameSelected;
@@ -31,6 +34,10 @@ export default class NameJobSelector extends React.Component {
             filteredDeleafingData: [],
             filteredDroppingData: [],
 
+            size: { width, height },
+
+            demo: ''
+
 
 
         }
@@ -43,6 +50,8 @@ export default class NameJobSelector extends React.Component {
         this.setState({ selected: nameSelected })
         console.log("AUDITOR'S NAME : " + nameSelected);
 
+        
+
         //TESTING
 
         const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
@@ -51,7 +60,6 @@ export default class NameJobSelector extends React.Component {
         console.log("URL : " + url);
         fetch(url, { mode: 'no-cors' }).then((response) => response.json())
             .then((responseJson) => {
-
 
                 this.setState({ combinedData: responseJson, isLoading: false })
                 //console.log(this.state.combinedData);
@@ -82,7 +90,7 @@ export default class NameJobSelector extends React.Component {
         );
     }
 
-    GetFlatListItem(adi, name, job, site) {
+    GetFlatListItem(adi, name, job, site, score) {
 
 
         if (site === 'GER') {
@@ -92,6 +100,7 @@ export default class NameJobSelector extends React.Component {
                 AsyncStorage.setItem('ADI', JSON.stringify(adi));
                 AsyncStorage.setItem('NAME', JSON.stringify(name));
                 AsyncStorage.setItem('JOB', JSON.stringify(job));
+                AsyncStorage.setItem('SCORE', JSON.stringify(score));
 
 
             } catch (error) {
@@ -109,6 +118,7 @@ export default class NameJobSelector extends React.Component {
                 AsyncStorage.setItem('ADI', JSON.stringify(adi));
                 AsyncStorage.setItem('NAME', JSON.stringify(name));
                 AsyncStorage.setItem('JOB', JSON.stringify(job));
+                AsyncStorage.setItem('SCORE', JSON.stringify(score));
 
 
             } catch (error) {
@@ -126,6 +136,7 @@ export default class NameJobSelector extends React.Component {
                 AsyncStorage.setItem('ADI', JSON.stringify(adi));
                 AsyncStorage.setItem('NAME', JSON.stringify(name));
                 AsyncStorage.setItem('JOB', JSON.stringify(job));
+                AsyncStorage.setItem('SCORE', JSON.stringify(score));
 
 
             } catch (error) {
@@ -142,6 +153,7 @@ export default class NameJobSelector extends React.Component {
                 AsyncStorage.setItem('ADI', JSON.stringify(adi));
                 AsyncStorage.setItem('NAME', JSON.stringify(name));
                 AsyncStorage.setItem('JOB', JSON.stringify(job));
+                AsyncStorage.setItem('SCORE', JSON.stringify(score));
 
 
             } catch (error) {
@@ -155,6 +167,10 @@ export default class NameJobSelector extends React.Component {
 
     }
 
+    _onLayoutDidChange = (e) => {
+        const layout = e.nativeEvent.layout;
+        this.setState({ size: { width: layout.width, height: layout.height } });
+    }
 
 
     renderEntryData = () => {
@@ -165,6 +181,7 @@ export default class NameJobSelector extends React.Component {
         const jobAndTeamLeaderClipping = d => d.Job === 'Clipping' && d.TeamLeader === this.state.selected;
 
         const filteredDataClipping = this.state.combinedData.items.filter(jobAndTeamLeaderClipping);
+
 
         this.setState({ filteredClippingData: filteredDataClipping })
         //END
@@ -238,23 +255,53 @@ export default class NameJobSelector extends React.Component {
 
                 <ImageBackground source={require('../assets/background2.png')} style={styles.backgroundImage}>
 
-                    <ScrollView horizontal
-                        pagingEnabled={true}
-                        showsVerticalScrollIndicator={true}
-                        scrollIndicatorInsets={{ top: 5, left: 5, bottom: 5, right: 5 }}>
+                    <View style={styles.screenScrolling} onLayout={this._onLayoutDidChange}>
+                        <Carousel
 
-                        <View style={styles.screenScrolling}>
+                            style={this.state.size}
+                            autoplay={false}
+                            pageInfo={true}
+                            arrow={true}
+                            onAnimateNextPage={(p) => console.log(p)}>
 
-                            <Text style={styles.headerText}>Clipping</Text>
+                            <View style={[this.state.size]}>
 
-                            <View style={styles.container}>
+                                <Text style={styles.headerText}>Clipping</Text>
 
-                                <View style={styles.listContainer}>
-
+                                <View style={styles.container}>
 
                                     <FlatList
 
-                                        data={this.state.filteredClippingData}
+                                        data={this.state.filteredClippingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) =>
+                                            <Text style={{
+                                                padding: 10,
+                                                fontSize: 18,
+                                                height: 55,
+                                                color: item.Colour,
+                                            }}
+                                                onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+
+                                </View>
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Pruning</Text>
+
+                                <View style={styles.container}>
+
+                                    <FlatList
+
+                                        data={this.state.filteredPruningData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -263,7 +310,7 @@ export default class NameJobSelector extends React.Component {
                                             fontSize: 18,
                                             height: 55,
                                             color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
 
@@ -271,48 +318,19 @@ export default class NameJobSelector extends React.Component {
 
                                 </View>
 
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
-
                             </View>
-                        </View>
 
-                        <View style={styles.screenScrolling}
-                        >
+                            <View style={[this.state.size]}>
 
-                            <Text style={styles.headerText}>Pruning</Text>
+                                <Text style={styles.headerText}>Twisting</Text>
 
-                            <View style={styles.container}>
+                                <View style={styles.container}>
 
-                                <View style={styles.listContainer}>
 
 
                                     <FlatList
 
-                                        data={this.state.filteredPruningData}
+                                        data={this.state.filteredTwistingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -321,7 +339,7 @@ export default class NameJobSelector extends React.Component {
                                             fontSize: 18,
                                             height: 55,
                                             color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
 
@@ -329,48 +347,19 @@ export default class NameJobSelector extends React.Component {
 
                                 </View>
 
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
-
                             </View>
 
-                        </View>
+                            <View style={[this.state.size]}>
 
-                        <View style={styles.screenScrolling}>
+                                <Text style={styles.headerText}>Picking</Text>
 
-                            <Text style={styles.headerText}>Twisting</Text>
-
-                            <View style={styles.container}>
 
                                 <View style={styles.listContainer}>
 
 
                                     <FlatList
 
-                                        data={this.state.filteredTwistingData}
+                                        data={this.state.filteredPickingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -379,7 +368,7 @@ export default class NameJobSelector extends React.Component {
                                             fontSize: 18,
                                             height: 55,
                                             color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
 
@@ -387,48 +376,18 @@ export default class NameJobSelector extends React.Component {
 
                                 </View>
 
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
 
                             </View>
 
-                        </View>
+                            <View style={[this.state.size]}>
 
-                        <View style={styles.screenScrolling}>
+                                <Text style={styles.headerText}>Deleafing</Text>
 
-                            <Text style={styles.headerText}>Picking</Text>
-
-                            <View style={styles.container}>
-
-                                <View style={styles.listContainer}>
-
+                                <View style={styles.container}>
 
                                     <FlatList
 
-                                        data={this.state.filteredPickingData}
+                                        data={this.state.filteredDeleafingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -437,7 +396,7 @@ export default class NameJobSelector extends React.Component {
                                             fontSize: 18,
                                             height: 55,
                                             color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
 
@@ -445,48 +404,18 @@ export default class NameJobSelector extends React.Component {
 
                                 </View>
 
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
-
                             </View>
 
-                        </View>
+                            <View style={[this.state.size]}>
 
-                        <View style={styles.screenScrolling}>
+                                <Text style={styles.headerText}>Dropping</Text>
 
-                            <Text style={styles.headerText}>Deleafing</Text>
-
-                            <View style={styles.container}>
-
-                                <View style={styles.listContainer}>
+                                <View style={styles.container}>
 
 
                                     <FlatList
 
-                                        data={this.state.filteredDeleafingData}
+                                        data={this.state.filteredDroppingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -495,7 +424,7 @@ export default class NameJobSelector extends React.Component {
                                             fontSize: 18,
                                             height: 55,
                                             color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
 
@@ -503,101 +432,15 @@ export default class NameJobSelector extends React.Component {
 
                                 </View>
 
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
-
                             </View>
 
-                        </View>
+                        </Carousel>
 
-                        <View style={styles.screenScrolling}>
+                    </View>
 
-                            <Text style={styles.headerText}>Dropping</Text>
+                </ImageBackground >
 
-                            <View style={styles.container}>
-
-                                <View style={styles.listContainer}>
-
-
-                                    <FlatList
-
-                                        data={this.state.filteredDroppingData}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                                <View style={styles.footerContainer}>
-
-                                    <View style={{
-                                        flex: 1,
-                                        justifyContent: 'center',
-                                        alignItems: 'flex-end',
-                                        flexDirection: 'row',
-                                        marginBottom: 20
-                                    }}>
-
-                                        <Image source={require('../assets/left.png')} style={{ marginBottom: 5 }}></Image>
-
-                                        <Text style={{
-                                            fontSize: 18,
-                                            color: 'black',
-                                            textAlign: 'center',
-                                            marginBottom: 10
-                                        }}>Swipe for other jobs</Text>
-
-                                        <Image source={require('../assets/right.png')} ></Image>
-
-
-                                    </View>
-
-                                </View>
-
-                            </View>
-
-                        </View>
-
-
-                    </ScrollView>
-
-
-                </ImageBackground>
-
-            </View>
+            </View >
         )
 
 
@@ -627,6 +470,14 @@ const styles = StyleSheet.create({
 
         flex: 1,
         width: screenWidth,
+        marginTop: 20,
+
+
+    },
+
+    carouselScreenScrolling: {
+
+        flex: 1,
         marginTop: 20,
 
 

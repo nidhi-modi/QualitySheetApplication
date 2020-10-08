@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  LogBox
 } from 'react-native';
 
 import {
@@ -27,6 +28,8 @@ import {
 import SplashScreen from 'react-native-splash-screen'
 import MainStackNavigator from './navigation/MainStackNavigator'
 import Realm from 'realm';
+import _ from 'lodash';
+
 
 
 let realm;
@@ -83,6 +86,14 @@ export default class App extends Component {
   async componentDidMount() {
 
     SplashScreen.hide();
+
+    LogBox.ignoreLogs(['componentWillReceiveProps']);
+    const _console = _.clone(console);
+    console.warn = message => {
+    if (message.indexOf('componentWillReceiveProps') <= -1) {
+     _console.warn(message);
+    } 
+   };
 
   }
 
