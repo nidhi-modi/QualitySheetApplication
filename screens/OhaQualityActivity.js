@@ -631,83 +631,83 @@ export default class OhaQualityActivity extends React.Component {
 
         this.getAsyncData();
 
-        
+
         //DATA PARSING FROM NAMEJOBSELECTOR SCREEN
 
         this.focusListener = this.props.navigation.addListener('focus', () => {
 
-           this.getAsyncData();
+            this.getAsyncData();
 
 
         });
 
     }
 
-        getAsyncData = () => {
+    getAsyncData = () => {
 
 
-            try {
-                AsyncStorage.getItem('ADI').then((adi) => {
-                    const adi1 = (JSON.parse(adi))
-                    console.log(adi1);
-                    if (adi1 !== null) {
-                        this.setState({ adiCode: adi1.toString() })
-    
-                    }
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('NAME').then((name) => {
-                    const name1 = (JSON.parse(name))
-                    this.setState({ workersName: name1 })
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('JOB').then((job) => {
-                    const job1 = (JSON.parse(job))
-                    this.setState({ jobSelected: job1 })
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('SCORE').then((score) => {
-                    const score1 = (JSON.parse(score))
-                    this.setState({ avgScore: score1 })
-    
-                    if (score1 !== '') {
-    
-                        if (score1 !== null) {
-    
-                            this.setState({ isScoreSet: true })
-    
-                        } else {
-                            this.setState({ isScoreSet: false })
-    
-    
-                        }
-    
+        try {
+            AsyncStorage.getItem('ADI').then((adi) => {
+                const adi1 = (JSON.parse(adi))
+                console.log(adi1);
+                if (adi1 !== null) {
+                    this.setState({ adiCode: adi1.toString() })
+
+                }
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('NAME').then((name) => {
+                const name1 = (JSON.parse(name))
+                this.setState({ workersName: name1 })
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('JOB').then((job) => {
+                const job1 = (JSON.parse(job))
+                this.setState({ jobSelected: job1 })
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('SCORE').then((score) => {
+                const score1 = (JSON.parse(score))
+                this.setState({ avgScore: score1 })
+
+                if (score1 !== '') {
+
+                    if (score1 !== null) {
+
+                        this.setState({ isScoreSet: true })
+
                     } else {
                         this.setState({ isScoreSet: false })
-    
-    
-                    }
-    
-    
-                    console.log("SCORE : ", this.state.avgScore);
-                    console.log("CONDITION : ", this.state.isScoreSet);
-                }).done();
-            } catch (error) {
-            }
 
+
+                    }
+
+                } else {
+                    this.setState({ isScoreSet: false })
+
+
+                }
+
+
+                console.log("SCORE : ", this.state.avgScore);
+                console.log("CONDITION : ", this.state.isScoreSet);
+            }).done();
+        } catch (error) {
         }
+
+    }
 
     async setItem(myKey, value) {
         try {
@@ -1736,7 +1736,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1747,6 +1747,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -1788,7 +1789,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1799,6 +1800,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ isLoading: false })
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             }
@@ -1940,7 +1942,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1951,6 +1953,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -1992,7 +1995,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2004,6 +2007,7 @@ export default class OhaQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2144,7 +2148,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2155,6 +2159,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2196,7 +2201,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2208,6 +2213,7 @@ export default class OhaQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2350,7 +2356,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2361,6 +2367,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2402,7 +2409,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2414,6 +2421,7 @@ export default class OhaQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2554,7 +2562,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2565,6 +2573,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2608,7 +2617,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2619,6 +2628,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ isLoading: false })
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             }
@@ -2760,7 +2770,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2771,6 +2781,7 @@ export default class OhaQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2814,7 +2825,7 @@ export default class OhaQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2826,6 +2837,7 @@ export default class OhaQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 

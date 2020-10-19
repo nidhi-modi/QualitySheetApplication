@@ -1737,7 +1737,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1748,6 +1748,7 @@ export default class HarQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -1789,7 +1790,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1801,6 +1802,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -1941,7 +1943,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1953,6 +1955,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             } else {
 
@@ -1993,7 +1996,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2005,6 +2008,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2145,7 +2149,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2156,6 +2160,7 @@ export default class HarQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2197,7 +2202,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2209,6 +2214,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2351,7 +2357,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2362,6 +2368,7 @@ export default class HarQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2403,7 +2410,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2415,6 +2422,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2555,7 +2563,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2566,6 +2574,7 @@ export default class HarQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2609,7 +2618,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2621,6 +2630,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2761,7 +2771,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2772,6 +2782,7 @@ export default class HarQualityActivity extends React.Component {
 
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2815,7 +2826,7 @@ export default class HarQualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2827,6 +2838,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 

@@ -92,6 +92,7 @@ export default class NameJobSelector extends React.Component {
 
     GetFlatListItem(adi, name, job, site, score) {
 
+    
 
         if (site === 'GER') {
 

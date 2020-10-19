@@ -629,98 +629,99 @@ export default class QualityActivity extends React.Component {
         } catch (error) {
         }
 
+
         //END
 
         this.getAsyncData();
 
-        
+
         //DATA PARSING FROM NAMEJOBSELECTOR SCREEN
 
         this.focusListener = this.props.navigation.addListener('focus', () => {
 
-           this.getAsyncData();
+            this.getAsyncData();
 
 
         });
 
     }
 
-        getAsyncData = () => {
+    getAsyncData = () => {
 
 
-            try {
-                AsyncStorage.getItem('ADI').then((adi) => {
-                    const adi1 = (JSON.parse(adi))
-                    console.log(adi1);
-                    if (adi1 !== null) {
-                        this.setState({ adiCode: adi1.toString() })
-    
-                    }
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('NAME').then((name) => {
-                    const name1 = (JSON.parse(name))
-                    this.setState({ workersName: name1 })
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('JOB').then((job) => {
-                    const job1 = (JSON.parse(job))
-                    this.setState({ jobSelected: job1 })
-    
-                }).done();
-            } catch (error) {
-            }
-    
-            try {
-                AsyncStorage.getItem('SCORE').then((score) => {
-                    const score1 = (JSON.parse(score))
-                    this.setState({ avgScore: score1 })
-    
-                    if (score1 !== '') {
-    
-                        if (score1 !== null) {
-    
-                            this.setState({ isScoreSet: true })
-    
-                        } else {
-                            this.setState({ isScoreSet: false })
-    
-    
-                        }
-    
+        try {
+            AsyncStorage.getItem('ADI').then((adi) => {
+                const adi1 = (JSON.parse(adi))
+                console.log(adi1);
+                if (adi1 !== null) {
+                    this.setState({ adiCode: adi1.toString() })
+
+                }
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('NAME').then((name) => {
+                const name1 = (JSON.parse(name))
+                this.setState({ workersName: name1 })
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('JOB').then((job) => {
+                const job1 = (JSON.parse(job))
+                this.setState({ jobSelected: job1 })
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('SCORE').then((score) => {
+                const score1 = (JSON.parse(score))
+                this.setState({ avgScore: score1 })
+
+                if (score1 !== '') {
+
+                    if (score1 !== null) {
+
+                        this.setState({ isScoreSet: true })
+
                     } else {
                         this.setState({ isScoreSet: false })
-    
-    
+
+
                     }
-    
-    
-                    console.log("SCORE : ", this.state.avgScore);
-                    console.log("CONDITION : ", this.state.isScoreSet);
-                }).done();
-            } catch (error) {
-            }
 
+                } else {
+                    this.setState({ isScoreSet: false })
+
+
+                }
+
+
+                console.log("SCORE : ", this.state.avgScore);
+                console.log("CONDITION : ", this.state.isScoreSet);
+            }).done();
+        } catch (error) {
         }
-        /*if(this.props.route.params.ADI !== null && this.props.route.params.NAME == null && this.props.route.params.JOB !== null){
 
-        const adi = this.props.route.params.ADI;
-        const name = this.props.route.params.NAME;
-        const job = this.props.route.params.JOB;
+    }
+    /*if(this.props.route.params.ADI !== null && this.props.route.params.NAME == null && this.props.route.params.JOB !== null){
 
-        console.log("Data from screen : "+ adi + " "+name+ " "+job);
+    const adi = this.props.route.params.ADI;
+    const name = this.props.route.params.NAME;
+    const job = this.props.route.params.JOB;
 
-        }*/
-        //END
-    
+    console.log("Data from screen : "+ adi + " "+name+ " "+job);
+
+    }*/
+    //END
+
 
     async setItem(myKey, value) {
         try {
@@ -1754,7 +1755,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1766,6 +1767,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             } else {
 
@@ -1806,7 +1808,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1819,6 +1821,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -1959,7 +1962,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -1971,6 +1974,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             } else {
 
@@ -2011,7 +2015,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2023,6 +2027,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2163,7 +2168,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2175,6 +2180,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             } else {
 
@@ -2215,7 +2221,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2227,6 +2233,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
+                                                this.setState({ auditorsName: null })
 
                                             }
 
@@ -2369,7 +2376,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2380,6 +2387,8 @@ export default class QualityActivity extends React.Component {
 
 
                                                 });
+
+                                                this.setState({ auditorsName: null })
 
 
                                             } else {
@@ -2421,7 +2430,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2432,6 +2441,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ isLoading: false })
 
                                                 });
+                                                this.setState({ auditorsName: null })
 
 
                                             }
@@ -2573,7 +2583,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2584,6 +2594,9 @@ export default class QualityActivity extends React.Component {
 
 
                                                 });
+
+                                                this.setState({ auditorsName: null })
+
 
 
                                             } else {
@@ -2627,7 +2640,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2638,6 +2651,8 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ isLoading: false })
 
                                                 });
+
+                                                this.setState({ auditorsName: null })
 
 
                                             }
@@ -2779,7 +2794,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2791,7 +2806,7 @@ export default class QualityActivity extends React.Component {
 
                                                 });
 
-
+                                                this.setState({ auditorsName: null })
                                             } else {
 
                                                 console.log("Not connected to internet");
@@ -2833,7 +2848,7 @@ export default class QualityActivity extends React.Component {
                                                     AsyncStorage.removeItem('houseNumber');
                                                     AsyncStorage.removeItem('jobSelected');
                                                     AsyncStorage.removeItem('rowNumber');
-                                                    this.setState({ auditorsName: '' })
+                                                    this.setState({ auditorsName: null })
                                                     this.setState({ workersName: '' })
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
@@ -2844,6 +2859,8 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ isLoading: false })
 
                                                 });
+
+                                                this.setState({ auditorsName: null })
 
 
                                             }
@@ -3013,7 +3030,7 @@ export default class QualityActivity extends React.Component {
                     {Platform.OS === 'ios' ?
                         (<View style={styles.borderEdit}>
 
-                            {this.state.auditorsName !== null ?
+                            {(this.state.auditorsName !== null) ?
                                 (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
                                     <TextInput style={styles.textInputStyle}
                                         autoCapitalize="none"
@@ -3029,16 +3046,14 @@ export default class QualityActivity extends React.Component {
                                         selectTextOnFocus={true}
 
                                     /></TouchableOpacity>) :
-                                (<TouchableOpacity style={styles.buttonContainerTextInput} onPress={() => this.navigateToScreen()}>
+                                (<TouchableOpacity style={styles.buttonContainerTextInput}>
                                     <TextInput style={styles.textInputStyle}
                                         autoCapitalize="none"
                                         multiline={false}
                                         autoCorrect={false}
                                         enablesReturnKeyAutomatically={true}
-                                        onChangeText={this.navigateToScreen}
                                         showSoftInputOnFocus={false}
                                         keyboardType={'numeric'}
-                                        value={this.state.workersName}
                                         editable={false}
                                         pointerEvents='none'
                                         selectTextOnFocus={false}
@@ -3050,7 +3065,7 @@ export default class QualityActivity extends React.Component {
                         </View>) :
                         (<View style={styles.borderEdit}>
 
-                            {this.state.auditorsName !== null ?
+                            {(this.state.auditorsName !== null) ?
                                 (<TextInput style={styles.textInputStyle}
                                     autoCapitalize="none"
                                     multiline={false}
@@ -3072,8 +3087,6 @@ export default class QualityActivity extends React.Component {
                                     enablesReturnKeyAutomatically={true}
                                     showSoftInputOnFocus={false}
                                     keyboardType={'numeric'}
-                                    onFocus={this.navigateToScreen}
-                                    value={this.state.workersName}
                                     editable={false}
                                     pointerEvents='none'
                                     selectTextOnFocus={false}
