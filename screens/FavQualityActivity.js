@@ -1742,6 +1742,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -1797,6 +1799,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -1950,6 +1954,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2003,6 +2009,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2156,6 +2164,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2209,6 +2219,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2364,6 +2376,10 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2419,6 +2435,10 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2572,6 +2592,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2627,6 +2649,8 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2781,6 +2805,7 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
                                                     this.props.navigation.navigate('FavQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2836,6 +2861,7 @@ export default class FavQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
                                                     this.props.navigation.navigate('FavQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);

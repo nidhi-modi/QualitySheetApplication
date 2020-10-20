@@ -1741,6 +1741,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -1794,6 +1796,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -1947,6 +1951,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2000,6 +2006,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2153,6 +2161,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2206,6 +2216,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2361,6 +2373,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2414,6 +2428,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2567,6 +2583,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2622,6 +2640,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
@@ -2775,6 +2795,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
                                                     this.setState({ isLoading: false })
@@ -2830,6 +2852,8 @@ export default class OhaQualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
+                                                    this.setState({isScoreSet: false})
+
                                                     this.props.navigation.navigate('OhaQualityActivity')
 
                                                     Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
