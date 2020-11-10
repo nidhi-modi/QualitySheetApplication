@@ -2966,7 +2966,7 @@ export default class QualityActivity extends React.Component {
 
     navigateToScreen = () => {
 
-        this.props.navigation.navigate('NameJobSelector', { name: this.state.auditorsName })
+        this.props.navigation.navigate('NameJobSelectorGer', { name: this.state.auditorsName })
 
     }
 

@@ -2948,7 +2948,7 @@ export default class FavQualityActivity extends React.Component {
 
     navigateToScreen = () => {
 
-        this.props.navigation.navigate('NameJobSelector', { name: this.state.auditorsName })
+        this.props.navigation.navigate('NameJobSelectorFav', { name: this.state.auditorsName })
 
     }
 

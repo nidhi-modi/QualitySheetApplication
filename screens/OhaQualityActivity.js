@@ -2938,7 +2938,7 @@ export default class OhaQualityActivity extends React.Component {
 
     navigateToScreen = () => {
 
-        this.props.navigation.navigate('NameJobSelector', { name: this.state.auditorsName })
+        this.props.navigation.navigate('NameJobSelectorOha', { name: this.state.auditorsName })
 
     }
 

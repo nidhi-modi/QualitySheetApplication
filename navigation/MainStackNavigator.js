@@ -12,6 +12,9 @@ import HarQualityActivity from '../screens/HarQualityActivity'
 import FavQualityActivity from '../screens/FavQualityActivity'
 import OhaQualityActivity from '../screens/OhaQualityActivity'
 import NameJobSelector from '../screens/NameJobSelector'
+import NameJobSelectorGer from '../screens/NameJobSelectorGer'
+import NameJobSelectorFav from '../screens/NameJobSelectorFav'
+import NameJobSelectorOha from '../screens/NameJobSelectorOha'
 
 
 
@@ -64,6 +67,12 @@ function MainStackNavigator() {
                 <Stack.Screen name='OhaQualityActivity' component={OhaQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
 
                 <Stack.Screen name='NameJobSelector' component={NameJobSelector} options={{ title: 'T&G Global' }} />
+
+                <Stack.Screen name='NameJobSelectorGer' component={NameJobSelectorGer} options={{ title: 'T&G Global' }} />
+
+                <Stack.Screen name='NameJobSelectorFav' component={NameJobSelectorFav} options={{ title: 'T&G Global' }} />
+
+                <Stack.Screen name='NameJobSelectorOha' component={NameJobSelectorOha} options={{ title: 'T&G Global' }} />
 
 
             </Stack.Navigator>

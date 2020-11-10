@@ -1696,7 +1696,7 @@ export default class HarQualityActivity extends React.Component {
 
                                                 console.log("Connected to internet");
 
-                                                const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
+                                                const scriptUrl = 'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
                                                 const url = `${scriptUrl}?
                                                 callback=ctrlq&action=${'doPostHar'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.clippingOption1}&data2=${that.state.clippingOption2}&data3=${that.state.clippingOption3}&data4=${that.state.clippingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 

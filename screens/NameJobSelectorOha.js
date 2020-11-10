@@ -17,7 +17,7 @@ let screenHeight = Dimensions.get('window').height;
 var responseData = [];
 var houseSelected;
 
-export default class NameJobSelector extends React.Component {
+export default class NameJobSelectorOha extends React.Component {
 
     constructor(props) {
         super(props)
@@ -51,15 +51,15 @@ export default class NameJobSelector extends React.Component {
 
             //TESTING
 
-            const scriptUrl1 = 'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
-            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetData'}`;
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
+            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetData'}`;
 
-            console.log("URL : " + url1);
-            fetch(url1, { mode: 'no-cors' }).then((response) => response.json())
+            console.log("URL : " + url);
+            fetch(url, { mode: 'no-cors' }).then((response) => response.json())
                 .then((responseJson) => {
 
                     this.setState({ combinedData: responseJson, isLoading: false })
-                    console.log(this.state.combinedData);
+                    //console.log(this.state.combinedData);
                     if (responseJson !== null) {
                         AsyncStorage.setItem('jsondata', JSON.stringify(responseJson));
                         this.renderEntryData();
@@ -71,10 +71,6 @@ export default class NameJobSelector extends React.Component {
                 });
 
             //END
-
-
-
-
 
         } else {
 
@@ -142,6 +138,11 @@ export default class NameJobSelector extends React.Component {
         console.log("AUDITOR'S NAME : " + nameSelected);
 
         NetInfo.addEventListener(this.handleConnectivityChange);
+
+
+
+
+
 
 
 
