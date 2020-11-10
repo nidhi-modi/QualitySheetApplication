@@ -525,6 +525,7 @@ export default class QualityActivity extends React.Component {
             isDataSend: false,
             qualityPercentage: 0,
 
+
         }
 
         realm = new Realm({ path: 'QualitySheetDB.realm' });
@@ -597,11 +598,13 @@ export default class QualityActivity extends React.Component {
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
 
-        var numberWeek = 2000 + currentWeekNumber();
+        var numberWeek = 2000 + currentWeekNumber(new Date());
         console.log("Current Week Number: ", numberWeek);
         this.setState({ weekNumber: numberWeek })
 
         NetInfo.addEventListener(this.handleConnectivityChange);
+
+        
 
         //GET ASYNC VALUES
 
@@ -1760,7 +1763,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -1815,7 +1818,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 
@@ -1970,7 +1973,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -2025,7 +2028,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 
@@ -2180,7 +2183,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -2235,7 +2238,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 
@@ -2392,7 +2395,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -2448,7 +2451,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 
@@ -2603,7 +2606,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -2662,7 +2665,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 
@@ -2818,7 +2821,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
                                                     Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
@@ -2874,7 +2877,7 @@ export default class QualityActivity extends React.Component {
                                                     this.setState({ houseNumber: '' })
                                                     this.setState({ jobSelected: '' })
                                                     this.setState({ rowNumber: '' })
-                                                    this.setState({isScoreSet: false})
+                                                    this.setState({ isScoreSet: false })
 
                                                     this.props.navigation.navigate('GerQualityActivity')
 

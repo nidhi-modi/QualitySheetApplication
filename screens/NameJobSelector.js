@@ -25,6 +25,7 @@ export default class NameJobSelector extends React.Component {
             showRealApp: true,
             selected: '',
             combinedData: [],
+            offlineData: [],
             activeIndex: 0,
             isLoading: true,
             filteredClippingData: [],
@@ -44,36 +45,85 @@ export default class NameJobSelector extends React.Component {
 
     }
 
+    //CHECKING CONNECTION
+
+    handleConnectivityChange = state => {
+        if (state.isConnected) {
+
+            this.setState({ isItConnected: 'Online' });
+
+            //TESTING
+
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
+            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetData'}`;
+
+            console.log("URL : " + url);
+            fetch(url, { mode: 'no-cors' }).then((response) => response.json())
+                .then((responseJson) => {
+
+                    this.setState({ combinedData: responseJson, isLoading: false })
+                    //console.log(this.state.combinedData);
+                    if (responseJson !== null) {
+                        this.renderEntryData();
+                    }
+
+                }).catch((error) => {
+
+                    console.log(error);
+                });
+
+            //END
+
+        } else {
+
+            this.setState({ isItConnected: 'Offline' });
+        }
+    };
+
+    CheckConnectivity = () => {
+        // For Android devices
+        if (Platform.OS === "android") {
+            NetInfo.isConnected.fetch().then(isConnected => {
+                if (isConnected) {
+                    Alert.alert("You are online!");
+                } else {
+                    Alert.alert("You are offline!");
+                }
+            });
+        } else {
+            // For iOS devices
+            NetInfo.isConnected.addEventListener(
+                "connectionChange",
+                this.handleFirstConnectivityChange
+            );
+        }
+    };
+
+    handleFirstConnectivityChange = isConnected => {
+        NetInfo.isConnected.removeEventListener(
+            "connectionChange",
+            this.handleFirstConnectivityChange
+        );
+
+        if (isConnected === false) {
+            Alert.alert("You are offline!");
+        } else {
+            Alert.alert("You are online!");
+        }
+    };
+
+    //END
+
     componentDidMount() {
 
         nameSelected = this.props.route.params.name;
         this.setState({ selected: nameSelected })
         console.log("AUDITOR'S NAME : " + nameSelected);
 
-        
+        NetInfo.addEventListener(this.handleConnectivityChange);
 
-        //TESTING
 
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-        const url = `${scriptUrl}?callback=ctrlq&action=${'doGetData'}`;
 
-        console.log("URL : " + url);
-        fetch(url, { mode: 'no-cors' }).then((response) => response.json())
-            .then((responseJson) => {
-
-                this.setState({ combinedData: responseJson, isLoading: false })
-                //console.log(this.state.combinedData);
-                if (responseJson !== null) {
-
-                    this.renderEntryData();
-                }
-
-            }).catch((error) => {
-
-                console.log(error);
-            });
-
-        //END
 
     }
 
@@ -92,7 +142,7 @@ export default class NameJobSelector extends React.Component {
 
     GetFlatListItem(adi, name, job, site, score) {
 
-    
+
 
         if (site === 'GER') {
 
@@ -263,7 +313,7 @@ export default class NameJobSelector extends React.Component {
                             autoplay={false}
                             pageInfo={true}
                             arrow={true}
-                            >
+                        >
 
                             <View style={[this.state.size]}>
 

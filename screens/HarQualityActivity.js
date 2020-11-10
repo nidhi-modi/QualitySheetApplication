@@ -524,6 +524,9 @@ export default class HarQualityActivity extends React.Component {
             isItConnected: '',
             isDataSend: false,
             qualityPercentage: 0,
+
+            combinedData: [],
+
         }
 
 
@@ -596,12 +599,13 @@ export default class HarQualityActivity extends React.Component {
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
 
-        var numberWeek = 2000 + currentWeekNumber();
+        var numberWeek = 2000 + currentWeekNumber(new Date());
         console.log("Current Week Number: ", numberWeek);
         this.setState({ weekNumber: numberWeek })
 
         NetInfo.addEventListener(this.handleConnectivityChange);
 
+      
         //GET ASYNC VALUES
 
         try {
