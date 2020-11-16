@@ -30,8 +30,6 @@ import MainStackNavigator from './navigation/MainStackNavigator'
 import Realm from 'realm';
 import _ from 'lodash';
 
-
-
 let realm;
 
 export default class App extends Component {

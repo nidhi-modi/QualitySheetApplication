@@ -35,6 +35,7 @@ export default class NameJobSelector extends React.Component {
             filteredPickingData: [],
             filteredDeleafingData: [],
             filteredDroppingData: [],
+            filteredClipPruneData: [],
             size: { width, height },
             demo: ''
 
@@ -52,7 +53,7 @@ export default class NameJobSelector extends React.Component {
             //TESTING
 
             const scriptUrl1 = 'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
-            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetData'}`;
+            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataHar'}`;
 
             console.log("URL : " + url1);
             fetch(url1, { mode: 'no-cors' }).then((response) => response.json())
@@ -296,6 +297,14 @@ export default class NameJobSelector extends React.Component {
         this.setState({ filteredDroppingData: filteredDataDropping })
         //END
 
+         //CLIP & PRUNE
+         const jobAndTeamLeaderClipPrune = d => d.Job === 'Clip And Prune' && d.TeamLeader === this.state.selected;
+
+         const filteredDataClipPrune = this.state.combinedData.items.filter(jobAndTeamLeaderClipPrune);
+ 
+         this.setState({ filteredClipPruneData: filteredDataClipPrune })
+         //END
+
 
     }
 
@@ -486,6 +495,34 @@ export default class NameJobSelector extends React.Component {
                                     <FlatList
 
                                         data={this.state.filteredDroppingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Clip &amp; Prune</Text>
+
+                                <View style={styles.container}>
+
+
+                                    <FlatList
+
+                                        data={this.state.filteredClipPruneData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
