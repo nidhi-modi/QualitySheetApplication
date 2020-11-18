@@ -620,6 +620,78 @@ export default class HarQualityActivity extends React.Component {
                     }
                 ],
 
+            radioArchingItems1:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems2:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems3:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems4:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
             clippingOption1: '',
             clippingOption2: '',
             clippingOption3: '',
@@ -659,6 +731,10 @@ export default class HarQualityActivity extends React.Component {
             clipPruneOption7: '',
             clipPruneOption8: '',
 
+            archingOption1: '',
+            archingOption2: '',
+            archingOption3: '',
+            archingOption4: '',
 
             isLoading: false,
             auditorsName: '',
@@ -924,6 +1000,56 @@ export default class HarQualityActivity extends React.Component {
 
         this.setState({ radioClippingItems4: this.state.radioClippingItems4 }, () => {
             this.setState({ clippingOption4: this.state.radioClippingItems4[index].label });
+        });
+    }
+
+    //ARCHING
+
+    changeActiveRadioArchingButton1(index) {
+        this.state.radioArchingItems1.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioArchingItems1[index].selected = true;
+
+        this.setState({ radioArchingItems1: this.state.radioArchingItems1 }, () => {
+            this.setState({ archingOption1: this.state.radioArchingItems1[index].label });
+        });
+    }
+
+    changeActiveRadioArchingButton2(index) {
+        this.state.radioArchingItems2.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioArchingItems2[index].selected = true;
+
+        this.setState({ radioArchingItems2: this.state.radioArchingItems2 }, () => {
+            this.setState({ archingOption2: this.state.radioArchingItems2[index].label });
+        });
+    }
+
+    changeActiveRadioArchingButton3(index) {
+        this.state.radioArchingItems3.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioArchingItems3[index].selected = true;
+
+        this.setState({ radioArchingItems3: this.state.radioArchingItems3 }, () => {
+            this.setState({ archingOption3: this.state.radioArchingItems3[index].label });
+        });
+    }
+
+    changeActiveRadioArchingButton4(index) {
+        this.state.radioArchingItems4.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioArchingItems4[index].selected = true;
+
+        this.setState({ radioArchingItems4: this.state.radioArchingItems4 }, () => {
+            this.setState({ archingOption4: this.state.radioArchingItems4[index].label });
         });
     }
 
@@ -1278,6 +1404,50 @@ export default class HarQualityActivity extends React.Component {
         });
     }
     //END
+
+    resetArchingRadioButton = () => {
+
+        //ARCHING 1
+        this.state.radioArchingItems1.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems1: this.state.radioArchingItems1 }, () => {
+            this.setState({ archingOption1: this.state.radioArchingItems1[0].label });
+        });
+        //END
+
+        //ARCHING 2
+        this.state.radioArchingItems2.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems2: this.state.radioArchingItems2 }, () => {
+            this.setState({ archingOption2: this.state.radioArchingItems2[0].label });
+        });
+        //END
+
+        //ARCHING 3
+        this.state.radioArchingItems3.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems3: this.state.radioArchingItems3 }, () => {
+            this.setState({ archingOption3: this.state.radioArchingItems3[0].label });
+        });
+        //END
+
+        //ARCHING 4
+        this.state.radioArchingItems4.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems4: this.state.radioArchingItems4 }, () => {
+            this.setState({ archingOption4: this.state.radioArchingItems4[0].label });
+        });
+        //END
+
+    }
 
     resetClippingRadioButton = () => {
 
@@ -1742,6 +1912,68 @@ export default class HarQualityActivity extends React.Component {
 
         setTimeout(() => {
             this.savePruningDataToDB();
+
+        }, 1500);
+
+
+    }
+
+    calculateArchingQualityPercentage = () => {
+
+        setTimeout(() => {
+
+            if (this.state.archingOption1 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption2 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption3 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption4 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+            }
+
+            this.setState({ qualityPercentage: count.toString() })
+
+            console.log("COUNT : " + count);
+
+            count = 0;
+
+        }, 1000);
+
+        setTimeout(() => {
+            this.saveArchingDataToDB();
 
         }, 1500);
 
@@ -2275,6 +2507,220 @@ export default class HarQualityActivity extends React.Component {
                             } else {
                                 this.setState({ isLoading: false })
                                 alert('Choose one option from clipping quality check 1')
+
+                            }
+
+                        } else {
+                            this.setState({ isLoading: false })
+                            alert('Please select job')
+
+                        }
+
+                    } else {
+                        this.setState({ isLoading: false })
+                        alert('Please select name')
+
+                    }
+
+                } else {
+                    this.setState({ isLoading: false })
+                    alert('Please fill row number')
+
+                }
+
+            } else {
+                this.setState({ isLoading: false })
+                alert('Please select house number')
+
+            }
+
+        } else {
+            this.setState({ isLoading: false })
+            alert('Please select auditor name')
+
+        }
+
+    }
+
+    saveArchingDataToDB = () => {
+
+        var that = this;
+        this.setState({ isLoading: true })
+
+
+        const { auditorsName } = this.state;
+        const { houseNumber } = this.state;
+        const { rowNumber } = this.state;
+        const { weekNumber } = this.state;
+        const { workersName } = this.state;
+        const { jobSelected } = this.state;
+        const { archingOption1 } = this.state;
+        const { archingOption2 } = this.state;
+        const { archingOption3 } = this.state;
+        const { archingOption4 } = this.state;
+        const { data_send } = this.state;
+
+
+
+        if (auditorsName) {
+            if (houseNumber) {
+                if (rowNumber) {
+                    if (workersName) {
+                        if (jobSelected) {
+                            if (archingOption1) {
+                                if (archingOption2) {
+                                    if (archingOption3) {
+                                        if (archingOption4) {
+
+                                            if (this.state.isItConnected === 'Online') {
+
+
+
+                                                console.log("Connected to internet");
+
+                                                const scriptUrl = 'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHarSite'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.archingOption1}&data2=${that.state.archingOption2}&data3=${that.state.archingOption3}&data4=${that.state.archingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+
+                                                console.log("URL : " + url);
+                                                fetch(url, { mode: 'no-cors' }).then(
+                                                    () => { console.log("Data Send"); },
+                                                );
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.archingOption1,
+                                                        data2: that.state.archingOption2,
+                                                        data3: that.state.archingOption3,
+                                                        data4: that.state.archingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'Y',
+                                                    });
+
+
+
+                                                    this.resetArchingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('HarQualityActivity')
+                                                    Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
+                                                    this.setState({ isLoading: false })
+
+
+                                                });
+                                                this.setState({ auditorsName: null })
+
+
+                                            } else {
+
+                                                console.log("Not connected to internet");
+
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.archingOption1,
+                                                        data2: that.state.archingOption2,
+                                                        data3: that.state.archingOption3,
+                                                        data4: that.state.archingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'N',
+                                                    });
+
+                                                    this.resetArchingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('HarQualityActivity')
+
+                                                    Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
+                                                    this.setState({ isLoading: false })
+
+                                                });
+
+                                                this.setState({ auditorsName: null })
+
+                                            }
+
+                                        } else {
+                                            this.setState({ isLoading: false })
+                                            alert('Choose one option from arching quality check 4')
+
+                                        }
+
+                                    } else {
+                                        this.setState({ isLoading: false })
+                                        alert('Choose one option from arching quality check 3')
+
+                                    }
+
+                                } else {
+                                    this.setState({ isLoading: false })
+                                    alert('Choose one option from arching quality check 2')
+
+                                }
+
+                            } else {
+                                this.setState({ isLoading: false })
+                                alert('Choose one option from arching quality check 1')
 
                             }
 
@@ -4020,6 +4466,139 @@ export default class HarQualityActivity extends React.Component {
                             </TouchableOpacity>
                         </View>) : null}
 
+                    {this.state.jobSelected === 'Arching' ? (
+
+                        <View>
+                            <Text style={styles.titleHeading2Text}>1) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems1.map((item, key) =>
+                                        (
+                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton1.bind(this, key)} />
+                                        ))
+                                }
+
+
+                            </View>
+
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>2) Arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems2.map((item, key) =>
+                                        (
+                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton2.bind(this, key)} />
+                                        ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>3) De-skinning of truss. Not forcing truss on to tear skin <Text style={styles.redColor}>(1 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems3.map((item, key) =>
+                                        (
+                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton3.bind(this, key)} />
+                                        ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>4) No broken trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems4.map((item, key) =>
+                                        (
+                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton4.bind(this, key)} />
+                                        ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.marginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>5) Comments {"\n"}(Select comment if needed) </Text>
+
+                            <View style={styles.btnmarginDimension}></View>
+
+                            <View
+                                style={{
+
+                                    // The solution: Apply zIndex to any device except Android
+                                    ...(Platform.OS !== 'android' && {
+                                        zIndex: 20
+                                    })
+
+                                }}
+                            >
+
+                                <DropDownPicker
+                                    items={[
+                                        { label: 'Sent staff back to fix the issue', value: 'Sent staff back to fix the issue' },
+                                        { label: 'Will check more of his/her rows', value: 'Will check more of his/her rows' },
+                                        { label: 'Recurring issue, needs to be escalated', value: 'Recurring issue, needs to be escalated' },
+                                        { label: 'Informal talk conducted', value: 'Informal talk conducted' },
+                                        { label: '--', value: '--' },
+                                    ]}
+                                    placeholder="SELECT"
+                                    containerStyle={{ height: 50 }}
+                                    style={{
+                                        backgroundColor: '#ffffff', marginRight: 20, borderColor: '#000000',
+                                        borderWidth: 1
+                                    }}
+                                    itemStyle={{
+                                        justifyContent: 'flex-start'
+                                    }}
+                                    labelStyle={{
+                                        fontSize: 15,
+                                        textAlign: 'left',
+                                        color: '#000000'
+                                    }}
+                                    dropDownStyle={{ backgroundColor: '#fafafa' }}
+                                    onChangeItem={(item) => this.updateTextInput(item.value, 'comments')}
+                                    value={this.state.comments}
+
+
+                                />
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <TouchableOpacity
+                                style={styles.buttonContainer}
+                                onPress={this.calculateArchingQualityPercentage}>
+                                <Text style={styles.buttonText1}>Submit</Text>
+                            </TouchableOpacity>
+
+                        </View>) : null}
+
                     {this.state.jobSelected === 'Pruning' ? (
 
                         <View>
@@ -4042,7 +4621,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>2) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>2) Pruning at the right stage <Text style={styles.redColor}>(1 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -4060,7 +4639,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>3) Pruning and arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>3) Remove double trusses <Text style={styles.redColor}>(1 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -4096,7 +4675,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.marginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>5) Comments {"\n"}eg: poor contact between arch and truss, arch too close fo the stem, pruning too hard (Select comment if needed) </Text>
+                            <Text style={styles.titleHeading2Text}>5) Comments {"\n"}(Select comment if needed) </Text>
 
                             <View style={styles.btnmarginDimension}></View>
 
@@ -4795,7 +5374,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>6) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>6) Pruning at the right stage <Text style={styles.redColor}>(1 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -4814,7 +5393,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>7) Pruning and arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>7) Remove double trusses <Text style={styles.redColor}>(1 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -4852,7 +5431,7 @@ export default class HarQualityActivity extends React.Component {
 
                             <View style={styles.marginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>9) Comments {"\n"}eg: 10 broken heads, no half twist, clipping height poor, needs training </Text>
+                            <Text style={styles.titleHeading2Text}>9) Comments {"\n"}(Select comments if needed) </Text>
 
                             <View style={styles.btnmarginDimension}></View>
 

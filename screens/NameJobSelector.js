@@ -36,6 +36,7 @@ export default class NameJobSelector extends React.Component {
             filteredDeleafingData: [],
             filteredDroppingData: [],
             filteredClipPruneData: [],
+            filteredArchingData: [],
             size: { width, height },
             demo: ''
 
@@ -305,6 +306,14 @@ export default class NameJobSelector extends React.Component {
          this.setState({ filteredClipPruneData: filteredDataClipPrune })
          //END
 
+         //ARCHING
+         const jobAndTeamLeaderArching = d => d.Job === 'Arching' && d.TeamLeader === this.state.selected;
+
+         const filteredDataAching = this.state.combinedData.items.filter(jobAndTeamLeaderArching);
+ 
+         this.setState({ filteredArchingData: filteredDataAching })
+         //END
+
 
     }
 
@@ -381,6 +390,33 @@ export default class NameJobSelector extends React.Component {
                                     <FlatList
 
                                         data={this.state.filteredPruningData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Arching</Text>
+
+                                <View style={styles.container}>
+
+                                    <FlatList
+
+                                        data={this.state.filteredArchingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
