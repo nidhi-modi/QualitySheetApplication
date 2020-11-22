@@ -35,6 +35,8 @@ export default class NameJobSelectorOha extends React.Component {
             filteredPickingData: [],
             filteredDeleafingData: [],
             filteredDroppingData: [],
+            filteredClipPruneData: [],
+            filteredArchingData: [],
             size: { width, height },
             demo: ''
 
@@ -51,15 +53,14 @@ export default class NameJobSelectorOha extends React.Component {
 
             //TESTING
 
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetData'}`;
+            const scriptUrl1 = 'https://script.google.com/macros/s/AKfycbyL2lpPLYjuO0dctGfyCjUchA0as1WKMSRPfjliIu5BJfKuzpyJ/exec';
+            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataOha'}`;
 
-            console.log("URL : " + url);
-            fetch(url, { mode: 'no-cors' }).then((response) => response.json())
+            console.log("URL : " + url1);
+            fetch(url1, { mode: 'no-cors' }).then((response) => response.json())
                 .then((responseJson) => {
 
                     this.setState({ combinedData: responseJson, isLoading: false })
-                    //console.log(this.state.combinedData);
                     if (responseJson !== null) {
                         AsyncStorage.setItem('jsondata', JSON.stringify(responseJson));
                         this.renderEntryData();
@@ -71,6 +72,10 @@ export default class NameJobSelectorOha extends React.Component {
                 });
 
             //END
+
+
+
+
 
         } else {
 
@@ -138,11 +143,6 @@ export default class NameJobSelectorOha extends React.Component {
         console.log("AUDITOR'S NAME : " + nameSelected);
 
         NetInfo.addEventListener(this.handleConnectivityChange);
-
-
-
-
-
 
 
 
@@ -297,6 +297,22 @@ export default class NameJobSelectorOha extends React.Component {
         this.setState({ filteredDroppingData: filteredDataDropping })
         //END
 
+         //CLIP & PRUNE
+         const jobAndTeamLeaderClipPrune = d => d.Job === 'Clip And Prune' && d.TeamLeader === this.state.selected;
+
+         const filteredDataClipPrune = this.state.combinedData.items.filter(jobAndTeamLeaderClipPrune);
+ 
+         this.setState({ filteredClipPruneData: filteredDataClipPrune })
+         //END
+
+         //ARCHING
+         const jobAndTeamLeaderArching = d => d.Job === 'Arching' && d.TeamLeader === this.state.selected;
+
+         const filteredDataAching = this.state.combinedData.items.filter(jobAndTeamLeaderArching);
+ 
+         this.setState({ filteredArchingData: filteredDataAching })
+         //END
+
 
     }
 
@@ -373,6 +389,33 @@ export default class NameJobSelectorOha extends React.Component {
                                     <FlatList
 
                                         data={this.state.filteredPruningData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Arching</Text>
+
+                                <View style={styles.container}>
+
+                                    <FlatList
+
+                                        data={this.state.filteredArchingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 
@@ -487,6 +530,34 @@ export default class NameJobSelectorOha extends React.Component {
                                     <FlatList
 
                                         data={this.state.filteredDroppingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Clip &amp; Prune</Text>
+
+                                <View style={styles.container}>
+
+
+                                    <FlatList
+
+                                        data={this.state.filteredClipPruneData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 

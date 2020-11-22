@@ -60,7 +60,6 @@ export default class NameJobSelectorGer extends React.Component {
                 .then((responseJson) => {
 
                     this.setState({ combinedData: responseJson, isLoading: false })
-                    //console.log(this.state.combinedData);
                     if (responseJson !== null) {
 
                         AsyncStorage.setItem('jsondata', JSON.stringify(responseJson));
