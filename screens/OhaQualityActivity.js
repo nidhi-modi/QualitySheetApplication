@@ -4123,6 +4123,7 @@ export default class OhaQualityActivity extends React.Component {
                             items={[
                                 { label: 'Bryan Morrisan', value: 'Bryan Morrisan' },
                                 { label: 'Ravi Sarju', value: 'Ravi Sarju' },
+                                { label: 'Nagma Kaura', value: 'Nagma Kaura' },
 
                             ]}
                             placeholder="SELECT"
