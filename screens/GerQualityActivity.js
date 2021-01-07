@@ -749,7 +749,7 @@ export default class QualityActivity extends React.Component {
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
 
-        var numberWeek = 2000 + currentWeekNumber(new Date());
+        var numberWeek = 2100 + currentWeekNumber(new Date());
         console.log("Current Week Number: ", numberWeek);
         this.setState({ weekNumber: numberWeek })
 
@@ -3694,6 +3694,12 @@ export default class QualityActivity extends React.Component {
                                 { label: 'Nau Pesa', value: 'Nau Pesa' },
                                 { label: 'Tevita Fetuani', value: 'Tevita Fetuani' },
                                 { label: 'Sione Potesio', value: 'Sione Potesio' },
+                                { label: 'Francis Dee', value: 'Francis Dee' },
+                                { label: 'Gurjant Singh', value: 'Gurjant Singh' },
+                                { label: 'Heather Feetham', value: 'Heather Feetham' },
+
+
+
 
                             ]}
                             placeholder="SELECT"
