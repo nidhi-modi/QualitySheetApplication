@@ -5271,10 +5271,10 @@ export default class OhaQualityActivity extends React.Component {
                             </TouchableOpacity>
                         </View>) : null}
 
-                    {this.state.jobSelected === 'Clip And Prune' ?
+                    {this.state.jobSelected === 'Prune And Arch' ?
 
                         (<View>
-                            <Text style={styles.titleHeading2Text}>1) Clip position: not above a truss/one clip between truss/half twist <Text style={styles.redColor}>(0)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>1) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -5294,7 +5294,7 @@ export default class OhaQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>2) Broken heads and trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>2) Arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -5313,7 +5313,7 @@ export default class OhaQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>3) Broken heads replaced and bobbin hung <Text style={styles.redColor}>(0)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>3) De-skinning of truss. Not forcing truss on to tear skin <Text style={styles.redColor}>(1 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
@@ -5332,7 +5332,7 @@ export default class OhaQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>4) Laterals: take laterals from previous clip to the head, fail if larger than finger nail <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>4) No broken trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 

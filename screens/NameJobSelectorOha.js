@@ -298,7 +298,7 @@ export default class NameJobSelectorOha extends React.Component {
         //END
 
          //CLIP & PRUNE
-         const jobAndTeamLeaderClipPrune = d => d.Job === 'Clip And Prune' && d.TeamLeader === this.state.selected;
+         const jobAndTeamLeaderClipPrune = d => d.Job === 'Prune And Arch' && d.TeamLeader === this.state.selected;
 
          const filteredDataClipPrune = this.state.combinedData.items.filter(jobAndTeamLeaderClipPrune);
  
