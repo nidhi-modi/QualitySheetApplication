@@ -550,7 +550,7 @@ export default class NameJobSelectorOha extends React.Component {
 
                             <View style={[this.state.size]}>
 
-                                <Text style={styles.headerText}>Clip &amp; Prune</Text>
+                                <Text style={styles.headerText}>Prune &amp; Arch</Text>
 
                                 <View style={styles.container}>
 
