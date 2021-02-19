@@ -11,10 +11,12 @@ import GerQualityActivity from '../screens/GerQualityActivity'
 import HarQualityActivity from '../screens/HarQualityActivity'
 import FavQualityActivity from '../screens/FavQualityActivity'
 import OhaQualityActivity from '../screens/OhaQualityActivity'
+import RepQualityActivity from '../screens/RepQualityActivity'
 import NameJobSelector from '../screens/NameJobSelector'
 import NameJobSelectorGer from '../screens/NameJobSelectorGer'
 import NameJobSelectorFav from '../screens/NameJobSelectorFav'
 import NameJobSelectorOha from '../screens/NameJobSelectorOha'
+import NameJobSelectorRep from '../screens/NameJobSelectorRep'
 
 
 
@@ -66,6 +68,8 @@ function MainStackNavigator() {
                 
                 <Stack.Screen name='OhaQualityActivity' component={OhaQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
 
+                <Stack.Screen name='RepQualityActivity' component={RepQualityActivity} options={{ headerLeft: () => null, title: 'T&G Global' }} />
+
                 <Stack.Screen name='NameJobSelector' component={NameJobSelector} options={{ title: 'T&G Global' }} />
 
                 <Stack.Screen name='NameJobSelectorGer' component={NameJobSelectorGer} options={{ title: 'T&G Global' }} />
@@ -73,6 +77,9 @@ function MainStackNavigator() {
                 <Stack.Screen name='NameJobSelectorFav' component={NameJobSelectorFav} options={{ title: 'T&G Global' }} />
 
                 <Stack.Screen name='NameJobSelectorOha' component={NameJobSelectorOha} options={{ title: 'T&G Global' }} />
+
+                <Stack.Screen name='NameJobSelectorRep' component={NameJobSelectorRep} options={{ title: 'T&G Global' }} />
+
 
 
             </Stack.Navigator>

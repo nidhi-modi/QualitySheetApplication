@@ -249,9 +249,7 @@ export default class NameJobSelectorGer extends React.Component {
 
         const filteredDataClipping = this.state.combinedData.items.filter(jobAndTeamLeaderClipping);
 
-
         this.setState({ filteredClippingData: filteredDataClipping })
-
         //END
 
         //PRUNING

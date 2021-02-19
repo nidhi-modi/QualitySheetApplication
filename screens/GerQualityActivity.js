@@ -3447,7 +3447,7 @@ export default class QualityActivity extends React.Component {
 
                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
                                                 const url = `${scriptUrl}?
-                                                callback=ctrlq&action=${'doPostGer'}&action=${'doPostGer'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.droppingOption1}&data2=${that.state.droppingOption2}&data3=${that.state.droppingOption3}&data4=${that.state.droppingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                callback=ctrlq&action=${'doPostGer'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.droppingOption1}&data2=${that.state.droppingOption2}&data3=${that.state.droppingOption3}&data4=${that.state.droppingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                 console.log("URL : " + url);
                                                 fetch(url, { mode: 'no-cors' }).then(
