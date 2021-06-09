@@ -16,6 +16,7 @@ let screenWidth = Dimensions.get('window').width;
 let screenHeight = Dimensions.get('window').height;
 var responseData = [];
 var houseSelected;
+let houseName = "REP 1"
 
 export default class NameJobSelectorRep extends React.Component {
 
@@ -35,7 +36,9 @@ export default class NameJobSelectorRep extends React.Component {
             filteredPickingData: [],
             filteredDeleafingData: [],
             filteredDroppingData: [],
-            filteredPruneArchData: [],
+            filteredClipPruneData: [],
+            filteredArchingData: [],
+            filteredTrussPickingData: [],
             size: { width, height },
             demo: ''
 
@@ -239,6 +242,7 @@ export default class NameJobSelectorRep extends React.Component {
                 AsyncStorage.setItem('NAME', JSON.stringify(name));
                 AsyncStorage.setItem('JOB', JSON.stringify(job));
                 AsyncStorage.setItem('SCORE', JSON.stringify(score));
+                
 
 
             } catch (error) {
@@ -310,13 +314,31 @@ export default class NameJobSelectorRep extends React.Component {
         this.setState({ filteredDroppingData: filteredDataDropping })
         //END
 
-        //PRUNE ARCH
-        const jobAndTeamLeaderPruneArch = d => d.Job === 'Prune And Arch' && d.TeamLeader === this.state.selected;
+        //CLIP PRUNE
+        const jobAndTeamLeaderClipPrune = d => d.Job === 'Clip And Prune' && d.TeamLeader === this.state.selected;
 
-        const filteredDataPruneArch = this.state.combinedData.items.filter(jobAndTeamLeaderPruneArch);
+        const filteredDataClipPrune = this.state.combinedData.items.filter(jobAndTeamLeaderClipPrune);
 
-        this.setState({ filteredPruneArchData: filteredDataPruneArch })
+        this.setState({ filteredClipPruneData: filteredDataClipPrune })
         //END
+
+         //ARCHING
+         const jobAndTeamLeaderArching = d => d.Job === 'Arching' && d.TeamLeader === this.state.selected;
+
+         const filteredDataArching = this.state.combinedData.items.filter(jobAndTeamLeaderArching);
+ 
+         this.setState({ filteredArchingData: filteredDataArching })
+         //END
+
+          //TRUSS PICKING
+          const jobAndTeamLeaderTrussPicking = d => d.Job === 'Truss Picking' && d.TeamLeader === this.state.selected;
+
+          const filteredDataTrussPicking = this.state.combinedData.items.filter(jobAndTeamLeaderTrussPicking);
+  
+          this.setState({ filteredTrussPickingData: filteredDataTrussPicking })
+          //END
+
+         
 
 
     }
@@ -528,14 +550,70 @@ export default class NameJobSelectorRep extends React.Component {
 
                             <View style={[this.state.size]}>
 
-                                <Text style={styles.headerText}>Prune &amp; Arch</Text>
+                                <Text style={styles.headerText}>Clip &amp; Prune</Text>
 
                                 <View style={styles.container}>
 
 
                                     <FlatList
 
-                                        data={this.state.filteredPruneArchData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+                                        data={this.state.filteredClipPruneData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Arching</Text>
+
+                                <View style={styles.container}>
+
+
+                                    <FlatList
+
+                                        data={this.state.filteredArchingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
+
+                                        ItemSeparatorComponent={this.FlatListItemSeparator}
+
+                                        renderItem={({ item }) => <Text style={{
+                                            padding: 10,
+                                            fontSize: 18,
+                                            height: 55,
+                                            color: item.Colour
+                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
+
+                                        keyExtractor={(item, index) => index.toString()}
+
+                                    />
+
+                                </View>
+
+                            </View>
+
+                            <View style={[this.state.size]}>
+
+                                <Text style={styles.headerText}>Truss Picking</Text>
+
+                                <View style={styles.container}>
+
+
+                                    <FlatList
+
+                                        data={this.state.filteredTrussPickingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
 
                                         ItemSeparatorComponent={this.FlatListItemSeparator}
 

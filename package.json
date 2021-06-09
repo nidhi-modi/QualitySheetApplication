@@ -9,7 +9,6 @@
     "test": "jest",
     "lint": "eslint .",
     "release-apk": "cd android && yarn remove-duplicate-files  && gradlew assembleRelease"
-
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.0",

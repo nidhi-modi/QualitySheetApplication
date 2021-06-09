@@ -476,7 +476,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems1:
+            radioClipPruneItems1:
                 [
 
                     {
@@ -494,7 +494,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems2:
+            radioClipPruneItems2:
                 [
 
                     {
@@ -512,7 +512,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems3:
+            radioClipPruneItems3:
                 [
 
                     {
@@ -530,7 +530,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems4:
+            radioClipPruneItems4:
                 [
 
                     {
@@ -548,7 +548,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems5:
+            radioClipPruneItems5:
                 [
 
                     {
@@ -566,7 +566,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems6:
+            radioClipPruneItems6:
                 [
 
                     {
@@ -584,7 +584,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems7:
+            radioClipPruneItems7:
                 [
 
                     {
@@ -602,7 +602,7 @@ export default class RepQualityActivity extends React.Component {
                     }
                 ],
 
-            radioPruneArchItems8:
+            radioClipPruneItems8:
                 [
 
                     {
@@ -619,6 +619,151 @@ export default class RepQualityActivity extends React.Component {
                         selected: false
                     }
                 ],
+
+            radioArchingItems1:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems2:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems3:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioArchingItems4:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioTrussPickingItems1:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioTrussPickingItems2:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioTrussPickingItems3:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
+            radioTrussPickingItems4:
+                [
+
+                    {
+                        label: 'Pass',
+                        size: 40,
+                        color: 'green',
+                        selected: false
+                    },
+
+                    {
+                        label: 'Fail',
+                        size: 40,
+                        color: 'red',
+                        selected: false
+                    }
+                ],
+
 
 
             clippingOption1: '',
@@ -651,14 +796,24 @@ export default class RepQualityActivity extends React.Component {
             pickingOption3: '',
             pickingOption4: '',
 
-            pruneArchOption1: '',
-            pruneArchOption2: '',
-            pruneArchOption3: '',
-            pruneArchOption4: '',
-            pruneArchOption5: '',
-            pruneArchOption6: '',
-            pruneArchOption7: '',
-            pruneArchOption8: '',
+            clipPruneOption1: '',
+            clipPruneOption2: '',
+            clipPruneOption3: '',
+            clipPruneOption4: '',
+            clipPruneOption5: '',
+            clipPruneOption6: '',
+            clipPruneOption7: '',
+            clipPruneOption8: '',
+
+            archingOption1: '',
+            archingOption2: '',
+            archingOption3: '',
+            archingOption4: '',
+
+            trussPickingOption1: '',
+            trussPickingOption2: '',
+            trussPickingOption3: '',
+            trussPickingOption4: '',
 
             isLoading: false,
             auditorsName: '',
@@ -763,13 +918,7 @@ export default class RepQualityActivity extends React.Component {
             AsyncStorage.getItem('auditorsName').then((name) => {
                 this.setState({ auditorsName: JSON.parse(name) });
 
-            }).done();
-        } catch (error) {
-        }
-
-        try {
-            AsyncStorage.getItem('houseNumber').then((house) => {
-                this.setState({ houseNumber: JSON.parse(house) });
+                console.log("Auditors Name :"+JSON.parse(name));
 
             }).done();
         } catch (error) {
@@ -782,6 +931,8 @@ export default class RepQualityActivity extends React.Component {
             }).done();
         } catch (error) {
         }
+
+
 
 
         //END
@@ -829,6 +980,15 @@ export default class RepQualityActivity extends React.Component {
             AsyncStorage.getItem('JOB').then((job) => {
                 const job1 = (JSON.parse(job))
                 this.setState({ jobSelected: job1 })
+
+            }).done();
+        } catch (error) {
+        }
+
+        try {
+            AsyncStorage.getItem('HOUSE').then((house) => {
+                const house1 = ('REP 1')
+                this.setState({ houseNumber: house1 })
 
             }).done();
         } catch (error) {
@@ -941,101 +1101,206 @@ export default class RepQualityActivity extends React.Component {
         });
     }
 
-    //PRUNE AND ARCH
+    //ARCHING
 
-    changeActiveRadioPruneArchButton1(index) {
-        this.state.radioPruneArchItems1.map((item) => {
+    changeActiveRadioArchingButton1(index) {
+        this.state.radioArchingItems1.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems1[index].selected = true;
+        this.state.radioArchingItems1[index].selected = true;
 
-        this.setState({ radioPruneArchItems1: this.state.radioPruneArchItems1 }, () => {
-            this.setState({ pruneArchOption1: this.state.radioPruneArchItems1[index].label });
+        this.setState({ radioArchingItems1: this.state.radioArchingItems1 }, () => {
+            this.setState({ archingOption1: this.state.radioArchingItems1[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton2(index) {
-        this.state.radioPruneArchItems2.map((item) => {
+    changeActiveRadioArchingButton2(index) {
+        this.state.radioArchingItems2.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems2[index].selected = true;
+        this.state.radioArchingItems2[index].selected = true;
 
-        this.setState({ radioPruneArchItems2: this.state.radioPruneArchItems2 }, () => {
-            this.setState({ pruneArchOption2: this.state.radioPruneArchItems2[index].label });
+        this.setState({ radioArchingItems2: this.state.radioArchingItems2 }, () => {
+            this.setState({ archingOption2: this.state.radioArchingItems2[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton3(index) {
-        this.state.radioPruneArchItems3.map((item) => {
+    changeActiveRadioArchingButton3(index) {
+        this.state.radioArchingItems3.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems3[index].selected = true;
+        this.state.radioArchingItems3[index].selected = true;
 
-        this.setState({ radioPruneArchItems3: this.state.radioPruneArchItems3 }, () => {
-            this.setState({ pruneArchOption3: this.state.radioPruneArchItems3[index].label });
+        this.setState({ radioArchingItems3: this.state.radioArchingItems3 }, () => {
+            this.setState({ archingOption3: this.state.radioArchingItems3[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton4(index) {
-        this.state.radioPruneArchItems4.map((item) => {
+    changeActiveRadioArchingButton4(index) {
+        this.state.radioArchingItems4.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems4[index].selected = true;
+        this.state.radioArchingItems4[index].selected = true;
 
-        this.setState({ radioPruneArchItems4: this.state.radioPruneArchItems4 }, () => {
-            this.setState({ pruneArchOption4: this.state.radioPruneArchItems4[index].label });
+        this.setState({ radioArchingItems4: this.state.radioArchingItems4 }, () => {
+            this.setState({ archingOption4: this.state.radioArchingItems4[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton5(index) {
-        this.state.radioPruneArchItems5.map((item) => {
+    //END
+
+
+    //TRUSS PICKING
+
+    changeActiveRadioTrussPickingButton1(index) {
+        this.state.radioTrussPickingItems1.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems5[index].selected = true;
+        this.state.radioTrussPickingItems1[index].selected = true;
 
-        this.setState({ radioPruneArchItems5: this.state.radioPruneArchItems5 }, () => {
-            this.setState({ pruneArchOption5: this.state.radioPruneArchItems5[index].label });
+        this.setState({ radioTrussPickingItems1: this.state.radioTrussPickingItems1 }, () => {
+            this.setState({ trussPickingOption1: this.state.radioTrussPickingItems1[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton6(index) {
-        this.state.radioPruneArchItems6.map((item) => {
+    changeActiveRadioTrussPickingButton2(index) {
+        this.state.radioTrussPickingItems2.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems6[index].selected = true;
+        this.state.radioTrussPickingItems2[index].selected = true;
 
-        this.setState({ radioPruneArchItems6: this.state.radioPruneArchItems6 }, () => {
-            this.setState({ pruneArchOption6: this.state.radioPruneArchItems6[index].label });
+        this.setState({ radioTrussPickingItems2: this.state.radioTrussPickingItems2 }, () => {
+            this.setState({ trussPickingOption2: this.state.radioTrussPickingItems2[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton7(index) {
-        this.state.radioPruneArchItems7.map((item) => {
+    changeActiveRadioTrussPickingButton3(index) {
+        this.state.radioTrussPickingItems3.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems7[index].selected = true;
+        this.state.radioTrussPickingItems3[index].selected = true;
 
-        this.setState({ radioPruneArchItems7: this.state.radioPruneArchItems7 }, () => {
-            this.setState({ pruneArchOption7: this.state.radioPruneArchItems7[index].label });
+        this.setState({ radioTrussPickingItems3: this.state.radioTrussPickingItems3 }, () => {
+            this.setState({ trussPickingOption3: this.state.radioTrussPickingItems3[index].label });
         });
     }
 
-    changeActiveRadioPruneArchButton8(index) {
-        this.state.radioPruneArchItems8.map((item) => {
+    changeActiveRadioTrussPickingButton4(index) {
+        this.state.radioTrussPickingItems4.map((item) => {
             item.selected = false;
         });
 
-        this.state.radioPruneArchItems8[index].selected = true;
+        this.state.radioTrussPickingItems4[index].selected = true;
 
-        this.setState({ radioPruneArchItems8: this.state.radioPruneArchItems8 }, () => {
-            this.setState({ pruneArchOption8: this.state.radioPruneArchItems8[index].label });
+        this.setState({ radioTrussPickingItems4: this.state.radioTrussPickingItems4 }, () => {
+            this.setState({ trussPickingOption4: this.state.radioTrussPickingItems4[index].label });
+        });
+    }
+
+    //END
+
+    //CLIP AND PRUNE
+
+    changeActiveRadioClipPruneButton1(index) {
+        this.state.radioClipPruneItems1.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems1[index].selected = true;
+
+        this.setState({ radioClipPruneItems1: this.state.radioClipPruneItems1 }, () => {
+            this.setState({ clipPruneOption1: this.state.radioClipPruneItems1[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton2(index) {
+        this.state.radioClipPruneItems2.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems2[index].selected = true;
+
+        this.setState({ radioClipPruneItems2: this.state.radioClipPruneItems2 }, () => {
+            this.setState({ clipPruneOption2: this.state.radioClipPruneItems2[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton3(index) {
+        this.state.radioClipPruneItems3.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems3[index].selected = true;
+
+        this.setState({ radioClipPruneItems3: this.state.radioClipPruneItems3 }, () => {
+            this.setState({ clipPruneOption3: this.state.radioClipPruneItems3[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton4(index) {
+        this.state.radioClipPruneItems4.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems4[index].selected = true;
+
+        this.setState({ radioClipPruneItems4: this.state.radioClipPruneItems4 }, () => {
+            this.setState({ clipPruneOption4: this.state.radioClipPruneItems4[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton5(index) {
+        this.state.radioClipPruneItems5.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems5[index].selected = true;
+
+        this.setState({ radioClipPruneItems5: this.state.radioClipPruneItems5 }, () => {
+            this.setState({ clipPruneOption5: this.state.radioClipPruneItems5[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton6(index) {
+        this.state.radioClipPruneItems6.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems6[index].selected = true;
+
+        this.setState({ radioClipPruneItems6: this.state.radioClipPruneItems6 }, () => {
+            this.setState({ clipPruneOption6: this.state.radioClipPruneItems6[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton7(index) {
+        this.state.radioClipPruneItems7.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems7[index].selected = true;
+
+        this.setState({ radioClipPruneItems7: this.state.radioClipPruneItems7 }, () => {
+            this.setState({ clipPruneOption7: this.state.radioClipPruneItems7[index].label });
+        });
+    }
+
+    changeActiveRadioClipPruneButton8(index) {
+        this.state.radioClipPruneItems8.map((item) => {
+            item.selected = false;
+        });
+
+        this.state.radioClipPruneItems8[index].selected = true;
+
+        this.setState({ radioClipPruneItems8: this.state.radioClipPruneItems8 }, () => {
+            this.setState({ clipPruneOption8: this.state.radioClipPruneItems8[index].label });
         });
     }
 
@@ -1334,85 +1599,85 @@ export default class RepQualityActivity extends React.Component {
 
     }
 
-    resetPruneArchRadioButton = () => {
+    resetClipPruneRadioButton = () => {
 
         //PRUNE ARCH 1
-        this.state.radioPruneArchItems1.map((item) => {
+        this.state.radioClipPruneItems1.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems1: this.state.radioPruneArchItems1 }, () => {
-            this.setState({ pruneArchOption1: this.state.radioPruneArchItems1[0].label });
+        this.setState({ radioClipPruneItems1: this.state.radioClipPruneItems1 }, () => {
+            this.setState({ clipPruneOption1: this.state.radioClipPruneItems1[0].label });
         });
         //END
 
         //PRUNE ARCH 2
-        this.state.radioPruneArchItems2.map((item) => {
+        this.state.radioClipPruneItems2.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems2: this.state.radioPruneArchItems2 }, () => {
-            this.setState({ pruneArchOption2: this.state.radioPruneArchItems2[0].label });
+        this.setState({ radioClipPruneItems2: this.state.radioClipPruneItems2 }, () => {
+            this.setState({ clipPruneOption2: this.state.radioClipPruneItems2[0].label });
         });
         //END
 
         //PRUNE ARCH 3
-        this.state.radioPruneArchItems3.map((item) => {
+        this.state.radioClipPruneItems3.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems3: this.state.radioPruneArchItems3 }, () => {
-            this.setState({ pruneArchOption3: this.state.radioPruneArchItems3[0].label });
+        this.setState({ radioClipPruneItems3: this.state.radioClipPruneItems3 }, () => {
+            this.setState({ clipPruneOption3: this.state.radioClipPruneItems3[0].label });
         });
         //END
 
         //PRUNE ARCH 4
-        this.state.radioPruneArchItems4.map((item) => {
+        this.state.radioClipPruneItems4.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems4: this.state.radioPruneArchItems4 }, () => {
-            this.setState({ pruneArchOption4: this.state.radioPruneArchItems4[0].label });
+        this.setState({ radioClipPruneItems4: this.state.radioClipPruneItems4 }, () => {
+            this.setState({ clipPruneOption4: this.state.radioClipPruneItems4[0].label });
         });
         //END
 
         //PRUNE ARCH 5
-        this.state.radioPruneArchItems5.map((item) => {
+        this.state.radioClipPruneItems5.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems5: this.state.radioPruneArchItems5 }, () => {
-            this.setState({ pruneArchOption5: this.state.radioPruneArchItems5[0].label });
+        this.setState({ radioClipPruneItems5: this.state.radioClipPruneItems5 }, () => {
+            this.setState({ clipPruneOption5: this.state.radioClipPruneItems5[0].label });
         });
         //END
 
         //PRUNE ARCH 6
-        this.state.radioPruneArchItems6.map((item) => {
+        this.state.radioClipPruneItems6.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems6: this.state.radioPruneArchItems6 }, () => {
-            this.setState({ pruneArchOption6: this.state.radioPruneArchItems6[0].label });
+        this.setState({ radioClipPruneItems6: this.state.radioClipPruneItems6 }, () => {
+            this.setState({ clipPruneOption6: this.state.radioClipPruneItems6[0].label });
         });
         //END
 
         //PRUNE ARCH 7
-        this.state.radioPruneArchItems7.map((item) => {
+        this.state.radioClipPruneItems7.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems7: this.state.radioPruneArchItems7 }, () => {
-            this.setState({ pruneArchOption7: this.state.radioPruneArchItems7[0].label });
+        this.setState({ radioClipPruneItems7: this.state.radioClipPruneItems7 }, () => {
+            this.setState({ clipPruneOption7: this.state.radioClipPruneItems7[0].label });
         });
         //END
 
         //PRUNE ARCH 8
-        this.state.radioPruneArchItems8.map((item) => {
+        this.state.radioClipPruneItems8.map((item) => {
             item.selected = false;
         });
 
-        this.setState({ radioPruneArchItems8: this.state.radioPruneArchItems8 }, () => {
-            this.setState({ pruneArchOption8: this.state.radioPruneArchItems8[0].label });
+        this.setState({ radioClipPruneItems8: this.state.radioClipPruneItems8 }, () => {
+            this.setState({ clipPruneOption8: this.state.radioClipPruneItems8[0].label });
         });
         //END
 
@@ -1459,6 +1724,95 @@ export default class RepQualityActivity extends React.Component {
 
         this.setState({ radioPruningItems4: this.state.radioPruningItems4 }, () => {
             this.setState({ pruningOption4: this.state.radioPruningItems4[0].label });
+        });
+        //END
+    }
+
+    resetArchingRadioButton = () => {
+
+
+        //ARCHING 1
+        this.state.radioArchingItems1.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems1: this.state.radioArchingItems1 }, () => {
+            this.setState({ archingOption1: this.state.radioArchingItems1[0].label });
+        });
+        //END
+
+        //ARCHING 2
+        this.state.radioArchingItems2.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems2: this.state.radioArchingItems2 }, () => {
+            this.setState({ archingOption2: this.state.radioArchingItems2[0].label });
+        });
+        //END
+
+        //ARCHING 3
+        this.state.radioArchingItems3.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems3: this.state.radioArchingItems3 }, () => {
+            this.setState({ archingOption3: this.state.radioArchingItems3[0].label });
+        });
+        //END
+
+        //ARCHING 4
+        this.state.radioArchingItems4.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioArchingItems4: this.state.radioArchingItems4 }, () => {
+            this.setState({ archingOption4: this.state.radioArchingItems4[0].label });
+        });
+        //END
+    }
+
+
+    resetTrussPickingRadioButton = () => {
+
+
+        //ARCHING 1
+        this.state.radioTrussPickingItems1.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioTrussPickingItems1: this.state.radioTrussPickingItems1 }, () => {
+            this.setState({ trussPickingOption1: this.state.radioTrussPickingItems1[0].label });
+        });
+        //END
+
+        //ARCHING 2
+        this.state.radioTrussPickingItems2.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioTrussPickingItems2: this.state.radioTrussPickingItems2 }, () => {
+            this.setState({ trussPickingOption2: this.state.radioTrussPickingItems2[0].label });
+        });
+        //END
+
+        //ARCHING 3
+        this.state.radioTrussPickingItems3.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioTrussPickingItems3: this.state.radioTrussPickingItems3 }, () => {
+            this.setState({ trussPickingOption3: this.state.radioTrussPickingItems3[0].label });
+        });
+        //END
+
+        //ARCHING 4
+        this.state.radioTrussPickingItems4.map((item) => {
+            item.selected = false;
+        });
+
+        this.setState({ radioTrussPickingItems4: this.state.radioTrussPickingItems4 }, () => {
+            this.setState({ trussPickingOption4: this.state.radioTrussPickingItems4[0].label });
         });
         //END
     }
@@ -1701,11 +2055,135 @@ export default class RepQualityActivity extends React.Component {
 
     }
 
+    calculateArchingQualityPercentage = () => {
+
+        setTimeout(() => {
+
+            if (this.state.archingOption1 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption2 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption3 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.archingOption4 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+            }
+
+            this.setState({ qualityPercentage: count.toString() })
+
+            console.log("COUNT : " + count);
+
+            count = 0;
+
+        }, 1000);
+
+        setTimeout(() => {
+            this.saveArchingDataToDB();
+
+        }, 1500);
+
+
+    }
+
+    calculateTrussPickingQualityPercentage = () => {
+
+        setTimeout(() => {
+
+            if (this.state.trussPickingOption1 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.trussPickingOption2 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.trussPickingOption3 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+
+            }
+
+
+            if (this.state.trussPickingOption4 === 'Pass') {
+
+                count = count + 25;
+
+            } else {
+
+
+            }
+
+            this.setState({ qualityPercentage: count.toString() })
+
+            console.log("COUNT : " + count);
+
+            count = 0;
+
+        }, 1000);
+
+        setTimeout(() => {
+            this.saveTrussPickingDataToDB();
+
+        }, 1500);
+
+
+    }
+
     calculatePrunArchQualityPercentage = () => {
 
         setTimeout(() => {
 
-            if (this.state.pruneArchOption1 === 'Pass') {
+            if (this.state.clipPruneOption1 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1716,7 +2194,7 @@ export default class RepQualityActivity extends React.Component {
             }
 
 
-            if (this.state.pruneArchOption2 === 'Pass') {
+            if (this.state.clipPruneOption2 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1727,7 +2205,7 @@ export default class RepQualityActivity extends React.Component {
             }
 
 
-            if (this.state.pruneArchOption3 === 'Pass') {
+            if (this.state.clipPruneOption3 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1738,7 +2216,7 @@ export default class RepQualityActivity extends React.Component {
             }
 
 
-            if (this.state.pruneArchOption4 === 'Pass') {
+            if (this.state.clipPruneOption4 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1747,7 +2225,7 @@ export default class RepQualityActivity extends React.Component {
 
             }
 
-            if (this.state.pruneArchOption5 === 'Pass') {
+            if (this.state.clipPruneOption5 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1756,7 +2234,7 @@ export default class RepQualityActivity extends React.Component {
 
             }
 
-            if (this.state.pruneArchOption6 === 'Pass') {
+            if (this.state.clipPruneOption6 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1765,7 +2243,7 @@ export default class RepQualityActivity extends React.Component {
 
             }
 
-            if (this.state.pruneArchOption7 === 'Pass') {
+            if (this.state.clipPruneOption7 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1774,7 +2252,7 @@ export default class RepQualityActivity extends React.Component {
 
             }
 
-            if (this.state.pruneArchOption8 === 'Pass') {
+            if (this.state.clipPruneOption8 === 'Pass') {
 
                 count = count + 12.50;
 
@@ -1792,7 +2270,7 @@ export default class RepQualityActivity extends React.Component {
         }, 1000);
 
         setTimeout(() => {
-            this.savePruneArchDataToDB();
+            this.saveClipPruneDataToDB();
 
         }, 1500)
 
@@ -2284,6 +2762,426 @@ export default class RepQualityActivity extends React.Component {
                             } else {
                                 this.setState({ isLoading: false })
                                 alert('Choose one option from clipping quality check 1')
+
+                            }
+
+                        } else {
+                            this.setState({ isLoading: false })
+                            alert('Please select job')
+
+                        }
+
+                    } else {
+                        this.setState({ isLoading: false })
+                        alert('Please select name')
+
+                    }
+
+                } else {
+                    this.setState({ isLoading: false })
+                    alert('Please fill row number')
+
+                }
+
+            } else {
+                this.setState({ isLoading: false })
+                alert('Please select house number')
+
+            }
+
+        } else {
+            this.setState({ isLoading: false })
+            alert('Please select auditor name')
+
+        }
+
+    }
+
+    saveArchingDataToDB = () => {
+
+        var that = this;
+        this.setState({ isLoading: true })
+
+
+        const { auditorsName } = this.state;
+        const { houseNumber } = this.state;
+        const { rowNumber } = this.state;
+        const { weekNumber } = this.state;
+        const { workersName } = this.state;
+        const { jobSelected } = this.state;
+        const { archingOption1 } = this.state;
+        const { archingOption2 } = this.state;
+        const { archingOption3 } = this.state;
+        const { archingOption4 } = this.state;
+        const { data_send } = this.state;
+
+
+
+        if (auditorsName) {
+            if (houseNumber) {
+                if (rowNumber) {
+                    if (workersName) {
+                        if (jobSelected) {
+                            if (archingOption1) {
+                                if (archingOption2) {
+                                    if (archingOption3) {
+                                        if (archingOption4) {
+
+                                            if (this.state.isItConnected === 'Online') {
+
+
+
+                                                console.log("Connected to internet");
+
+                                                const scriptUrl = 'https://script.google.com/macros/s/AKfycbywdq90H8X6CVYR2Vlla9rkRAPdsYmMTmO-sKfqsOmf7BGGNj0p_g4y/exec';
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostRepSite'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.archingOption1}&data2=${that.state.archingOption2}&data3=${that.state.archingOption3}&data4=${that.state.archingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+
+                                                console.log("URL : " + url);
+                                                fetch(url, { mode: 'no-cors' }).then(
+                                                    () => { console.log("Data Send"); },
+                                                );
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.archingOption1,
+                                                        data2: that.state.archingOption2,
+                                                        data3: that.state.archingOption3,
+                                                        data4: that.state.archingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'Y',
+                                                    });
+
+
+
+                                                    this.resetArchingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('RepQualityActivity')
+                                                    Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
+                                                    this.setState({ isLoading: false })
+
+
+                                                });
+
+                                                this.setState({ auditorsName: null })
+
+                                            } else {
+
+                                                console.log("Not connected to internet");
+
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.archingOption1,
+                                                        data2: that.state.archingOption2,
+                                                        data3: that.state.archingOption3,
+                                                        data4: that.state.archingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'N',
+                                                    });
+
+                                                    this.resetArchingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('RepQualityActivity')
+
+                                                    Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
+                                                    this.setState({ isLoading: false })
+
+                                                });
+
+                                                this.setState({ auditorsName: null })
+
+                                            }
+
+                                        } else {
+                                            this.setState({ isLoading: false })
+                                            alert('Choose one option from arching quality check 4')
+
+                                        }
+
+                                    } else {
+                                        this.setState({ isLoading: false })
+                                        alert('Choose one option from arching quality check 3')
+
+                                    }
+
+                                } else {
+                                    this.setState({ isLoading: false })
+                                    alert('Choose one option from arching quality check 2')
+
+                                }
+
+                            } else {
+                                this.setState({ isLoading: false })
+                                alert('Choose one option from arching quality check 1')
+
+                            }
+
+                        } else {
+                            this.setState({ isLoading: false })
+                            alert('Please select job')
+
+                        }
+
+                    } else {
+                        this.setState({ isLoading: false })
+                        alert('Please select name')
+
+                    }
+
+                } else {
+                    this.setState({ isLoading: false })
+                    alert('Please fill row number')
+
+                }
+
+            } else {
+                this.setState({ isLoading: false })
+                alert('Please select house number')
+
+            }
+
+        } else {
+            this.setState({ isLoading: false })
+            alert('Please select auditor name')
+
+        }
+
+    }
+
+    saveTrussPickingDataToDB = () => {
+
+        var that = this;
+        this.setState({ isLoading: true })
+
+
+        const { auditorsName } = this.state;
+        const { houseNumber } = this.state;
+        const { rowNumber } = this.state;
+        const { weekNumber } = this.state;
+        const { workersName } = this.state;
+        const { jobSelected } = this.state;
+        const { trussPickingOption1 } = this.state;
+        const { trussPickingOption2 } = this.state;
+        const { trussPickingOption3 } = this.state;
+        const { trussPickingOption4 } = this.state;
+        const { data_send } = this.state;
+
+
+
+        if (auditorsName) {
+            if (houseNumber) {
+                if (rowNumber) {
+                    if (workersName) {
+                        if (jobSelected) {
+                            if (trussPickingOption1) {
+                                if (trussPickingOption2) {
+                                    if (trussPickingOption3) {
+                                        if (trussPickingOption4) {
+
+                                            if (this.state.isItConnected === 'Online') {
+
+
+
+                                                console.log("Connected to internet");
+
+                                                const scriptUrl = 'https://script.google.com/macros/s/AKfycbywdq90H8X6CVYR2Vlla9rkRAPdsYmMTmO-sKfqsOmf7BGGNj0p_g4y/exec';
+                                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostRepSite'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.trussPickingOption1}&data2=${that.state.trussPickingOption2}&data3=${that.state.trussPickingOption3}&data4=${that.state.trussPickingOption4}&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+
+                                                console.log("URL : " + url);
+                                                fetch(url, { mode: 'no-cors' }).then(
+                                                    () => { console.log("Data Send"); },
+                                                );
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.trussPickingOption1,
+                                                        data2: that.state.trussPickingOption2,
+                                                        data3: that.state.trussPickingOption3,
+                                                        data4: that.state.trussPickingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'Y',
+                                                    });
+
+
+
+                                                    this.resetTrussPickingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('RepQualityActivity')
+                                                    Toast.showWithGravity('Success!! \nDetails Added Successfully.', Toast.LONG, Toast.CENTER);
+                                                    this.setState({ isLoading: false })
+
+
+                                                });
+
+                                                this.setState({ auditorsName: null })
+
+                                            } else {
+
+                                                console.log("Not connected to internet");
+
+                                                realm.write(() => {
+                                                    var ID =
+                                                        realm.objects('qualitySheet').sorted('entry_id', true).length > 0
+                                                            ? realm.objects('qualitySheet').sorted('entry_id', true)[0]
+                                                                .entry_id + 1
+                                                            : 1;
+                                                    realm.create('qualitySheet', {
+                                                        entry_id: ID,
+                                                        auditor_name: that.state.auditorsName,
+                                                        house_number: that.state.houseNumber,
+                                                        job_name: that.state.jobSelected,
+                                                        worker_name: that.state.workersName,
+                                                        row_number: that.state.rowNumber,
+                                                        week_number: that.state.weekNumber,
+                                                        adi_code: that.state.adiCode,
+                                                        comments: that.state.comments,
+                                                        quality_percent: that.state.qualityPercentage,
+                                                        data1: that.state.trussPickingOption1,
+                                                        data2: that.state.trussPickingOption2,
+                                                        data3: that.state.trussPickingOption3,
+                                                        data4: that.state.trussPickingOption4,
+                                                        data5: '',
+                                                        data6: '',
+                                                        data7: '',
+                                                        data8: '',
+                                                        data_send: 'N',
+                                                    });
+
+                                                    this.resetTrussPickingRadioButton();
+                                                    AsyncStorage.clear();
+                                                    AsyncStorage.removeItem('auditorsName');
+                                                    AsyncStorage.removeItem('workersName');
+                                                    AsyncStorage.removeItem('houseNumber');
+                                                    AsyncStorage.removeItem('jobSelected');
+                                                    AsyncStorage.removeItem('rowNumber');
+                                                    this.setState({ auditorsName: null })
+                                                    this.setState({ workersName: '' })
+                                                    this.setState({ houseNumber: '' })
+                                                    this.setState({ jobSelected: '' })
+                                                    this.setState({ rowNumber: '' })
+                                                    this.setState({ isScoreSet: false })
+
+                                                    this.props.navigation.navigate('RepQualityActivity')
+
+                                                    Toast.show('Success!! \nDetails Added Successfully.', Toast.LONG);
+                                                    this.setState({ isLoading: false })
+
+                                                });
+
+                                                this.setState({ auditorsName: null })
+
+                                            }
+
+                                        } else {
+                                            this.setState({ isLoading: false })
+                                            alert('Choose one option from truss picking quality check 4')
+
+                                        }
+
+                                    } else {
+                                        this.setState({ isLoading: false })
+                                        alert('Choose one option from truss picking quality check 3')
+
+                                    }
+
+                                } else {
+                                    this.setState({ isLoading: false })
+                                    alert('Choose one option from truss picking quality check 2')
+
+                                }
+
+                            } else {
+                                this.setState({ isLoading: false })
+                                alert('Choose one option from truss picking quality check 1')
 
                             }
 
@@ -3167,7 +4065,7 @@ export default class RepQualityActivity extends React.Component {
 
     }
 
-    savePruneArchDataToDB = () => {
+    saveClipPruneDataToDB = () => {
 
         var that = this;
         this.setState({ isLoading: true })
@@ -3179,14 +4077,14 @@ export default class RepQualityActivity extends React.Component {
         const { weekNumber } = this.state;
         const { workersName } = this.state;
         const { jobSelected } = this.state;
-        const { pruneArchOption1 } = this.state;
-        const { pruneArchOption2 } = this.state;
-        const { pruneArchOption3 } = this.state;
-        const { pruneArchOption4 } = this.state;
-        const { pruneArchOption5 } = this.state;
-        const { pruneArchOption6 } = this.state;
-        const { pruneArchOption7 } = this.state;
-        const { pruneArchOption8 } = this.state;
+        const { clipPruneOption1 } = this.state;
+        const { clipPruneOption2 } = this.state;
+        const { clipPruneOption3 } = this.state;
+        const { clipPruneOption4 } = this.state;
+        const { clipPruneOption5 } = this.state;
+        const { clipPruneOption6 } = this.state;
+        const { clipPruneOption7 } = this.state;
+        const { clipPruneOption8 } = this.state;
         const { data_send } = this.state;
 
 
@@ -3196,14 +4094,14 @@ export default class RepQualityActivity extends React.Component {
                 if (rowNumber) {
                     if (workersName) {
                         if (jobSelected) {
-                            if (pruneArchOption1) {
-                                if (pruneArchOption2) {
-                                    if (pruneArchOption3) {
-                                        if (pruneArchOption4) {
-                                            if (pruneArchOption5) {
-                                                if (pruneArchOption6) {
-                                                    if (pruneArchOption7) {
-                                                        if (pruneArchOption8) {
+                            if (clipPruneOption1) {
+                                if (clipPruneOption2) {
+                                    if (clipPruneOption3) {
+                                        if (clipPruneOption4) {
+                                            if (clipPruneOption5) {
+                                                if (clipPruneOption6) {
+                                                    if (clipPruneOption7) {
+                                                        if (clipPruneOption8) {
 
                                                             if (this.state.isItConnected === 'Online') {
 
@@ -3213,7 +4111,7 @@ export default class RepQualityActivity extends React.Component {
 
                                                                 const scriptUrl = 'https://script.google.com/macros/s/AKfycbywdq90H8X6CVYR2Vlla9rkRAPdsYmMTmO-sKfqsOmf7BGGNj0p_g4y/exec';
                                                                 const url = `${scriptUrl}?
-                                                                callback=ctrlq&action=${'doPostRepSite'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.pruneArchOption1}&data2=${that.state.pruneArchOption2}&data3=${that.state.pruneArchOption3}&data4=${that.state.pruneArchOption4}&data5=${that.state.pruneArchOption5}&data6=${that.state.pruneArchOption6}&data7=${that.state.pruneArchOption7}&data8=${that.state.pruneArchOption8}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
+                                                                callback=ctrlq&action=${'doPostRepSite'}&week_number=${that.state.weekNumber}&auditor_name=${that.state.auditorsName}&job=${that.state.jobSelected}&house_number=${that.state.houseNumber}&row_number=${that.state.rowNumber}&worker_name=${that.state.workersName}&adi_code=${that.state.adiCode}&data1=${that.state.clipPruneOption1}&data2=${that.state.clipPruneOption2}&data3=${that.state.clipPruneOption3}&data4=${that.state.clipPruneOption4}&data5=${that.state.clipPruneOption5}&data6=${that.state.clipPruneOption6}&data7=${that.state.clipPruneOption7}&data8=${that.state.clipPruneOption8}&comments=${that.state.comments}&quality_percent=${that.state.qualityPercentage}`;
 
                                                                 console.log("URL : " + url);
                                                                 fetch(url, { mode: 'no-cors' }).then(
@@ -3236,20 +4134,20 @@ export default class RepQualityActivity extends React.Component {
                                                                         adi_code: that.state.adiCode,
                                                                         comments: that.state.comments,
                                                                         quality_percent: that.state.qualityPercentage,
-                                                                        data1: that.state.pruneArchOption1,
-                                                                        data2: that.state.pruneArchOption2,
-                                                                        data3: that.state.pruneArchOption3,
-                                                                        data4: that.state.pruneArchOption4,
-                                                                        data5: that.state.pruneArchOption5,
-                                                                        data6: that.state.pruneArchOption6,
-                                                                        data7: that.state.pruneArchOption7,
-                                                                        data8: that.state.pruneArchOption8,
+                                                                        data1: that.state.clipPruneOption1,
+                                                                        data2: that.state.clipPruneOption2,
+                                                                        data3: that.state.clipPruneOption3,
+                                                                        data4: that.state.clipPruneOption4,
+                                                                        data5: that.state.clipPruneOption5,
+                                                                        data6: that.state.clipPruneOption6,
+                                                                        data7: that.state.clipPruneOption7,
+                                                                        data8: that.state.clipPruneOption8,
                                                                         data_send: 'Y',
                                                                     });
 
 
 
-                                                                    this.resetPruneArchRadioButton();
+                                                                    this.resetClipPruneRadioButton();
                                                                     AsyncStorage.clear();
                                                                     AsyncStorage.removeItem('auditorsName');
                                                                     AsyncStorage.removeItem('workersName');
@@ -3294,18 +4192,18 @@ export default class RepQualityActivity extends React.Component {
                                                                         adi_code: that.state.adiCode,
                                                                         comments: that.state.comments,
                                                                         quality_percent: that.state.qualityPercentage,
-                                                                        data1: that.state.pruneArchOption1,
-                                                                        data2: that.state.pruneArchOption2,
-                                                                        data3: that.state.pruneArchOption3,
-                                                                        data4: that.state.pruneArchOption4,
-                                                                        data5: that.state.pruneArchOption5,
-                                                                        data6: that.state.pruneArchOption6,
-                                                                        data7: that.state.pruneArchOption7,
-                                                                        data8: that.state.pruneArchOption8,
+                                                                        data1: that.state.clipPruneOption1,
+                                                                        data2: that.state.clipPruneOption2,
+                                                                        data3: that.state.clipPruneOption3,
+                                                                        data4: that.state.clipPruneOption4,
+                                                                        data5: that.state.clipPruneOption5,
+                                                                        data6: that.state.clipPruneOption6,
+                                                                        data7: that.state.clipPruneOption7,
+                                                                        data8: that.state.clipPruneOption8,
                                                                         data_send: 'N',
                                                                     });
 
-                                                                    this.resetPruneArchRadioButton();
+                                                                    this.resetClipPruneRadioButton();
                                                                     AsyncStorage.clear();
                                                                     AsyncStorage.removeItem('auditorsName');
                                                                     AsyncStorage.removeItem('workersName');
@@ -3332,49 +4230,49 @@ export default class RepQualityActivity extends React.Component {
 
                                                         } else {
                                                             this.setState({ isLoading: false })
-                                                            alert('Choose one option from Pruning and arching quality check 8')
+                                                            alert('Choose one option from clipping and pruning quality check 8')
 
                                                         }
 
                                                     } else {
                                                         this.setState({ isLoading: false })
-                                                        alert('Choose one option from Pruning and arching quality check 7')
+                                                        alert('Choose one option from clipping and pruning quality check 7')
 
                                                     }
 
                                                 } else {
                                                     this.setState({ isLoading: false })
-                                                    alert('Choose one option from Pruning and arching quality check 6')
+                                                    alert('Choose one option from clipping and pruning quality check 6')
 
                                                 }
 
                                             } else {
                                                 this.setState({ isLoading: false })
-                                                alert('Choose one option from Pruning and arching quality check 5')
+                                                alert('Choose one option from clipping and pruning quality check 5')
 
                                             }
 
                                         } else {
                                             this.setState({ isLoading: false })
-                                            alert('Choose one option from Pruning and arching quality check 4')
+                                            alert('Choose one option from clipping and pruning quality check 4')
 
                                         }
 
                                     } else {
                                         this.setState({ isLoading: false })
-                                        alert('Choose one option from Pruning and arching quality check 3')
+                                        alert('Choose one option from clipping and pruning quality check 3')
 
                                     }
 
                                 } else {
                                     this.setState({ isLoading: false })
-                                    alert('Choose one option from Pruning and arching quality check 2')
+                                    alert('Choose one option from clipping and pruning quality check 2')
 
                                 }
 
                             } else {
                                 this.setState({ isLoading: false })
-                                alert('Choose one option from Pruning and arching quality check 1')
+                                alert('Choose one option from clipping and pruning quality check 1')
                             }
 
                         } else {
@@ -3690,10 +4588,9 @@ export default class RepQualityActivity extends React.Component {
                         <DropDownPicker
                             items={[
                                 { label: 'Chris Cowie', value: 'Chris Cowie' },
-                                { label: 'Jonathan Baker', value: 'Jonathan Baker' },
                                 { label: 'Judy Karekare', value: 'Judy Karekare' },
                                 { label: 'Emaleene Toko', value: 'Emaleene Toko' },
-                                
+
                             ]}
                             placeholder="SELECT"
                             containerStyle={{ height: 50 }}
@@ -3801,47 +4698,27 @@ export default class RepQualityActivity extends React.Component {
 
                     <View style={styles.inBtnmarginDimension}></View>
 
-                    <Text style={styles.titleHeadingText}>Select House Number</Text>
+                    <Text style={styles.titleHeadingText}>House Number</Text>
 
-                    <View style={styles.marginDimension}></View>
-
-                    <View
-                        style={{
-
-                            // The solution: Apply zIndex to any device except Android
-                            ...(Platform.OS !== 'android' && {
-                                zIndex: 10
-                            })
-
-                        }}
-                    >
-
-
-                        <DropDownPicker
-                            items={[
-                                { label: 'REP 1', value: 'REP 1' },
-                                
-                            ]}
-                            placeholder="SELECT"
-                            containerStyle={{ height: 50 }}
-                            style={{
-                                backgroundColor: '#ffffff', marginRight: 20, borderColor: '#000000',
-                                borderWidth: 1
-                            }}
-                            itemStyle={{
-                                justifyContent: 'flex-start'
-                            }}
-                            labelStyle={{
-                                fontSize: 15,
-                                textAlign: 'left',
-                                color: '#000000'
-                            }}
-                            dropDownStyle={{ backgroundColor: '#fafafa' }}
-                            onChangeItem={(item) => this.updateTextInput(item.value, 'houseNumber')}
+                    <View style={styles.borderEdit}>
+                        <TextInput style={styles.textInputStyle}
+                            underlineColorAndroid="transparent"
+                            autoCapitalize="none"
+                            multiline={false}
+                            autoCorrect={false}
+                            enablesReturnKeyAutomatically={true}
+                            onChangeText={this.navigateToScreen}
+                            returnKeyType={"done"}
+                            onFocus={this.navigateToScreen}
+                            keyboardType={'numeric'}
+                            editable={false}
+                            selectTextOnFocus={false}
                             value={this.state.houseNumber}
 
                         />
+
                     </View>
+
                     <View style={styles.inBtnmarginDimension}></View>
 
                     <Text style={styles.titleHeadingText}>Select Job</Text>
@@ -3906,10 +4783,10 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioClippingItems1.map((item, key) =>
-                                        (
+                                    (
 
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton1.bind(this, key)} />
-                                        ))
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -3926,9 +4803,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioClippingItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -3944,9 +4821,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioClippingItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -3962,9 +4839,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioClippingItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClippingButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4040,9 +4917,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPruningItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton1.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4059,9 +4936,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPruningItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4077,9 +4954,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPruningItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4095,9 +4972,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPruningItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruningButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4162,6 +5039,272 @@ export default class RepQualityActivity extends React.Component {
 
                         </View>) : null}
 
+                    {this.state.jobSelected === 'Truss Picking' ? (
+
+                        <View>
+                            <Text style={styles.titleHeading2Text}>1) Packing (Presentable to the customer, packed as clear double layer, packed tightly together, correct amount of trusses per crate to achieve correct crate weight)</Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioTrussPickingItems1.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTrussPickingButton1.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>2) Colour (Last fruit on truss colour 4 or above)</Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioTrussPickingItems2.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTrussPickingButton2.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>3) Grading (TAG 2 and Less is removed incl. cuts, mis set fruit, BER etc)</Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioTrussPickingItems3.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTrussPickingButton3.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>4) Stubs removed off plant and truss arches not found in picking crates</Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioTrussPickingItems4.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTrussPickingButton4.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.marginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>5) Comments {"\n"}(Select comment if needed) </Text>
+
+                            <View style={styles.btnmarginDimension}></View>
+
+                            <View
+                                style={{
+
+                                    // The solution: Apply zIndex to any device except Android
+                                    ...(Platform.OS !== 'android' && {
+                                        zIndex: 20
+                                    })
+
+                                }}
+                            >
+
+                                <DropDownPicker
+                                    items={[
+                                        { label: 'Sent staff back to fix the issue', value: 'Sent staff back to fix the issue' },
+                                        { label: 'Will check more of his/her rows', value: 'Will check more of his/her rows' },
+                                        { label: 'Recurring issue, needs to be escalated', value: 'Recurring issue, needs to be escalated' },
+                                        { label: 'Informal talk conducted', value: 'Informal talk conducted' },
+                                        { label: '--', value: '--' },
+                                    ]}
+                                    placeholder="SELECT"
+                                    containerStyle={{ height: 50 }}
+                                    style={{
+                                        backgroundColor: '#ffffff', marginRight: 20, borderColor: '#000000',
+                                        borderWidth: 1
+                                    }}
+                                    itemStyle={{
+                                        justifyContent: 'flex-start'
+                                    }}
+                                    labelStyle={{
+                                        fontSize: 15,
+                                        textAlign: 'left',
+                                        color: '#000000'
+                                    }}
+                                    dropDownStyle={{ backgroundColor: '#fafafa' }}
+                                    onChangeItem={(item) => this.updateTextInput(item.value, 'comments')}
+                                    value={this.state.comments}
+
+
+                                />
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <TouchableOpacity
+                                style={styles.buttonContainer}
+                                onPress={this.calculateTrussPickingQualityPercentage}>
+                                <Text style={styles.buttonText1}>Submit</Text>
+                            </TouchableOpacity>
+
+                        </View>) : null}
+
+                    {this.state.jobSelected === 'Arching' ? (
+
+                        <View>
+                            <Text style={styles.titleHeading2Text}>1) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems1.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton1.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>2) Arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems2.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton2.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>3) De-skinning of truss. Not forcing truss on to tear skin <Text style={styles.redColor}>(1 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems3.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton3.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>4) No broken trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <View style={styles.flexDirection}>
+
+                                {
+                                    this.state.radioArchingItems4.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioArchingButton4.bind(this, key)} />
+                                    ))
+                                }
+
+
+                            </View>
+
+                            <View style={styles.marginDimension}></View>
+
+                            <Text style={styles.titleHeading2Text}>5) Comments {"\n"}(Select comment if needed) </Text>
+
+                            <View style={styles.btnmarginDimension}></View>
+
+                            <View
+                                style={{
+
+                                    // The solution: Apply zIndex to any device except Android
+                                    ...(Platform.OS !== 'android' && {
+                                        zIndex: 20
+                                    })
+
+                                }}
+                            >
+
+                                <DropDownPicker
+                                    items={[
+                                        { label: 'Sent staff back to fix the issue', value: 'Sent staff back to fix the issue' },
+                                        { label: 'Will check more of his/her rows', value: 'Will check more of his/her rows' },
+                                        { label: 'Recurring issue, needs to be escalated', value: 'Recurring issue, needs to be escalated' },
+                                        { label: 'Informal talk conducted', value: 'Informal talk conducted' },
+                                        { label: '--', value: '--' },
+                                    ]}
+                                    placeholder="SELECT"
+                                    containerStyle={{ height: 50 }}
+                                    style={{
+                                        backgroundColor: '#ffffff', marginRight: 20, borderColor: '#000000',
+                                        borderWidth: 1
+                                    }}
+                                    itemStyle={{
+                                        justifyContent: 'flex-start'
+                                    }}
+                                    labelStyle={{
+                                        fontSize: 15,
+                                        textAlign: 'left',
+                                        color: '#000000'
+                                    }}
+                                    dropDownStyle={{ backgroundColor: '#fafafa' }}
+                                    onChangeItem={(item) => this.updateTextInput(item.value, 'comments')}
+                                    value={this.state.comments}
+
+
+                                />
+
+
+                            </View>
+
+                            <View style={styles.inBtnmarginDimension}></View>
+
+                            <TouchableOpacity
+                                style={styles.buttonContainer}
+                                onPress={this.calculateArchingQualityPercentage}>
+                                <Text style={styles.buttonText1}>Submit</Text>
+                            </TouchableOpacity>
+
+                        </View>) : null}
+
                     {this.state.jobSelected === 'Twisting' ? (
 
                         <View>
@@ -4173,9 +5316,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioTwistingItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton1.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4192,9 +5335,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioTwistingItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4210,9 +5353,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioTwistingItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4228,9 +5371,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioTwistingItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioTwistingButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4294,7 +5437,7 @@ export default class RepQualityActivity extends React.Component {
                             </TouchableOpacity>
                         </View>) : null}
 
-                    {this.state.jobSelected === 'Prune And Arch' ?
+                    {this.state.jobSelected === 'Clip And Prune' ?
 
                         (<View>
                             <Text style={styles.titleHeading2Text}>1) Accuracy: prune to the correct number and remove flag leaf + King fruit <Text style={styles.redColor}>(3 each)</Text> </Text>
@@ -4304,10 +5447,10 @@ export default class RepQualityActivity extends React.Component {
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton1.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems1.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4323,10 +5466,10 @@ export default class RepQualityActivity extends React.Component {
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton2.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems2.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4341,10 +5484,10 @@ export default class RepQualityActivity extends React.Component {
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton3.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems3.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4359,10 +5502,10 @@ export default class RepQualityActivity extends React.Component {
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton4.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems4.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4370,17 +5513,17 @@ export default class RepQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>5) Position of arch: proper <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>5)Clip position: not above a truss/one clip between truss/half twist <Text style={styles.redColor}>(0)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems5.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton5.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems5.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton5.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4389,17 +5532,17 @@ export default class RepQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>6) Arching at the right stage. Arch: as long as it fits and doesn't touch last bud <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>6) Broken heads and trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems6.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton6.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems6.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton6.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4407,17 +5550,17 @@ export default class RepQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>7) De-skinning of truss. Not forcing truss on to tear skin <Text style={styles.redColor}>(1 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>7) Broken heads replaced and bobbin hung <Text style={styles.redColor}>(0)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems7.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton7.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems7.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton7.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4425,17 +5568,17 @@ export default class RepQualityActivity extends React.Component {
 
                             <View style={styles.inBtnmarginDimension}></View>
 
-                            <Text style={styles.titleHeading2Text}>8) No broken trusses <Text style={styles.redColor}>(3 each)</Text> </Text>
+                            <Text style={styles.titleHeading2Text}>8) Laterals: take laterals from previous clip to the head, fail if larger than finger nail <Text style={styles.redColor}>(3 each)</Text> </Text>
 
                             <View style={styles.inBtnmarginDimension}></View>
 
                             <View style={styles.flexDirection}>
 
                                 {
-                                    this.state.radioPruneArchItems8.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPruneArchButton8.bind(this, key)} />
-                                        ))
+                                    this.state.radioClipPruneItems8.map((item, key) =>
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioClipPruneButton8.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4511,9 +5654,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPickingItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton1.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4530,9 +5673,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPickingItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4549,9 +5692,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPickingItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4568,9 +5711,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioPickingItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioPickingButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4648,9 +5791,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDeleafingItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton1.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4667,9 +5810,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDeleafingItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4686,9 +5829,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDeleafingItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4705,9 +5848,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDeleafingItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDeleafingButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4785,9 +5928,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDroppingItems1.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton1.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton1.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4804,9 +5947,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDroppingItems2.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton2.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton2.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4823,9 +5966,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDroppingItems3.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton3.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton3.bind(this, key)} />
+                                    ))
                                 }
 
 
@@ -4842,9 +5985,9 @@ export default class RepQualityActivity extends React.Component {
 
                                 {
                                     this.state.radioDroppingItems4.map((item, key) =>
-                                        (
-                                            <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton4.bind(this, key)} />
-                                        ))
+                                    (
+                                        <RadioButton key={key} button={item} onClick={this.changeActiveRadioDroppingButton4.bind(this, key)} />
+                                    ))
                                 }
 
 
