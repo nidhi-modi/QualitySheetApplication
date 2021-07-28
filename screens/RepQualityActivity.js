@@ -4590,6 +4590,8 @@ export default class RepQualityActivity extends React.Component {
                                 { label: 'Chris Cowie', value: 'Chris Cowie' },
                                 { label: 'Judy Karekare', value: 'Judy Karekare' },
                                 { label: 'Emaleene Toko', value: 'Emaleene Toko' },
+                                { label: 'Jesse Masina Sua', value: 'Jesse Masina Sua' },
+
 
                             ]}
                             placeholder="SELECT"

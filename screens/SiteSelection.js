@@ -165,12 +165,6 @@ export default class SiteSelection extends React.Component {
 
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={this.favAlertButton}>
-              <Text style={styles.buttonText}>FAV</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.buttonContainer}
               onPress={this.ohaAlertButton}>
               <Text style={styles.buttonText}>OHA</Text>
             </TouchableOpacity>

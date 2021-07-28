@@ -3696,6 +3696,7 @@ export default class QualityActivity extends React.Component {
                                 { label: 'Francis Dee', value: 'Francis Dee' },
                                 { label: 'Gurjant Singh', value: 'Gurjant Singh' },
                                 { label: 'Heather Feetham', value: 'Heather Feetham' },
+                                { label: 'Jesse Masina Sua', value: 'Jesse Masina Sua' },
 
 
 
