@@ -4124,7 +4124,7 @@ export default class OhaQualityActivity extends React.Component {
                                 { label: 'Bryan Morrisan', value: 'Bryan Morrisan' },
                                 { label: 'Ravi Sarju', value: 'Ravi Sarju' },
                                 { label: 'Nagma Kaura', value: 'Nagma Kaura' },
-                                { label: 'Donavin Robinson', value: 'Donavin Robinson' },
+                                { label: 'Missy Brown', value: 'Missy Brown' },
                                 { label: 'Jesse Masina Sua', value: 'Jesse Masina Sua' },
 
 
