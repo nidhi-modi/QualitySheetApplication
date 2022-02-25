@@ -54,7 +54,7 @@ export default class NameJobSelector extends React.Component {
             //TESTING
 
             const scriptUrl1 = 'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
-            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataHar'}`;
+            const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataHar2'}`;
 
             console.log("URL : " + url1);
             fetch(url1, { mode: 'no-cors' }).then((response) => response.json())
