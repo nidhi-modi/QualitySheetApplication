@@ -55,8 +55,8 @@ export default class NameJobSelectorRep extends React.Component {
 
             //TESTING
 
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbywdq90H8X6CVYR2Vlla9rkRAPdsYmMTmO-sKfqsOmf7BGGNj0p_g4y/exec';
-            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetDataRep'}`;
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbw5FuMoLBGffUAQTn3fqbfsTVgwEWCOsTooxkFo/exec';
+            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetDataRep2'}`;
 
             console.log("URL : " + url);
             fetch(url, { mode: 'no-cors' }).then((response) => response.json())
