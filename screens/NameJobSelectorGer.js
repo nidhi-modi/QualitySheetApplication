@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, StatusBar, ImageBackground, useEffect, Alert, Dimensions, Image, FlatList, ActivityIndicator, YellowBox } from 'react-native'
-import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
-import NetInfo from "@react-native-community/netinfo";
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  StatusBar,
+  ImageBackground,
+  useEffect,
+  Alert,
+  Dimensions,
+  Image,
+  FlatList,
+  ActivityIndicator,
+  YellowBox,
+} from 'react-native';
+import {ScrollView, TouchableHighlight} from 'react-native-gesture-handler';
+import NetInfo from '@react-native-community/netinfo';
 import Toast from 'react-native-simple-toast';
 import AsyncStorage from '@react-native-community/async-storage';
 import Carousel from 'react-native-looped-carousel';
 import _ from 'lodash';
 
-const { width, height } = Dimensions.get('window');
-
+const {width, height} = Dimensions.get('window');
 
 var nameSelected;
 
@@ -18,657 +31,635 @@ var responseData = [];
 var houseSelected;
 
 export default class NameJobSelectorGer extends React.Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            showRealApp: true,
-            selected: '',
-            combinedData: [],
-            offlineData: [],
-            activeIndex: 0,
-            isLoading: true,
-            filteredClippingData: [],
-            filteredPruningData: [],
-            filteredTwistingData: [],
-            filteredPickingData: [],
-            filteredDeleafingData: [],
-            filteredDroppingData: [],
-            filteredPruneArchData: [],
-            size: { width, height },
-            demo: ''
-
-        }
-
-    }
-
-    //CHECKING CONNECTION
-
-    handleConnectivityChange = state => {
-        if (state.isConnected) {
-
-            this.setState({ isItConnected: 'Online' });
-
-            //TESTING
-
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
-            const url = `${scriptUrl}?callback=ctrlq&action=${'doGetData'}`;
-
-            console.log("URL : " + url);
-            fetch(url, { mode: 'no-cors' }).then((response) => response.json())
-                .then((responseJson) => {
-
-                    this.setState({ combinedData: responseJson, isLoading: false })
-                    if (responseJson !== null) {
-
-                        AsyncStorage.setItem('jsondata', JSON.stringify(responseJson));
-                        this.renderEntryData();
-
-                    }
-
-                }).catch((error) => {
-
-                    console.log(error);
-                });
-
-            //END
-
-
-        } else {
-
-            this.setState({ isItConnected: 'Offline' });
-
-            try {
-                AsyncStorage.getItem('jsondata').then((text1Value) => {
-                    responseData = JSON.parse(text1Value);
-                    this.setState({ combinedData: JSON.parse(text1Value), isLoading: false });
-
-                    if (this.state.combinedData !== null) {
-
-                        this.renderEntryData();
-
-                    }
-
-
-
-                }).done();
-            } catch (error) {
-
-
-            }
-        }
+    this.state = {
+      showRealApp: true,
+      selected: '',
+      combinedData: [],
+      offlineData: [],
+      activeIndex: 0,
+      isLoading: true,
+      filteredClippingData: [],
+      filteredPruningData: [],
+      filteredTwistingData: [],
+      filteredPickingData: [],
+      filteredDeleafingData: [],
+      filteredDroppingData: [],
+      filteredPruneArchData: [],
+      size: {width, height},
+      demo: '',
     };
+  }
 
-    CheckConnectivity = () => {
-        // For Android devices
-        if (Platform.OS === "android") {
-            NetInfo.isConnected.fetch().then(isConnected => {
-                if (isConnected) {
-                    Alert.alert("You are online!");
-                } else {
-                    Alert.alert("You are offline!");
-                }
+  //CHECKING CONNECTION
+
+  handleConnectivityChange = (state) => {
+    if (state.isConnected) {
+      this.setState({isItConnected: 'Online'});
+
+      //TESTING
+
+      const scriptUrl =
+        'https://script.google.com/macros/s/AKfycbwStGsVHmBl83tHHZpzJCLWZV5lmQcNMmINRrSSvqnrq6kyglM/exec';
+      const url = `${scriptUrl}?callback=ctrlq&action=${'doGetDataGer2'}`;
+
+      console.log('URL : ' + url);
+      fetch(url, {mode: 'no-cors'})
+        .then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({combinedData: responseJson, isLoading: false});
+          if (responseJson !== null) {
+            AsyncStorage.setItem('jsondata', JSON.stringify(responseJson));
+            this.renderEntryData();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      //END
+    } else {
+      this.setState({isItConnected: 'Offline'});
+
+      try {
+        AsyncStorage.getItem('jsondata')
+          .then((text1Value) => {
+            responseData = JSON.parse(text1Value);
+            this.setState({
+              combinedData: JSON.parse(text1Value),
+              isLoading: false,
             });
+
+            if (this.state.combinedData !== null) {
+              this.renderEntryData();
+            }
+          })
+          .done();
+      } catch (error) {}
+    }
+  };
+
+  CheckConnectivity = () => {
+    // For Android devices
+    if (Platform.OS === 'android') {
+      NetInfo.isConnected.fetch().then((isConnected) => {
+        if (isConnected) {
+          Alert.alert('You are online!');
         } else {
-            // For iOS devices
-            NetInfo.isConnected.addEventListener(
-                "connectionChange",
-                this.handleFirstConnectivityChange
-            );
+          Alert.alert('You are offline!');
         }
-    };
+      });
+    } else {
+      // For iOS devices
+      NetInfo.isConnected.addEventListener(
+        'connectionChange',
+        this.handleFirstConnectivityChange,
+      );
+    }
+  };
 
-    handleFirstConnectivityChange = isConnected => {
-        NetInfo.isConnected.removeEventListener(
-            "connectionChange",
-            this.handleFirstConnectivityChange
-        );
+  handleFirstConnectivityChange = (isConnected) => {
+    NetInfo.isConnected.removeEventListener(
+      'connectionChange',
+      this.handleFirstConnectivityChange,
+    );
 
-        if (isConnected === false) {
-            Alert.alert("You are offline!");
-        } else {
-            Alert.alert("You are online!");
-        }
-    };
+    if (isConnected === false) {
+      Alert.alert('You are offline!');
+    } else {
+      Alert.alert('You are online!');
+    }
+  };
 
+  //END
+
+  componentDidMount() {
+    nameSelected = this.props.route.params.name;
+    this.setState({selected: nameSelected});
+    console.log("AUDITOR'S NAME : " + nameSelected);
+
+    NetInfo.addEventListener(this.handleConnectivityChange);
+  }
+
+  FlatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: '100%',
+          backgroundColor: '#000000',
+        }}
+      />
+    );
+  };
+
+  GetFlatListItem(adi, name, job, site, score) {
+    if (site === 'GER') {
+      try {
+        AsyncStorage.setItem('ADI', JSON.stringify(adi));
+        AsyncStorage.setItem('NAME', JSON.stringify(name));
+        AsyncStorage.setItem('JOB', JSON.stringify(job));
+        AsyncStorage.setItem('SCORE', JSON.stringify(score));
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.props.navigation.navigate('GerQualityActivity');
+    } else if (site === 'HAR') {
+      try {
+        AsyncStorage.setItem('ADI', JSON.stringify(adi));
+        AsyncStorage.setItem('NAME', JSON.stringify(name));
+        AsyncStorage.setItem('JOB', JSON.stringify(job));
+        AsyncStorage.setItem('SCORE', JSON.stringify(score));
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.props.navigation.navigate('HarQualityActivity');
+    } else if (site === 'FAV') {
+      try {
+        AsyncStorage.setItem('ADI', JSON.stringify(adi));
+        AsyncStorage.setItem('NAME', JSON.stringify(name));
+        AsyncStorage.setItem('JOB', JSON.stringify(job));
+        AsyncStorage.setItem('SCORE', JSON.stringify(score));
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.props.navigation.navigate('FavQualityActivity');
+    } else if (site === 'OHA') {
+      try {
+        AsyncStorage.setItem('ADI', JSON.stringify(adi));
+        AsyncStorage.setItem('NAME', JSON.stringify(name));
+        AsyncStorage.setItem('JOB', JSON.stringify(job));
+        AsyncStorage.setItem('SCORE', JSON.stringify(score));
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.props.navigation.navigate('OhaQualityActivity');
+    }
+  }
+
+  _onLayoutDidChange = (e) => {
+    const layout = e.nativeEvent.layout;
+    this.setState({size: {width: layout.width, height: layout.height}});
+  };
+
+  renderEntryData = () => {
+    //CLIPPING
+    const jobAndTeamLeaderClipping = (d) =>
+      d.Job === 'Clipping' && d.TeamLeader === this.state.selected;
+
+    const filteredDataClipping = this.state.combinedData.items.filter(
+      jobAndTeamLeaderClipping,
+    );
+
+    this.setState({filteredClippingData: filteredDataClipping});
     //END
 
-    componentDidMount() {
+    //PRUNING
+    const jobAndTeamLeaderPruning = (d) =>
+      d.Job === 'Pruning' && d.TeamLeader === this.state.selected;
 
-        nameSelected = this.props.route.params.name;
-        this.setState({ selected: nameSelected })
-        console.log("AUDITOR'S NAME : " + nameSelected);
+    const filteredDataPruning = this.state.combinedData.items.filter(
+      jobAndTeamLeaderPruning,
+    );
 
-        NetInfo.addEventListener(this.handleConnectivityChange);
+    this.setState({filteredPruningData: filteredDataPruning});
+    //END
 
+    //TWISTING
+    const jobAndTeamLeaderTwisting = (d) =>
+      d.Job === 'Twisting' && d.TeamLeader === this.state.selected;
+
+    const filteredDataTwisting = this.state.combinedData.items.filter(
+      jobAndTeamLeaderTwisting,
+    );
+
+    this.setState({filteredTwistingData: filteredDataTwisting});
+    //END
+
+    //PICKING
+    const jobAndTeamLeaderPicking = (d) =>
+      d.Job === 'Picking' && d.TeamLeader === this.state.selected;
+
+    const filteredDataPicking = this.state.combinedData.items.filter(
+      jobAndTeamLeaderPicking,
+    );
+
+    this.setState({filteredPickingData: filteredDataPicking});
+    //END
+
+    //DELEAFING
+    const jobAndTeamLeaderDeleafing = (d) =>
+      d.Job === 'Deleafing' && d.TeamLeader === this.state.selected;
+
+    const filteredDataDeleafing = this.state.combinedData.items.filter(
+      jobAndTeamLeaderDeleafing,
+    );
+
+    this.setState({filteredDeleafingData: filteredDataDeleafing});
+    //END
+
+    //DELEAFING
+    const jobAndTeamLeaderDropping = (d) =>
+      d.Job === 'Dropping' && d.TeamLeader === this.state.selected;
+
+    const filteredDataDropping = this.state.combinedData.items.filter(
+      jobAndTeamLeaderDropping,
+    );
+
+    this.setState({filteredDroppingData: filteredDataDropping});
+    //END
+
+    //PRUNE ARCH
+    const jobAndTeamLeaderPruneArch = (d) =>
+      d.Job === 'Prune And Arch' && d.TeamLeader === this.state.selected;
+
+    const filteredDataPruneArch = this.state.combinedData.items.filter(
+      jobAndTeamLeaderPruneArch,
+    );
+
+    this.setState({filteredPruneArchData: filteredDataPruneArch});
+    //END
+  };
+
+  ListViewItemSeparator = () => {
+    return (
+      <View style={{height: 0.6, width: '100%', backgroundColor: '#000'}} />
+    );
+  };
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={styles.activity}>
+          <ActivityIndicator size="large" color="#0000ff" />
+        </View>
+      );
     }
 
-    FlatListItemSeparator = () => {
-        return (
-            <View
-                style={{
-                    height: 1,
-                    width: "100%",
-                    backgroundColor: "#000000",
-
-                }}
-            />
-        );
-    }
-
-    GetFlatListItem(adi, name, job, site, score) {
-
-
-
-        if (site === 'GER') {
-
-            try {
-
-                AsyncStorage.setItem('ADI', JSON.stringify(adi));
-                AsyncStorage.setItem('NAME', JSON.stringify(name));
-                AsyncStorage.setItem('JOB', JSON.stringify(job));
-                AsyncStorage.setItem('SCORE', JSON.stringify(score));
-
-
-            } catch (error) {
-
-                console.log(error);
-            }
-
-
-            this.props.navigation.navigate('GerQualityActivity')
-
-        } else if (site === 'HAR') {
-
-            try {
-
-                AsyncStorage.setItem('ADI', JSON.stringify(adi));
-                AsyncStorage.setItem('NAME', JSON.stringify(name));
-                AsyncStorage.setItem('JOB', JSON.stringify(job));
-                AsyncStorage.setItem('SCORE', JSON.stringify(score));
-
-
-            } catch (error) {
-
-                console.log(error);
-            }
-
-
-            this.props.navigation.navigate('HarQualityActivity')
-
-        } else if (site === 'FAV') {
-
-            try {
-
-                AsyncStorage.setItem('ADI', JSON.stringify(adi));
-                AsyncStorage.setItem('NAME', JSON.stringify(name));
-                AsyncStorage.setItem('JOB', JSON.stringify(job));
-                AsyncStorage.setItem('SCORE', JSON.stringify(score));
-
-
-            } catch (error) {
-
-                console.log(error);
-            }
-
-            this.props.navigation.navigate('FavQualityActivity')
-
-        } else if (site === 'OHA') {
-
-            try {
-
-                AsyncStorage.setItem('ADI', JSON.stringify(adi));
-                AsyncStorage.setItem('NAME', JSON.stringify(name));
-                AsyncStorage.setItem('JOB', JSON.stringify(job));
-                AsyncStorage.setItem('SCORE', JSON.stringify(score));
-
-
-            } catch (error) {
-
-                console.log(error);
-            }
-
-            this.props.navigation.navigate('OhaQualityActivity')
-
-        }
-
-    }
-
-    _onLayoutDidChange = (e) => {
-        const layout = e.nativeEvent.layout;
-        this.setState({ size: { width: layout.width, height: layout.height } });
-    }
-
-
-    renderEntryData = () => {
-
-
-        //CLIPPING
-        const jobAndTeamLeaderClipping = d => d.Job === 'Clipping' && d.TeamLeader === this.state.selected;
-
-        const filteredDataClipping = this.state.combinedData.items.filter(jobAndTeamLeaderClipping);
-
-        this.setState({ filteredClippingData: filteredDataClipping })
-        //END
-
-        //PRUNING
-        const jobAndTeamLeaderPruning = d => d.Job === 'Pruning' && d.TeamLeader === this.state.selected;
-
-        const filteredDataPruning = this.state.combinedData.items.filter(jobAndTeamLeaderPruning);
-
-        this.setState({ filteredPruningData: filteredDataPruning })
-        //END
-
-        //TWISTING
-        const jobAndTeamLeaderTwisting = d => d.Job === 'Twisting' && d.TeamLeader === this.state.selected;
-
-        const filteredDataTwisting = this.state.combinedData.items.filter(jobAndTeamLeaderTwisting);
-
-        this.setState({ filteredTwistingData: filteredDataTwisting })
-        //END
-
-        //PICKING
-        const jobAndTeamLeaderPicking = d => d.Job === 'Picking' && d.TeamLeader === this.state.selected;
-
-        const filteredDataPicking = this.state.combinedData.items.filter(jobAndTeamLeaderPicking);
-
-        this.setState({ filteredPickingData: filteredDataPicking })
-        //END
-
-        //DELEAFING
-        const jobAndTeamLeaderDeleafing = d => d.Job === 'Deleafing' && d.TeamLeader === this.state.selected;
-
-        const filteredDataDeleafing = this.state.combinedData.items.filter(jobAndTeamLeaderDeleafing);
-
-        this.setState({ filteredDeleafingData: filteredDataDeleafing })
-        //END
-
-        //DELEAFING
-        const jobAndTeamLeaderDropping = d => d.Job === 'Dropping' && d.TeamLeader === this.state.selected;
-
-        const filteredDataDropping = this.state.combinedData.items.filter(jobAndTeamLeaderDropping);
-
-        this.setState({ filteredDroppingData: filteredDataDropping })
-        //END
-
-        //PRUNE ARCH
-        const jobAndTeamLeaderPruneArch = d => d.Job === 'Prune And Arch' && d.TeamLeader === this.state.selected;
-
-        const filteredDataPruneArch = this.state.combinedData.items.filter(jobAndTeamLeaderPruneArch);
-
-        this.setState({ filteredPruneArchData: filteredDataPruneArch })
-        //END
-
-
-    }
-
-    ListViewItemSeparator = () => {
-        return (
-            <View style={{ height: 0.6, width: '100%', backgroundColor: '#000' }} />
-        );
-    };
-
-
-    render() {
-
-
-        if (this.state.isLoading) {
-            return (
-                <View style={styles.activity}>
-                    <ActivityIndicator size="large" color="#0000ff" />
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../assets/background2.png')}
+          style={styles.backgroundImage}>
+          <View
+            style={styles.screenScrolling}
+            onLayout={this._onLayoutDidChange}>
+            <Carousel
+              style={this.state.size}
+              autoplay={false}
+              pageInfo={true}
+              arrow={true}>
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Clipping</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredClippingData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
                 </View>
-            )
-        }
-
-
-
-        return (
-
-            <View style={styles.container}>
-
-                <ImageBackground source={require('../assets/background2.png')} style={styles.backgroundImage}>
-
-                    <View style={styles.screenScrolling} onLayout={this._onLayoutDidChange}>
-                        <Carousel
-
-                            style={this.state.size}
-                            autoplay={false}
-                            pageInfo={true}
-                            arrow={true}
-                        >
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Clipping</Text>
-
-                                <View style={styles.container}>
-
-                                    <FlatList
-
-                                        data={this.state.filteredClippingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) =>
-                                            <Text style={{
-                                                padding: 10,
-                                                fontSize: 18,
-                                                height: 55,
-                                                color: item.Colour,
-                                            }}
-                                                onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-
-                                </View>
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Pruning</Text>
-
-                                <View style={styles.container}>
-
-                                    <FlatList
-
-                                        data={this.state.filteredPruningData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Twisting</Text>
-
-                                <View style={styles.container}>
-
-
-
-                                    <FlatList
-
-                                        data={this.state.filteredTwistingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Picking</Text>
-
-
-                                <View style={styles.listContainer}>
-
-
-                                    <FlatList
-
-                                        data={this.state.filteredPickingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Deleafing</Text>
-
-                                <View style={styles.container}>
-
-                                    <FlatList
-
-                                        data={this.state.filteredDeleafingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Dropping</Text>
-
-                                <View style={styles.container}>
-
-
-                                    <FlatList
-
-                                        data={this.state.filteredDroppingData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                            </View>
-
-                            <View style={[this.state.size]}>
-
-                                <Text style={styles.headerText}>Prune &amp; Arch</Text>
-
-                                <View style={styles.container}>
-
-
-                                    <FlatList
-
-                                        data={this.state.filteredPruneArchData.sort((a, b) => a.ActualChecks - b.ActualChecks)}
-
-                                        ItemSeparatorComponent={this.FlatListItemSeparator}
-
-                                        renderItem={({ item }) => <Text style={{
-                                            padding: 10,
-                                            fontSize: 18,
-                                            height: 55,
-                                            color: item.Colour
-                                        }} onPress={this.GetFlatListItem.bind(this, item.Adi, item.Name, item.Job, item.Site, item.Score)} > {item.Combined} </Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-
-                                    />
-
-                                </View>
-
-                            </View>
-
-                        </Carousel>
-
-                    </View>
-
-                </ImageBackground >
-
-            </View >
-        )
-
-
-    }
-
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Pruning</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredPruningData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Twisting</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredTwistingData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Picking</Text>
+
+                <View style={styles.listContainer}>
+                  <FlatList
+                    data={this.state.filteredPickingData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Deleafing</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredDeleafingData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Dropping</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredDroppingData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Prune &amp; Arch</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredPruneArchData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+            </Carousel>
+          </View>
+        </ImageBackground>
+      </View>
+    );
+  }
 }
 
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
+  container: {
+    flex: 1,
+  },
 
-    listContainer: {
-        flex: 10,
+  listContainer: {
+    flex: 10,
+  },
 
-    },
+  footerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    footerContainer: {
+  screenScrolling: {
+    flex: 1,
+    width: screenWidth,
+    marginTop: 20,
+  },
 
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+  carouselScreenScrolling: {
+    flex: 1,
+    marginTop: 20,
+  },
 
-    screenScrolling: {
+  buttonContainer1: {
+    //backgroundColor: 'rgba(0,0,0,0.65)',
+    borderRadius: 5,
+    padding: 10,
+    margin: 20,
+    height: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
-        flex: 1,
-        width: screenWidth,
-        marginTop: 20,
+  FlatListItemStyle: {
+    padding: 10,
+    fontSize: 18,
+    height: 50,
+  },
 
+  buttonContainer: {
+    backgroundColor: '#D3D3D3',
+    borderRadius: 5,
+    padding: 10,
+    margin: 20,
+    height: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
-    },
+  activity: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    carouselScreenScrolling: {
+  borderDimensions: {
+    margin: 15,
+  },
 
-        flex: 1,
-        marginTop: 20,
+  textStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontSize: 19,
+    color: '#000000',
+    fontWeight: 'bold',
+  },
 
+  buttonText: {
+    fontSize: 19,
+    color: '#000000',
+    fontWeight: 'bold',
+  },
+  backgroundImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
 
-    },
-
-    buttonContainer1: {
-        //backgroundColor: 'rgba(0,0,0,0.65)',
-        borderRadius: 5,
-        padding: 10,
-        margin: 20,
-        height: 55,
-        justifyContent: 'center',
-        alignItems: 'center'
-
-    },
-
-    FlatListItemStyle: {
-        padding: 10,
-        fontSize: 18,
-        height: 50,
-    },
-
-    buttonContainer: {
-        backgroundColor: '#D3D3D3',
-        borderRadius: 5,
-        padding: 10,
-        margin: 20,
-        height: 55,
-        justifyContent: 'center',
-        alignItems: 'center'
-
-    },
-
-    activity: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    borderDimensions: {
-
-        margin: 15,
-    },
-
-    textStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        fontSize: 19,
-        color: '#000000',
-        fontWeight: 'bold'
-
-    },
-
-    buttonText: {
-        fontSize: 19,
-        color: '#000000',
-        fontWeight: 'bold',
-
-    },
-    backgroundImage: {
-
-        width: '100%',
-        height: '100%',
-        resizeMode: 'cover'
-    },
-
-    arrow: {
-
-        resizeMode: 'cover',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row'
-
-    },
-    headerText: {
-        color: '#000000',
-        fontSize: 22,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textDecorationLine: 'underline',
-        marginBottom: 15
-    },
-})
-
-
+  arrow: {
+    resizeMode: 'cover',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  headerText: {
+    color: '#000000',
+    fontSize: 22,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textDecorationLine: 'underline',
+    marginBottom: 15,
+  },
+});
