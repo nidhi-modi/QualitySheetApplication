@@ -48,6 +48,7 @@ export default class NameJobSelectorGer extends React.Component {
       filteredDeleafingData: [],
       filteredDroppingData: [],
       filteredPruneArchData: [],
+      filteredTrussCuttingData: [],
       size: {width, height},
       demo: '',
     };
@@ -264,7 +265,7 @@ export default class NameJobSelectorGer extends React.Component {
     this.setState({filteredDeleafingData: filteredDataDeleafing});
     //END
 
-    //DELEAFING
+    //DROPPING
     const jobAndTeamLeaderDropping = (d) =>
       d.Job === 'Dropping' && d.TeamLeader === this.state.selected;
 
@@ -284,6 +285,17 @@ export default class NameJobSelectorGer extends React.Component {
     );
 
     this.setState({filteredPruneArchData: filteredDataPruneArch});
+    //END
+
+    //TRUSS CUTTING
+    const jobAndTeamLeaderTrussCutting = (d) =>
+      d.Job === 'Truss Cutting' && d.TeamLeader === this.state.selected;
+
+    const filteredDataTrussCutting = this.state.combinedData.items.filter(
+      jobAndTeamLeaderTrussCutting,
+    );
+
+    this.setState({filteredTrussCuttingData: filteredDataTrussCutting});
     //END
   };
 
@@ -525,6 +537,40 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredPruneArchData.sort(
+                      (a, b) => a.ActualChecks - b.ActualChecks,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Truss Cutting</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredTrussCuttingData.sort(
                       (a, b) => a.ActualChecks - b.ActualChecks,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
