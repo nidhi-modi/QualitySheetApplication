@@ -333,7 +333,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredClippingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || b.Name - a.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -367,7 +368,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredPruningData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -401,7 +403,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredTwistingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -435,7 +438,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.listContainer}>
                   <FlatList
                     data={this.state.filteredPickingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -469,7 +473,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredDeleafingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -503,7 +508,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredDroppingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -537,7 +543,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredPruneArchData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (
@@ -571,7 +578,8 @@ export default class NameJobSelectorGer extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredTrussCuttingData.sort(
-                      (a, b) => a.ActualChecks - b.ActualChecks,
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={({item}) => (

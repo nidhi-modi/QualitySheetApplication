@@ -10,7 +10,7 @@ import {
   BackHandler,
   Alert,
   TextInput,
-  Button,
+  Linking,
   Keyboard,
   Platform,
 } from 'react-native';
@@ -3980,6 +3980,18 @@ export default class QualityActivity extends React.Component {
 
           <View style={styles.inBtnmarginDimension}></View>
 
+          <Text
+            style={{fontSize: 16, color: '#2C903D'}}
+            onPress={() =>
+              Linking.openURL('https://master.d2exd6zivllgl0.amplifyapp.com/')
+            }>
+            Names not in the list?{' '}
+            <Text style={{fontSize: 17, fontWeight: 'bold'}}>CLICK HERE</Text>{' '}
+            to add
+          </Text>
+
+          <View style={styles.marginDimension}></View>
+
           <Text style={styles.titleHeadingText}>Select Name</Text>
 
           {Platform.OS === 'ios' ? (
@@ -5349,9 +5361,7 @@ export default class QualityActivity extends React.Component {
           {this.state.jobSelected === 'Truss Cutting' ? (
             <View>
               <Text style={styles.titleHeading2Text}>
-                1) Packing (Presentable to the customer, packed as clear double
-                layer, packed tightly together, correct amount of trusses per
-                crate to achieve correct crate weight)
+                1) Clean cuts and no stubs
               </Text>
 
               <View style={styles.inBtnmarginDimension}></View>
@@ -5372,7 +5382,7 @@ export default class QualityActivity extends React.Component {
               <View style={styles.inBtnmarginDimension}></View>
 
               <Text style={styles.titleHeading2Text}>
-                2) Colour (Last fruit on truss colour 4 or above)
+                2) No missing empty trusses
               </Text>
 
               <View style={styles.inBtnmarginDimension}></View>
@@ -5393,8 +5403,7 @@ export default class QualityActivity extends React.Component {
               <View style={styles.inBtnmarginDimension}></View>
 
               <Text style={styles.titleHeading2Text}>
-                3) Grading (TAG 2 and Less is removed incl. cuts, mis set fruit,
-                BER etc)
+                3) Dead plants/stems removed
               </Text>
 
               <View style={styles.inBtnmarginDimension}></View>
@@ -5415,8 +5424,7 @@ export default class QualityActivity extends React.Component {
               <View style={styles.inBtnmarginDimension}></View>
 
               <Text style={styles.titleHeading2Text}>
-                4) Stubs removed off plant and truss arches not found in picking
-                crates
+                4) No weeds in base of plants
               </Text>
 
               <View style={styles.inBtnmarginDimension}></View>
