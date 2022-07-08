@@ -3907,7 +3907,6 @@ export default class OhaQualityActivity extends React.Component {
                 {label: 'Ravi Sarju', value: 'Ravi Sarju'},
                 {label: 'Nagma Kaura', value: 'Nagma Kaura'},
                 {label: 'Missy Brown', value: 'Missy Brown'},
-                {label: 'Jesse Masina Sua', value: 'Jesse Masina Sua'},
               ]}
               placeholder="SELECT"
               containerStyle={{height: 50}}

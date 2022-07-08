@@ -64,7 +64,7 @@ export default class NameJobSelectorOha extends React.Component {
 
       const scriptUrl1 =
         'https://script.google.com/macros/s/AKfycbyL2lpPLYjuO0dctGfyCjUchA0as1WKMSRPfjliIu5BJfKuzpyJ/exec';
-      const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataOha'}`;
+      const url1 = `${scriptUrl1}?callback=ctrlq&action=${'doGetDataOha2'}`;
 
       console.log('URL : ' + url1);
       fetch(url1, {mode: 'no-cors'})
