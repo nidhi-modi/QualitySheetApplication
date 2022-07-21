@@ -225,7 +225,7 @@ export default class NameJobSelectorRep extends React.Component {
   renderEntryData = () => {
     //CLIPPING
     const jobAndTeamLeaderClipping = (d) =>
-      d.Job === 'Clipping' && d.TeamLeader === this.state.selected;
+      d.Job === 'Clipping' && d.TeamLeader === 'REP Teams';
 
     const filteredDataClipping = this.state.combinedData.items.filter(
       jobAndTeamLeaderClipping,
@@ -236,7 +236,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //PRUNING
     const jobAndTeamLeaderPruning = (d) =>
-      d.Job === 'Pruning' && d.TeamLeader === this.state.selected;
+      d.Job === 'Pruning' && d.TeamLeader === 'REP Teams';
 
     const filteredDataPruning = this.state.combinedData.items.filter(
       jobAndTeamLeaderPruning,
@@ -247,7 +247,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //TWISTING
     const jobAndTeamLeaderTwisting = (d) =>
-      d.Job === 'Twisting' && d.TeamLeader === this.state.selected;
+      d.Job === 'Twisting' && d.TeamLeader === 'REP Teams';
 
     const filteredDataTwisting = this.state.combinedData.items.filter(
       jobAndTeamLeaderTwisting,
@@ -258,7 +258,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //PICKING
     const jobAndTeamLeaderPicking = (d) =>
-      d.Job === 'Picking' && d.TeamLeader === this.state.selected;
+      d.Job === 'Picking' && d.TeamLeader === 'REP Teams';
 
     const filteredDataPicking = this.state.combinedData.items.filter(
       jobAndTeamLeaderPicking,
@@ -269,7 +269,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //DELEAFING
     const jobAndTeamLeaderDeleafing = (d) =>
-      d.Job === 'Deleafing' && d.TeamLeader === this.state.selected;
+      d.Job === 'Deleafing' && d.TeamLeader === 'REP Teams';
 
     const filteredDataDeleafing = this.state.combinedData.items.filter(
       jobAndTeamLeaderDeleafing,
@@ -280,7 +280,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //DELEAFING
     const jobAndTeamLeaderDropping = (d) =>
-      d.Job === 'Dropping' && d.TeamLeader === this.state.selected;
+      d.Job === 'Dropping' && d.TeamLeader === 'REP Teams';
 
     const filteredDataDropping = this.state.combinedData.items.filter(
       jobAndTeamLeaderDropping,
@@ -291,7 +291,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //CLIP PRUNE
     const jobAndTeamLeaderClipPrune = (d) =>
-      d.Job === 'Clip And Prune' && d.TeamLeader === this.state.selected;
+      d.Job === 'Clip And Prune' && d.TeamLeader === 'REP Teams';
 
     const filteredDataClipPrune = this.state.combinedData.items.filter(
       jobAndTeamLeaderClipPrune,
@@ -302,7 +302,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //ARCHING
     const jobAndTeamLeaderArching = (d) =>
-      d.Job === 'Arching' && d.TeamLeader === this.state.selected;
+      d.Job === 'Arching' && d.TeamLeader === 'REP Teams';
 
     const filteredDataArching = this.state.combinedData.items.filter(
       jobAndTeamLeaderArching,
@@ -313,7 +313,7 @@ export default class NameJobSelectorRep extends React.Component {
 
     //TRUSS PICKING
     const jobAndTeamLeaderTrussPicking = (d) =>
-      d.Job === 'Truss Picking' && d.TeamLeader === this.state.selected;
+      d.Job === 'Truss Picking' && d.TeamLeader === 'REP Teams';
 
     const filteredDataTrussPicking = this.state.combinedData.items.filter(
       jobAndTeamLeaderTrussPicking,
