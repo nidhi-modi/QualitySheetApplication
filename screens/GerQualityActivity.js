@@ -3952,7 +3952,7 @@ export default class QualityActivity extends React.Component {
                 {label: 'Marsha Stone', value: 'Marsha Stone'},
                 {label: 'Nau Pesa', value: 'Nau Pesa'},
                 {label: 'Tevita Fetuani', value: 'Tevita Fetuani'},
-                {label: 'Lua Tafau', value: 'Lua Tafau'},
+                {label: 'Anton Fernando', value: 'Anton Fernando'},
               ]}
               placeholder="SELECT"
               containerStyle={{height: 50}}
