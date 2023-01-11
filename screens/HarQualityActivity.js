@@ -4755,7 +4755,6 @@ export default class HarQualityActivity extends React.Component {
             <DropDownPicker
               items={[
                 {label: 'Taufa Filiai', value: 'Taufa Filiai'},
-                {label: 'Gaurav Bhalla', value: 'Gaurav Bhalla'},
                 {label: 'Fusi Pai Tonga', value: 'Fusi Pai Tonga'},
                 {label: 'Florence Pearson', value: 'Florence Pearson'},
                 {label: 'Lua Tafau', value: 'Lua Tafau'},
