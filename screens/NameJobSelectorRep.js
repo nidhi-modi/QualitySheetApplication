@@ -51,6 +51,8 @@ export default class NameJobSelectorRep extends React.Component {
       filteredClipPruneData: [],
       filteredArchingData: [],
       filteredTrussPickingData: [],
+      filteredDensityData: [],
+
       size: {width, height},
       demo: '',
     };
@@ -234,6 +236,17 @@ export default class NameJobSelectorRep extends React.Component {
     this.setState({filteredClippingData: filteredDataClipping});
     //END
 
+    //DENSITY
+    const jobAndTeamLeaderDensity = (d) =>
+      d.Job === 'Density' && d.TeamLeader === 'REP Teams';
+
+    const filteredDataDensity = this.state.combinedData.items.filter(
+      jobAndTeamLeaderDensity,
+    );
+
+    this.setState({filteredDensityData: filteredDataDensity});
+    //END
+
     //PRUNING
     const jobAndTeamLeaderPruning = (d) =>
       d.Job === 'Pruning' && d.TeamLeader === 'REP Teams';
@@ -357,6 +370,41 @@ export default class NameJobSelectorRep extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredClippingData.sort(
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Density</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredDensityData.sort(
                       (a, b) =>
                         a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}

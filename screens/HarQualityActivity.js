@@ -708,6 +708,70 @@ export default class HarQualityActivity extends React.Component {
         },
       ],
 
+      radioDensityItems1: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioDensityItems2: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioDensityItems3: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioDensityItems4: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
       clippingOption1: '',
       clippingOption2: '',
       clippingOption3: '',
@@ -756,6 +820,11 @@ export default class HarQualityActivity extends React.Component {
       trussCuttingOption2: '',
       trussCuttingOption3: '',
       trussCuttingOption4: '',
+
+      densityOption1: '',
+      densityOption2: '',
+      densityOption3: '',
+      densityOption4: '',
 
       isLoading: false,
       auditorsName: '',
@@ -998,6 +1067,64 @@ export default class HarQualityActivity extends React.Component {
     this.setState({radioClippingItems4: this.state.radioClippingItems4}, () => {
       this.setState({
         clippingOption4: this.state.radioClippingItems4[index].label,
+      });
+    });
+  }
+
+  //DENSITY
+
+  changeActiveRadioDensityButton1(index) {
+    this.state.radioDensityItems1.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioDensityItems1[index].selected = true;
+
+    this.setState({radioDensityItems1: this.state.radioDensityItems1}, () => {
+      this.setState({
+        densityOption1: this.state.radioDensityItems1[index].label,
+      });
+    });
+  }
+
+  changeActiveRadioDensityButton2(index) {
+    this.state.radioDensityItems2.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioDensityItems2[index].selected = true;
+
+    this.setState({radioDensityItems2: this.state.radioDensityItems2}, () => {
+      this.setState({
+        densityOption2: this.state.radioDensityItems2[index].label,
+      });
+    });
+  }
+
+  changeActiveRadioDensityButton3(index) {
+    this.state.radioDensityItems3.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioDensityItems3[index].selected = true;
+
+    this.setState({radioDensityItems3: this.state.radioDensityItems3}, () => {
+      this.setState({
+        densityOption3: this.state.radioDensityItems3[index].label,
+      });
+    });
+  }
+
+  changeActiveRadioDensityButton4(index) {
+    this.state.radioDensityItems4.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioDensityItems4[index].selected = true;
+
+    this.setState({radioDensityItems4: this.state.radioDensityItems4}, () => {
+      this.setState({
+        densityOption4: this.state.radioDensityItems4[index].label,
       });
     });
   }
@@ -1717,6 +1844,48 @@ export default class HarQualityActivity extends React.Component {
     //END
   };
 
+  resetDensityRadioButton = () => {
+    //DENSITY 1
+    this.state.radioDensityItems1.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState({radioDensityItems1: this.state.radioDensityItems1}, () => {
+      this.setState({densityOption1: this.state.radioDensityItems1[0].label});
+    });
+    //END
+
+    //DENSITY 2
+    this.state.radioDensityItems2.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState({radioDensityItems2: this.state.radioDensityItems2}, () => {
+      this.setState({densityOption2: this.state.radioDensityItems2[0].label});
+    });
+    //END
+
+    //DENSITY 3
+    this.state.radioDensityItems3.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState({radioDensityItems3: this.state.radioDensityItems3}, () => {
+      this.setState({densityOption3: this.state.radioDensityItems3[0].label});
+    });
+    //END
+
+    //DENSITY 4
+    this.state.radioDensityItems4.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState({radioDensityItems4: this.state.radioDensityItems4}, () => {
+      this.setState({densityOption4: this.state.radioDensityItems4[0].label});
+    });
+    //END
+  };
+
   resetClippingPruningRadioButton = () => {
     //CLIPPING PRUNING 1
     this.state.radioClipPruneItems1.map((item) => {
@@ -2100,6 +2269,40 @@ export default class HarQualityActivity extends React.Component {
 
     setTimeout(() => {
       this.saveClippingDataToDB();
+    }, 1500);
+  };
+
+  calculateDensityQualityPercentage = () => {
+    setTimeout(() => {
+      if (this.state.densityOption1 === 'Pass') {
+        count = count + 25;
+      } else {
+      }
+
+      if (this.state.densityOption2 === 'Pass') {
+        count = count + 25;
+      } else {
+      }
+
+      if (this.state.densityOption3 === 'Pass') {
+        count = count + 25;
+      } else {
+      }
+
+      if (this.state.densityOption4 === 'Pass') {
+        count = count + 25;
+      } else {
+      }
+
+      this.setState({qualityPercentage: count.toString()});
+
+      console.log('COUNT : ' + count);
+
+      count = 0;
+    }, 1000);
+
+    setTimeout(() => {
+      this.saveDensityDataToDB();
     }, 1500);
   };
 
@@ -2580,6 +2783,209 @@ export default class HarQualityActivity extends React.Component {
               } else {
                 this.setState({isLoading: false});
                 alert('Choose one option from clipping quality check 1');
+              }
+            } else {
+              this.setState({isLoading: false});
+              alert('Please select job');
+            }
+          } else {
+            this.setState({isLoading: false});
+            alert('Please select name');
+          }
+        } else {
+          this.setState({isLoading: false});
+          alert('Please fill row number');
+        }
+      } else {
+        this.setState({isLoading: false});
+        alert('Please select house number');
+      }
+    } else {
+      this.setState({isLoading: false});
+      alert('Please select auditor name');
+    }
+  };
+
+  saveDensityDataToDB = () => {
+    var that = this;
+    this.setState({isLoading: true});
+
+    const {auditorsName} = this.state;
+    const {houseNumber} = this.state;
+    const {rowNumber} = this.state;
+    const {weekNumber} = this.state;
+    const {workersName} = this.state;
+    const {jobSelected} = this.state;
+    const {densityOption1} = this.state;
+    const {densityOption2} = this.state;
+    const {densityOption3} = this.state;
+    const {densityOption4} = this.state;
+    const {data_send} = this.state;
+
+    if (auditorsName) {
+      if (houseNumber) {
+        if (rowNumber) {
+          if (workersName) {
+            if (jobSelected) {
+              if (densityOption1) {
+                if (densityOption2) {
+                  if (densityOption3) {
+                    if (densityOption4) {
+                      if (this.state.isItConnected === 'Online') {
+                        console.log('Connected to internet');
+
+                        const scriptUrl =
+                          'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
+                        const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHarSite'}&week_number=${
+                          that.state.weekNumber
+                        }&auditor_name=${that.state.auditorsName}&job=${
+                          that.state.jobSelected
+                        }&house_number=${that.state.houseNumber}&row_number=${
+                          that.state.rowNumber
+                        }&worker_name=${that.state.workersName}&adi_code=${
+                          that.state.adiCode
+                        }&data1=${that.state.densityOption1}&data2=${
+                          that.state.densityOption2
+                        }&data3=${that.state.densityOption3}&data4=${
+                          that.state.densityOption4
+                        }&data5=${''}&data6=${''}&data7=${''}&data8=${''}&comments=${
+                          that.state.comments
+                        }&quality_percent=${that.state.qualityPercentage}`;
+
+                        console.log('URL : ' + url);
+                        fetch(url, {mode: 'no-cors'}).then(() => {
+                          console.log('Data Send');
+                        });
+                        realm.write(() => {
+                          var ID =
+                            realm
+                              .objects('qualitySheet')
+                              .sorted('entry_id', true).length > 0
+                              ? realm
+                                  .objects('qualitySheet')
+                                  .sorted('entry_id', true)[0].entry_id + 1
+                              : 1;
+                          realm.create('qualitySheet', {
+                            entry_id: ID,
+                            auditor_name: that.state.auditorsName,
+                            house_number: that.state.houseNumber,
+                            job_name: that.state.jobSelected,
+                            worker_name: that.state.workersName,
+                            row_number: that.state.rowNumber,
+                            week_number: that.state.weekNumber,
+                            adi_code: that.state.adiCode,
+                            comments: that.state.comments,
+                            quality_percent: that.state.qualityPercentage,
+                            data1: that.state.densityOption1,
+                            data2: that.state.densityOption2,
+                            data3: that.state.densityOption3,
+                            data4: that.state.densityOption4,
+                            data5: '',
+                            data6: '',
+                            data7: '',
+                            data8: '',
+                            data_send: 'Y',
+                          });
+
+                          this.resetDensityRadioButton();
+                          AsyncStorage.clear();
+                          AsyncStorage.removeItem('auditorsName');
+                          AsyncStorage.removeItem('workersName');
+                          AsyncStorage.removeItem('houseNumber');
+                          AsyncStorage.removeItem('jobSelected');
+                          AsyncStorage.removeItem('rowNumber');
+                          this.setState({auditorsName: null});
+                          this.setState({workersName: ''});
+                          this.setState({houseNumber: ''});
+                          this.setState({jobSelected: ''});
+                          this.setState({rowNumber: ''});
+                          this.setState({isScoreSet: false});
+
+                          this.props.navigation.navigate('HarQualityActivity');
+                          Toast.showWithGravity(
+                            'Success!! \nDetails Added Successfully.',
+                            Toast.LONG,
+                            Toast.CENTER,
+                          );
+                          this.setState({isLoading: false});
+                        });
+
+                        this.setState({auditorsName: null});
+                      } else {
+                        console.log('Not connected to internet');
+
+                        realm.write(() => {
+                          var ID =
+                            realm
+                              .objects('qualitySheet')
+                              .sorted('entry_id', true).length > 0
+                              ? realm
+                                  .objects('qualitySheet')
+                                  .sorted('entry_id', true)[0].entry_id + 1
+                              : 1;
+                          realm.create('qualitySheet', {
+                            entry_id: ID,
+                            auditor_name: that.state.auditorsName,
+                            house_number: that.state.houseNumber,
+                            job_name: that.state.jobSelected,
+                            worker_name: that.state.workersName,
+                            row_number: that.state.rowNumber,
+                            week_number: that.state.weekNumber,
+                            adi_code: that.state.adiCode,
+                            comments: that.state.comments,
+                            quality_percent: that.state.qualityPercentage,
+                            data1: that.state.densityOption1,
+                            data2: that.state.densityOption2,
+                            data3: that.state.densityOption3,
+                            data4: that.state.densityOption4,
+                            data5: '',
+                            data6: '',
+                            data7: '',
+                            data8: '',
+                            data_send: 'N',
+                          });
+
+                          this.resetClippingRadioButton();
+                          AsyncStorage.clear();
+                          AsyncStorage.removeItem('auditorsName');
+                          AsyncStorage.removeItem('workersName');
+                          AsyncStorage.removeItem('houseNumber');
+                          AsyncStorage.removeItem('jobSelected');
+                          AsyncStorage.removeItem('rowNumber');
+                          this.setState({auditorsName: null});
+                          this.setState({workersName: ''});
+                          this.setState({houseNumber: ''});
+                          this.setState({jobSelected: ''});
+                          this.setState({rowNumber: ''});
+                          this.setState({isScoreSet: false});
+
+                          this.props.navigation.navigate('HarQualityActivity');
+
+                          Toast.show(
+                            'Success!! \nDetails Added Successfully.',
+                            Toast.LONG,
+                          );
+                          this.setState({isLoading: false});
+                        });
+
+                        this.setState({auditorsName: null});
+                      }
+                    } else {
+                      this.setState({isLoading: false});
+                      alert('Choose one option from density quality check 4');
+                    }
+                  } else {
+                    this.setState({isLoading: false});
+                    alert('Choose one option from density quality check 3');
+                  }
+                } else {
+                  this.setState({isLoading: false});
+                  alert('Choose one option from density quality check 2');
+                }
+              } else {
+                this.setState({isLoading: false});
+                alert('Choose one option from density quality check 1');
               }
             } else {
               this.setState({isLoading: false});
@@ -4725,6 +5131,161 @@ export default class HarQualityActivity extends React.Component {
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={this.calculateClippingQualityPercentage}>
+                <Text style={styles.buttonText1}>Submit</Text>
+              </TouchableOpacity>
+            </View>
+          ) : null}
+
+          {this.state.jobSelected === 'Density' ? (
+            <View>
+              <Text style={styles.titleHeading2Text}>
+                1) Less than 3 broken heads per row{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioDensityItems1.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioDensityButton1.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                2) Clip is applied above broken head to indicate to others{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioDensityItems2.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioDensityButton2.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                3) New bobbin is hung / or plant has been clipped to adjacent
+                bobbin{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioDensityItems3.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioDensityButton3.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                4) A lateral has been left to grow{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioDensityItems4.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioDensityButton4.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.marginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                5) Comments {'\n'}eg: 10 broken heads, no half twist, clipping
+                height poor, needs training (Select comment if needed){' '}
+              </Text>
+
+              <View style={styles.btnmarginDimension}></View>
+
+              <View
+                style={{
+                  // The solution: Apply zIndex to any device except Android
+                  ...(Platform.OS !== 'android' && {
+                    zIndex: 20,
+                  }),
+                }}>
+                <DropDownPicker
+                  items={[
+                    {
+                      label: 'Sent staff back to fix the issue',
+                      value: 'Sent staff back to fix the issue',
+                    },
+                    {
+                      label: 'Will check more of his/her rows',
+                      value: 'Will check more of his/her rows',
+                    },
+                    {
+                      label: 'Recurring issue, needs to be escalated',
+                      value: 'Recurring issue, needs to be escalated',
+                    },
+                    {
+                      label: 'Informal talk conducted',
+                      value: 'Informal talk conducted',
+                    },
+                    {label: '--', value: '--'},
+                  ]}
+                  placeholder="SELECT"
+                  containerStyle={{height: 50}}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    marginRight: 20,
+                    borderColor: '#000000',
+                    borderWidth: 1,
+                  }}
+                  itemStyle={{
+                    justifyContent: 'flex-start',
+                  }}
+                  labelStyle={{
+                    fontSize: 15,
+                    textAlign: 'left',
+                    color: '#000000',
+                  }}
+                  dropDownStyle={{backgroundColor: '#fafafa'}}
+                  onChangeItem={(item) =>
+                    this.updateTextInput(item.value, 'comments')
+                  }
+                  value={this.state.comments}
+                />
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={this.calculateDensityQualityPercentage}>
                 <Text style={styles.buttonText1}>Submit</Text>
               </TouchableOpacity>
             </View>
