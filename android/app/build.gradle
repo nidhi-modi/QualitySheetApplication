@@ -132,8 +132,8 @@ android {
         applicationId "com.qualitysheetapplication"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 19
-        versionName "1.19"
+        versionCode 28
+        versionName "1.28"
     }
     splits {
         abi {

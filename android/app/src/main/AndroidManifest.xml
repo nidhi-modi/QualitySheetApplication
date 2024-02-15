@@ -9,9 +9,11 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:taskAffinity=".string">
         <activity
             android:name=".SplashActivity"
+            android:exported="true"
             android:label="@string/app_name"
             >
             <intent-filter>

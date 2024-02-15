@@ -4355,11 +4355,15 @@ export default class QualityActivity extends React.Component {
             <DropDownPicker
               items={[
                 {label: 'Tomu Lama', value: 'Tomu Lama'},
-                {label: 'Meire De Moraes', value: 'Meire De Moraes'},
-                {label: 'Nau Pesa', value: 'Nau Pesa'},
+                {label: 'Vikash Chand', value: 'Vikash Chand'},
                 {label: 'Tevita Fetuani', value: 'Tevita Fetuani'},
                 {label: 'Simione Filiai', value: 'Simione Filiai'},
-                {label: 'Anton Fernando', value: 'Anton Fernando'},
+                {label: 'Nau Pesa', value: 'Nau Pesa'},
+                {label: 'Sai Chandrasekar', value: 'Sai Chandrasekar'},
+                {
+                  label: 'Brooklyn Keown Wohnsiedler',
+                  value: 'Brooklyn Keown Wohnsiedler',
+                },
               ]}
               placeholder="SELECT"
               containerStyle={{height: 50}}

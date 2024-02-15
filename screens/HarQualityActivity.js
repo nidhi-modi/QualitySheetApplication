@@ -4757,9 +4757,8 @@ export default class HarQualityActivity extends React.Component {
                 {label: 'Taufa Filiai', value: 'Taufa Filiai'},
                 {label: 'Fusi Pai Tonga', value: 'Fusi Pai Tonga'},
                 {label: 'Florence Pearson', value: 'Florence Pearson'},
-                {label: 'Lua Tafau', value: 'Lua Tafau'},
+                {label: 'Jeremy Whitten', value: 'Jeremy Whitten'},
                 {label: 'Aroha Majoor', value: 'Aroha Majoor'},
-                
               ]}
               placeholder="SELECT"
               containerStyle={{height: 50}}
