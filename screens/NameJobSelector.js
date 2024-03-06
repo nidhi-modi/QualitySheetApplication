@@ -49,6 +49,7 @@ export default class NameJobSelector extends React.Component {
       filteredDroppingData: [],
       filteredClipPruneData: [],
       filteredArchingData: [],
+      filteredPruneArchData: [],
       filteredTrussCuttingData: [],
       filteredDensityData: [],
       size: {width, height},
@@ -287,6 +288,17 @@ export default class NameJobSelector extends React.Component {
     );
 
     this.setState({filteredDroppingData: filteredDataDropping});
+    //END
+
+    //PRUNE ARCH
+    const jobAndTeamLeaderPruneArch = (d) =>
+      d.Job === 'Prune And Arch' && d.TeamLeader === this.state.selected;
+
+    const filteredDataPruneArch = this.state.combinedData.items.filter(
+      jobAndTeamLeaderPruneArch,
+    );
+
+    this.setState({filteredPruneArchData: filteredDataPruneArch});
     //END
 
     //CLIP & PRUNE
@@ -602,6 +614,41 @@ export default class NameJobSelector extends React.Component {
                 <View style={styles.container}>
                   <FlatList
                     data={this.state.filteredDroppingData.sort(
+                      (a, b) =>
+                        a.ActualChecks - b.ActualChecks || a.Name - b.Name,
+                    )}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
+                    renderItem={({item}) => (
+                      <Text
+                        style={{
+                          padding: 10,
+                          fontSize: 18,
+                          height: 55,
+                          color: item.Colour,
+                        }}
+                        onPress={this.GetFlatListItem.bind(
+                          this,
+                          item.Adi,
+                          item.Name,
+                          item.Job,
+                          item.Site,
+                          item.Score,
+                        )}>
+                        {' '}
+                        {item.Combined}{' '}
+                      </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                  />
+                </View>
+              </View>
+
+              <View style={[this.state.size]}>
+                <Text style={styles.headerText}>Prune &amp; Arch</Text>
+
+                <View style={styles.container}>
+                  <FlatList
+                    data={this.state.filteredPruneArchData.sort(
                       (a, b) =>
                         a.ActualChecks - b.ActualChecks || a.Name - b.Name,
                     )}

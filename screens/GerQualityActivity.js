@@ -2437,7 +2437,7 @@ export default class QualityActivity extends React.Component {
                         const scriptUrl =
                           'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
                         const url = `${scriptUrl}?
-                                                    callback=ctrlq&action=${'doPostHarSite'}&week_number=${
+                                                    callback=ctrlq&action=${'doPostGerSite'}&week_number=${
                           that.state.weekNumber
                         }&auditor_name=${that.state.auditorsName}&job=${
                           that.state.jobSelected
@@ -2504,7 +2504,7 @@ export default class QualityActivity extends React.Component {
 
                           this.setState({isScoreSet: false});
 
-                          this.props.navigation.navigate('HarQualityActivity');
+                          this.props.navigation.navigate('GerQualityActivity');
                           Toast.showWithGravity(
                             'Success!! \nDetails Added Successfully.',
                             Toast.LONG,
@@ -2563,7 +2563,7 @@ export default class QualityActivity extends React.Component {
 
                           this.setState({isScoreSet: false});
 
-                          this.props.navigation.navigate('HarQualityActivity');
+                          this.props.navigation.navigate('GerQualityActivity');
 
                           Toast.show(
                             'Success!! \nDetails Added Successfully.',
@@ -3951,7 +3951,7 @@ export default class QualityActivity extends React.Component {
                                   count1 = 0;
 
                                   this.props.navigation.navigate(
-                                    'HarQualityActivity',
+                                    'GerQualityActivity',
                                   );
                                   Toast.showWithGravity(
                                     'Success!! \nDetails Added Successfully.',
@@ -4013,7 +4013,7 @@ export default class QualityActivity extends React.Component {
                                   this.setState({isScoreSet: false});
                                   count1 = 0;
                                   this.props.navigation.navigate(
-                                    'HarQualityActivity',
+                                    'GerQualityActivity',
                                   );
 
                                   Toast.show(

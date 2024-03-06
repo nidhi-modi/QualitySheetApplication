@@ -196,6 +196,134 @@ export default class HarQualityActivity extends React.Component {
         },
       ],
 
+      radioPruneArchItems1: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems2: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems3: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems4: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems5: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems6: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems7: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
+      radioPruneArchItems8: [
+        {
+          label: 'Pass',
+          size: 40,
+          color: 'green',
+          selected: false,
+        },
+
+        {
+          label: 'Fail',
+          size: 40,
+          color: 'red',
+          selected: false,
+        },
+      ],
+
       radioPruningItems1: [
         {
           label: 'Pass',
@@ -816,6 +944,15 @@ export default class HarQualityActivity extends React.Component {
       archingOption3: '',
       archingOption4: '',
 
+      pruneArchOption1: '',
+      pruneArchOption2: '',
+      pruneArchOption3: '',
+      pruneArchOption4: '',
+      pruneArchOption5: '',
+      pruneArchOption6: '',
+      pruneArchOption7: '',
+      pruneArchOption8: '',
+
       trussCuttingOption1: '',
       trussCuttingOption2: '',
       trussCuttingOption3: '',
@@ -1069,6 +1206,144 @@ export default class HarQualityActivity extends React.Component {
         clippingOption4: this.state.radioClippingItems4[index].label,
       });
     });
+  }
+
+  //PRUNE AND ARCH
+
+  changeActiveRadioPruneArchButton1(index) {
+    this.state.radioPruneArchItems1.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems1[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems1: this.state.radioPruneArchItems1},
+      () => {
+        this.setState({
+          pruneArchOption1: this.state.radioPruneArchItems1[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton2(index) {
+    this.state.radioPruneArchItems2.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems2[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems2: this.state.radioPruneArchItems2},
+      () => {
+        this.setState({
+          pruneArchOption2: this.state.radioPruneArchItems2[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton3(index) {
+    this.state.radioPruneArchItems3.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems3[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems3: this.state.radioPruneArchItems3},
+      () => {
+        this.setState({
+          pruneArchOption3: this.state.radioPruneArchItems3[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton4(index) {
+    this.state.radioPruneArchItems4.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems4[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems4: this.state.radioPruneArchItems4},
+      () => {
+        this.setState({
+          pruneArchOption4: this.state.radioPruneArchItems4[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton5(index) {
+    this.state.radioPruneArchItems5.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems5[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems5: this.state.radioPruneArchItems5},
+      () => {
+        this.setState({
+          pruneArchOption5: this.state.radioPruneArchItems5[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton6(index) {
+    this.state.radioPruneArchItems6.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems6[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems6: this.state.radioPruneArchItems6},
+      () => {
+        this.setState({
+          pruneArchOption6: this.state.radioPruneArchItems6[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton7(index) {
+    this.state.radioPruneArchItems7.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems7[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems7: this.state.radioPruneArchItems7},
+      () => {
+        this.setState({
+          pruneArchOption7: this.state.radioPruneArchItems7[index].label,
+        });
+      },
+    );
+  }
+
+  changeActiveRadioPruneArchButton8(index) {
+    this.state.radioPruneArchItems8.map((item) => {
+      item.selected = false;
+    });
+
+    this.state.radioPruneArchItems8[index].selected = true;
+
+    this.setState(
+      {radioPruneArchItems8: this.state.radioPruneArchItems8},
+      () => {
+        this.setState({
+          pruneArchOption8: this.state.radioPruneArchItems8[index].label,
+        });
+      },
+    );
   }
 
   //DENSITY
@@ -1802,6 +2077,128 @@ export default class HarQualityActivity extends React.Component {
     //END
   };
 
+  resetPruneArchRadioButton = () => {
+    //PRUNE ARCH 1
+    this.state.radioPruneArchItems1.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems1: this.state.radioPruneArchItems1},
+      () => {
+        this.setState({
+          pruneArchOption1: this.state.radioPruneArchItems1[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 2
+    this.state.radioPruneArchItems2.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems2: this.state.radioPruneArchItems2},
+      () => {
+        this.setState({
+          pruneArchOption2: this.state.radioPruneArchItems2[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 3
+    this.state.radioPruneArchItems3.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems3: this.state.radioPruneArchItems3},
+      () => {
+        this.setState({
+          pruneArchOption3: this.state.radioPruneArchItems3[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 4
+    this.state.radioPruneArchItems4.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems4: this.state.radioPruneArchItems4},
+      () => {
+        this.setState({
+          pruneArchOption4: this.state.radioPruneArchItems4[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 5
+    this.state.radioPruneArchItems5.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems5: this.state.radioPruneArchItems5},
+      () => {
+        this.setState({
+          pruneArchOption5: this.state.radioPruneArchItems5[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 6
+    this.state.radioPruneArchItems6.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems6: this.state.radioPruneArchItems6},
+      () => {
+        this.setState({
+          pruneArchOption6: this.state.radioPruneArchItems6[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 7
+    this.state.radioPruneArchItems7.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems7: this.state.radioPruneArchItems7},
+      () => {
+        this.setState({
+          pruneArchOption7: this.state.radioPruneArchItems7[0].label,
+        });
+      },
+    );
+    //END
+
+    //PRUNE ARCH 8
+    this.state.radioPruneArchItems8.map((item) => {
+      item.selected = false;
+    });
+
+    this.setState(
+      {radioPruneArchItems8: this.state.radioPruneArchItems8},
+      () => {
+        this.setState({
+          pruneArchOption8: this.state.radioPruneArchItems8[0].label,
+        });
+      },
+    );
+    //END
+  };
+
   resetClippingRadioButton = () => {
     //CLIPPING 1
     this.state.radioClippingItems1.map((item) => {
@@ -2340,6 +2737,60 @@ export default class HarQualityActivity extends React.Component {
     }, 1500);
   };
 
+  calculatePrunArchQualityPercentage = () => {
+    setTimeout(() => {
+      if (this.state.pruneArchOption1 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption2 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption3 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption4 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption5 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption6 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption7 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      if (this.state.pruneArchOption8 === 'Pass') {
+        count = count + 12.5;
+      } else {
+      }
+
+      this.setState({qualityPercentage: count.toString()});
+
+      console.log('COUNT : ' + count);
+
+      count = 0;
+    }, 1000);
+
+    setTimeout(() => {
+      this.savePruneArchDataToDB();
+    }, 1500);
+  };
+
   calculatePruningQualityPercentage = () => {
     setTimeout(() => {
       if (this.state.pruningOption1 === 'Pass') {
@@ -2598,6 +3049,268 @@ export default class HarQualityActivity extends React.Component {
     setTimeout(() => {
       this.saveDroppingDataToDB();
     }, 1500);
+  };
+
+  savePruneArchDataToDB = () => {
+    var that = this;
+    this.setState({isLoading: true});
+
+    const {auditorsName} = this.state;
+    const {houseNumber} = this.state;
+    const {rowNumber} = this.state;
+    const {weekNumber} = this.state;
+    const {workersName} = this.state;
+    const {jobSelected} = this.state;
+    const {pruneArchOption1} = this.state;
+    const {pruneArchOption2} = this.state;
+    const {pruneArchOption3} = this.state;
+    const {pruneArchOption4} = this.state;
+    const {pruneArchOption5} = this.state;
+    const {pruneArchOption6} = this.state;
+    const {pruneArchOption7} = this.state;
+    const {pruneArchOption8} = this.state;
+    const {data_send} = this.state;
+
+    if (auditorsName) {
+      if (houseNumber) {
+        if (rowNumber) {
+          if (workersName) {
+            if (jobSelected) {
+              if (pruneArchOption1) {
+                if (pruneArchOption2) {
+                  if (pruneArchOption3) {
+                    if (pruneArchOption4) {
+                      if (pruneArchOption5) {
+                        if (pruneArchOption6) {
+                          if (pruneArchOption7) {
+                            if (pruneArchOption8) {
+                              if (this.state.isItConnected === 'Online') {
+                                console.log('Connected to internet');
+
+                                const scriptUrl =
+                                  'https://script.google.com/macros/s/AKfycbxZYZnqiOmPStm-tgsh6iNX-fZrSuFbbi8H_13XyGaruu-x2_QV/exec';
+                                const url = `${scriptUrl}?
+                                                callback=ctrlq&action=${'doPostHarSite'}&week_number=${
+                                  that.state.weekNumber
+                                }&auditor_name=${that.state.auditorsName}&job=${
+                                  that.state.jobSelected
+                                }&house_number=${
+                                  that.state.houseNumber
+                                }&row_number=${
+                                  that.state.rowNumber
+                                }&worker_name=${
+                                  that.state.workersName
+                                }&adi_code=${that.state.adiCode}&data1=${
+                                  that.state.pruneArchOption1
+                                }&data2=${that.state.pruneArchOption2}&data3=${
+                                  that.state.pruneArchOption3
+                                }&data4=${that.state.pruneArchOption4}&data5=${
+                                  that.state.pruneArchOption5
+                                }&data6=${that.state.pruneArchOption6}&data7=${
+                                  that.state.pruneArchOption7
+                                }&data8=${
+                                  that.state.pruneArchOption8
+                                }&comments=${
+                                  that.state.comments
+                                }&quality_percent=${
+                                  that.state.qualityPercentage
+                                }`;
+
+                                console.log('URL : ' + url);
+                                fetch(url, {mode: 'no-cors'}).then(() => {
+                                  console.log('Data Send');
+                                });
+                                realm.write(() => {
+                                  var ID =
+                                    realm
+                                      .objects('qualitySheet')
+                                      .sorted('entry_id', true).length > 0
+                                      ? realm
+                                          .objects('qualitySheet')
+                                          .sorted('entry_id', true)[0]
+                                          .entry_id + 1
+                                      : 1;
+                                  realm.create('qualitySheet', {
+                                    entry_id: ID,
+                                    auditor_name: that.state.auditorsName,
+                                    house_number: that.state.houseNumber,
+                                    job_name: that.state.jobSelected,
+                                    worker_name: that.state.workersName,
+                                    row_number: that.state.rowNumber,
+                                    week_number: that.state.weekNumber,
+                                    adi_code: that.state.adiCode,
+                                    comments: that.state.comments,
+                                    quality_percent:
+                                      that.state.qualityPercentage,
+                                    data1: that.state.pruneArchOption1,
+                                    data2: that.state.pruneArchOption2,
+                                    data3: that.state.pruneArchOption3,
+                                    data4: that.state.pruneArchOption4,
+                                    data5: that.state.pruneArchOption5,
+                                    data6: that.state.pruneArchOption6,
+                                    data7: that.state.pruneArchOption7,
+                                    data8: that.state.pruneArchOption8,
+                                    data_send: 'Y',
+                                  });
+
+                                  this.resetPruneArchRadioButton();
+                                  AsyncStorage.clear();
+                                  AsyncStorage.removeItem('auditorsName');
+                                  AsyncStorage.removeItem('workersName');
+                                  AsyncStorage.removeItem('houseNumber');
+                                  AsyncStorage.removeItem('jobSelected');
+                                  AsyncStorage.removeItem('rowNumber');
+                                  this.setState({auditorsName: null});
+                                  this.setState({workersName: ''});
+                                  this.setState({houseNumber: ''});
+                                  this.setState({jobSelected: ''});
+                                  this.setState({rowNumber: ''});
+                                  this.setState({isScoreSet: false});
+                                  count1 = 0;
+
+                                  this.props.navigation.navigate(
+                                    'HarQualityActivity',
+                                  );
+                                  Toast.showWithGravity(
+                                    'Success!! \nDetails Added Successfully.',
+                                    Toast.LONG,
+                                    Toast.CENTER,
+                                  );
+                                  this.setState({isLoading: false});
+                                });
+
+                                this.setState({auditorsName: null});
+                              } else {
+                                console.log('Not connected to internet');
+
+                                realm.write(() => {
+                                  var ID =
+                                    realm
+                                      .objects('qualitySheet')
+                                      .sorted('entry_id', true).length > 0
+                                      ? realm
+                                          .objects('qualitySheet')
+                                          .sorted('entry_id', true)[0]
+                                          .entry_id + 1
+                                      : 1;
+                                  realm.create('qualitySheet', {
+                                    entry_id: ID,
+                                    auditor_name: that.state.auditorsName,
+                                    house_number: that.state.houseNumber,
+                                    job_name: that.state.jobSelected,
+                                    worker_name: that.state.workersName,
+                                    row_number: that.state.rowNumber,
+                                    week_number: that.state.weekNumber,
+                                    adi_code: that.state.adiCode,
+                                    comments: that.state.comments,
+                                    quality_percent:
+                                      that.state.qualityPercentage,
+                                    data1: that.state.pruneArchOption1,
+                                    data2: that.state.pruneArchOption2,
+                                    data3: that.state.pruneArchOption3,
+                                    data4: that.state.pruneArchOption4,
+                                    data5: that.state.pruneArchOption5,
+                                    data6: that.state.pruneArchOption6,
+                                    data7: that.state.pruneArchOption7,
+                                    data8: that.state.pruneArchOption8,
+                                    data_send: 'N',
+                                  });
+
+                                  this.resetPruneArchRadioButton();
+                                  AsyncStorage.clear();
+                                  AsyncStorage.removeItem('auditorsName');
+                                  AsyncStorage.removeItem('workersName');
+                                  AsyncStorage.removeItem('houseNumber');
+                                  AsyncStorage.removeItem('jobSelected');
+                                  AsyncStorage.removeItem('rowNumber');
+                                  this.setState({auditorsName: null});
+                                  this.setState({workersName: ''});
+                                  this.setState({houseNumber: ''});
+                                  this.setState({jobSelected: ''});
+                                  this.setState({rowNumber: ''});
+                                  this.setState({isScoreSet: false});
+                                  count1 = 0;
+                                  this.props.navigation.navigate(
+                                    'HarQualityActivity',
+                                  );
+
+                                  Toast.show(
+                                    'Success!! \nDetails Added Successfully.',
+                                    Toast.LONG,
+                                  );
+                                  this.setState({isLoading: false});
+                                });
+
+                                this.setState({auditorsName: null});
+                              }
+                            } else {
+                              this.setState({isLoading: false});
+                              alert(
+                                'Choose one option from Pruning and arching quality check 8',
+                              );
+                            }
+                          } else {
+                            this.setState({isLoading: false});
+                            alert(
+                              'Choose one option from Pruning and arching quality check 7',
+                            );
+                          }
+                        } else {
+                          this.setState({isLoading: false});
+                          alert(
+                            'Choose one option from Pruning and arching quality check 6',
+                          );
+                        }
+                      } else {
+                        this.setState({isLoading: false});
+                        alert(
+                          'Choose one option from Pruning and arching quality check 5',
+                        );
+                      }
+                    } else {
+                      this.setState({isLoading: false});
+                      alert(
+                        'Choose one option from Pruning and arching quality check 4',
+                      );
+                    }
+                  } else {
+                    this.setState({isLoading: false});
+                    alert(
+                      'Choose one option from Pruning and arching quality check 3',
+                    );
+                  }
+                } else {
+                  this.setState({isLoading: false});
+                  alert(
+                    'Choose one option from Pruning and arching quality check 2',
+                  );
+                }
+              } else {
+                this.setState({isLoading: false});
+                alert(
+                  'Choose one option from Pruning and arching quality check 1',
+                );
+              }
+            } else {
+              this.setState({isLoading: false});
+              alert('Please select job');
+            }
+          } else {
+            this.setState({isLoading: false});
+            alert('Please select name');
+          }
+        } else {
+          this.setState({isLoading: false});
+          alert('Please fill row number');
+        }
+      } else {
+        this.setState({isLoading: false});
+        alert('Please select house number');
+      }
+    } else {
+      this.setState({isLoading: false});
+      alert('Please select auditor name');
+    }
   };
 
   saveClippingDataToDB = () => {
@@ -4759,6 +5472,7 @@ export default class HarQualityActivity extends React.Component {
                 {label: 'Florence Pearson', value: 'Florence Pearson'},
                 {label: 'Jeremy Whitten', value: 'Jeremy Whitten'},
                 {label: 'Aroha Majoor', value: 'Aroha Majoor'},
+                {label: 'Taanaki Namoriki', value: 'Taanaki Namoriki'},
               ]}
               placeholder="SELECT"
               containerStyle={{height: 50}}
@@ -5131,6 +5845,252 @@ export default class HarQualityActivity extends React.Component {
                 onPress={this.calculateClippingQualityPercentage}>
                 <Text style={styles.buttonText1}>Submit</Text>
               </TouchableOpacity>
+            </View>
+          ) : null}
+
+          {this.state.jobSelected === 'Prune And Arch' ? (
+            <View>
+              <Text style={styles.titleHeading2Text}>
+                1) Accuracy: prune to the correct number and remove flag leaf +
+                King fruit <Text style={styles.redColor}>(3 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems1.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton1.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                2) Pruning at the right stage{' '}
+                <Text style={styles.redColor}>(1 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems2.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton2.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                3) Remove double trusses{' '}
+                <Text style={styles.redColor}>(1 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems3.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton3.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                4) No broken trusses{' '}
+                <Text style={styles.redColor}>(3 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems4.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton4.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                5) Position of arch: proper{' '}
+                <Text style={styles.redColor}>(3 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems5.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton5.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                6) Arching at the right stage. Arch: as long as it fits and
+                doesn't touch last bud{' '}
+                <Text style={styles.redColor}>(3 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems6.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton6.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                7) De-skinning of truss. Not forcing truss on to tear skin{' '}
+                <Text style={styles.redColor}>(1 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems7.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton7.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                8) No broken trusses{' '}
+                <Text style={styles.redColor}>(3 each)</Text>{' '}
+              </Text>
+
+              <View style={styles.inBtnmarginDimension}></View>
+
+              <View style={styles.flexDirection}>
+                {this.state.radioPruneArchItems8.map((item, key) => (
+                  <RadioButton
+                    key={key}
+                    button={item}
+                    onClick={this.changeActiveRadioPruneArchButton8.bind(
+                      this,
+                      key,
+                    )}
+                  />
+                ))}
+              </View>
+
+              <View style={styles.marginDimension}></View>
+
+              <Text style={styles.titleHeading2Text}>
+                9) Comments {'\n'}(Select comment if needed){' '}
+              </Text>
+
+              <View style={styles.btnmarginDimension}></View>
+
+              <View
+                style={{
+                  // The solution: Apply zIndex to any device except Android
+                  ...(Platform.OS !== 'android' && {
+                    zIndex: 20,
+                  }),
+                }}>
+                <DropDownPicker
+                  items={[
+                    {
+                      label: 'Sent staff back to fix the issue',
+                      value: 'Sent staff back to fix the issue',
+                    },
+                    {
+                      label: 'Will check more of his/her rows',
+                      value: 'Will check more of his/her rows',
+                    },
+                    {
+                      label: 'Recurring issue, needs to be escalated',
+                      value: 'Recurring issue, needs to be escalated',
+                    },
+                    {
+                      label: 'Informal talk conducted',
+                      value: 'Informal talk conducted',
+                    },
+                    {label: '--', value: '--'},
+                  ]}
+                  placeholder="SELECT"
+                  containerStyle={{height: 50}}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    marginRight: 20,
+                    borderColor: '#000000',
+                    borderWidth: 1,
+                  }}
+                  itemStyle={{
+                    justifyContent: 'flex-start',
+                  }}
+                  labelStyle={{
+                    fontSize: 15,
+                    textAlign: 'left',
+                    color: '#000000',
+                  }}
+                  dropDownStyle={{backgroundColor: '#fafafa'}}
+                  onChangeItem={(item) =>
+                    this.updateTextInput(item.value, 'comments')
+                  }
+                  value={this.state.comments}
+                />
+
+                <View style={styles.inBtnmarginDimension}></View>
+
+                <TouchableOpacity
+                  style={styles.buttonContainer}
+                  onPress={this.calculatePrunArchQualityPercentage}>
+                  <Text style={styles.buttonText1}>Submit</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           ) : null}
 
